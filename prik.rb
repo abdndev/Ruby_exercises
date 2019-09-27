@@ -1,1 +1,2 @@
 puts "prikol"
+puts 'OK'
