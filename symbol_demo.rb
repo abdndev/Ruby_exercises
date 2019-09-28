@@ -1,8 +1,8 @@
 # encoding: cp866
 
-puts "aaa" == "aaa"  # 1 ��砩
-puts :aaa == :aaa    # 2 ��砩
-puts "aaa".equal? "aaa"# 3 ��砩 
-puts :aaa.equal? :aaa # 4 ��砩
+puts "aaa" == "aaa"  # случай
+puts :aaa == :aaa    # 2 случай
+puts "aaa".equal? "aaa"# 3 случай 
+puts :aaa.equal? :aaa # 4 случай
 
 gets
