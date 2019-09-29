@@ -1,13 +1,13 @@
 # encoding: cp866
 
 def get_password
-	print "Type password: "   # введите пароль
+	print "Type password: "   # ╨Т╨▓╨╡╨┤╨╕╤В╨╡ ╨┐╨░╤А╨╛╨╗╤М
        #return gets.strip
 	gets.chomp * 3
 end
 
 xx = get_password
 
-puts "Был введен пароль: #{xx}"
+puts "╨С╤Л╨╗ ╨▓╨▓╨╡╨┤╨╡╨╜ ╨┐╨░╤А╨╛╨╗╤М: #{xx}"
 
 gets
