@@ -1,4 +1,4 @@
-# encoding: cp866               
+              
 
 arr = [:rock, :scissors, :paper]
 
