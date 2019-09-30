@@ -1,5 +1,4 @@
               
-
 arr = [:rock, :scissors, :paper]
 
 while true
