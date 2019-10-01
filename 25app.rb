@@ -8,8 +8,8 @@ db = SQLite3::Database.new 'test.sqlite'
 #db.execute "INSERT INTO Cars (Name, Price) VALUES ('Lada', 5576)"
 
 db.execute "SELECT * FROM Cars" do |car|
-	puts car
-	puts"==="
+	print car
+	puts ""
 end
 
 db.close
