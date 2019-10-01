@@ -18,7 +18,8 @@ s = gets.strip.capitalize
 
 arr = [:rock, :scissors, :paper]
 
-computer_choice = arr[rand(0..2)] 
+computer_choice = arr[rand(3)] 
+puts computer_choice
 
 	if computer_choice == user_choice
         	puts "Nobody wins"
@@ -31,7 +32,7 @@ computer_choice = arr[rand(0..2)]
 	elsif computer_choice == :scissors && user_choice == :paper
 		puts "Computer Win! You Lost!"
 	elsif computer_choice == :paper && user_choice == :rock
-		puts "Congrats, you Win!"
+		puts "Computer Win! You Lost!"
 	elsif computer_choice == :paper && user_choice == :scissors
 		puts "Computer Win! You Lost!"
 
