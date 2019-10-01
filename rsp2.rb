@@ -19,7 +19,8 @@ s = gets.strip.capitalize
 arr = [:rock, :scissors, :paper]
 
 computer_choice = arr[rand(3)] 
-puts computer_choice
+puts "You: #{user_choice}"
+puts "Computer: #{computer_choice}"
 
 	if computer_choice == user_choice
         	puts "Nobody wins"
