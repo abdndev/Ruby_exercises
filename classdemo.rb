@@ -1,10 +1,10 @@
-# encoding: cp866
+
 class Animal
 	def run
 		puts "I'm running!"
 	end
 	def run_rus
-		puts "Ÿ ã¦¥ ¡¥£ã!"
+		puts "Ð£Ð¶Ðµ Ð±ÐµÐ³Ñƒ!"
 	end
 
 end
