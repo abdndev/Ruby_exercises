@@ -1,5 +1,5 @@
 require 'sqlite3'
-
+# демонстрация работы с базой данных
 db = SQLite3::Database.new 'test.sqlite'
 
 #db.execute "INSERT INTO Cars (Name, Price) VALUES ('Mazda', 9977)"
