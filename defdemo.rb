@@ -1,5 +1,5 @@
 # encoding: cp866
-
+# демонстрация функции
 def print_ettendees
 	puts "Алексей"
 	puts "Дмитрий"
