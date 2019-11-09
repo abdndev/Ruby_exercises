@@ -6,5 +6,5 @@ puts 'Hello, Ruby!'
 puts 'Hello, world!'
 puts 'Hello, Ruby!'
 
-_END_
+__END__
 these comments are ignored by intepreter, because it thinks that file is finished after "_END_"
