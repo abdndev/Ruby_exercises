@@ -9,6 +9,7 @@ num2 = gets.to_i
 
 print 'Enter third number: '
 num3 = gets.to_i
+puts
 
 puts "First number is: #{num1}"; puts "Second number is: #{num2}"; puts "Third number is: #{num3}"
 
