@@ -2,13 +2,13 @@ puts 'Let\'s find the average of three numbers...'
 puts
 
 print 'Enter first number: '
-num1 = gets.to_i
+num1 = gets.chomp.to_i
 
 print 'Enter second number: '
-num2 = gets.to_i
+num2 = gets.chomp.to_i
 
 print 'Enter third number: '
-num3 = gets.to_i
+num3 = gets.chomp.to_i
 puts
 
 puts "First number is: #{num1}"; puts "Second number is: #{num2}"; puts "Third number is: #{num3}"
