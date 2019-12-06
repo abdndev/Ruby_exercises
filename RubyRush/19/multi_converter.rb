@@ -5,7 +5,7 @@ puts 'Какая у вас на руках валюта?
 currency = gets.chomp
 puts
 
-puts 'Сколько сейчас стоит доллар?  '
+puts 'Сколько сейчас стоит 1 доллар?  '
 usd_rate = gets.chomp.to_f
 puts
 
