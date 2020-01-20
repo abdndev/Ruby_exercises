@@ -1,0 +1,1 @@
+if RUBY_VERSION == '2.6.3' puts 'Содержимое if-конструкции' end
