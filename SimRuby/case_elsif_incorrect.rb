@@ -1,4 +1,4 @@
-number = rand(0..100)
+number = rand(0..150)
 
 if (0..50) == number
   puts 'От нуля до 50';
