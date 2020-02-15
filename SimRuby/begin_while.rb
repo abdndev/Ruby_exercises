@@ -2,5 +2,7 @@ print 'Пожалуйста, введите количество повторо�
 max_iterates = gets.to_i
 i = 0
 
-puts ('Hello, world!') while (i += 1) <= max_iterates
-
+begin 
+  puts 'Hello, world!'
+  i += 1
+end while i < max_iterates
