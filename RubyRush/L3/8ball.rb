@@ -30,3 +30,4 @@ answers = [
 
 # выводим случайный элемент массива
 puts answers.sample 
+pu
