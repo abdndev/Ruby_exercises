@@ -1,5 +1,5 @@
 class Ticket
-  def initialize(price)
+  def initialize(price = 300)
     @price = price
   end
   
