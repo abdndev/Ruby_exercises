@@ -1,9 +1,19 @@
-object = Object.new
-another = Object.new
-
-def object.convert(value:, factor: 1000)
-  value * factor
+class Ticket
+  attr_accessor :price
+  def initialize(price: 500)
+    @price = price
+  end
 end
- 
-puts object.convert(value: 11)   # 11000
-puts another.convert(value: 5)   # undefined method `convert'
+
+first = Ticket.new
+second = Ticket.new(price: 600)
+
+def second.win
+  'Ваш билет выиграл'
+end
+
+puts "Цена билета first: #{first.price}"
+puts second.win if second.respond_to? :win
+
+puts "Цена билета second: #{second.price}"
+puts second.win if second.respond_to? :win
