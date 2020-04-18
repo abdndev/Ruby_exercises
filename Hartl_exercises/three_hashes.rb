@@ -8,7 +8,8 @@ params[:mother] = person2
 params[:child] = person3 
 
 puts params
-puts params[:father][:first]
-puts params[:mother][:last]
-puts params[:child][:last]
+puts "The name of father is: #{params[:father][:first]}"
+puts "The surname of mother is: #{params[:mother][:last]}"
+puts "The surname of the son is: #{params[:child][:last]}"
+
 
