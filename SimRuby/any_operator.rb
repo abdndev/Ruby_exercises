@@ -3,3 +3,6 @@ class Ticket
     # TODO
   end
 end
+
+ticket = Ticket.new
+
