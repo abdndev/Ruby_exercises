@@ -1,14 +1,8 @@
 class First; end
 class Second; end
 
-COLLECTION = { first: First, second: Second }
-
-def get(klass)
-  COLLECTION[klass] || Object
+class Child < rand(0..1).zero? ? First : Second
 end
 
-class Correct < get(:first); end
-puts Correct.superclass  # First
+puts Child.superclass
 
-class Incorrect < get(:third); end
-puts Incorrect.superclass  # Object
