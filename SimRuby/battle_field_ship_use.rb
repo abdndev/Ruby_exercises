@@ -1,4 +1,4 @@
-require_relative 'battle_field_ship'
+require_relative 'battle_filed_ship'
 
 fields = BattleField.new(size: BattleField::Ship::SIZE) do |size|
   Array.new(size) do |y|
