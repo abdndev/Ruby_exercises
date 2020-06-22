@@ -1,3 +1,3 @@
 module Seo
-  attr_accessor :meta_title, :meta_desctiption, :meta_keywords
+  attr_accessor :meta_title, :meta_description, :meta_keywords
 end
