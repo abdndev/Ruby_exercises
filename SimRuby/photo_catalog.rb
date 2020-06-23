@@ -1,5 +1,10 @@
-require_relative 'page'
+require_relative 'page_include'
 
-class PhotoCatalog < Page
-  attr_accessor :photos
-end
+photos = PhotoCatalog.new
+
+p photos.respond_to? :title                    # true
+p photos.respond_to? :body                     # true
+
+p photos.respond_to? :meta_title               # false
+p photos.respond_to? :meta_discription         # false
+p photos.respond_to? :meta_keywords            # false
