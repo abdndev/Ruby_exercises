@@ -2,7 +2,7 @@ class Rainbow
   COLORS = {
     red: 'красный',
     orange: 'оранжевый',
-    yellow: 'желтный',
+    yellow: 'желтый',
     green: 'зеленый',
     blue: 'голубой',
     indigo: 'синий',
