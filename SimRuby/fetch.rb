@@ -1,5 +1,5 @@
 arr = [1, 2, 3, 4, 5]
 
-p arr.fetch(2, 0)   # 3
-p arr.fetch(10, 0)  # 0
-p arr.fetch(10, nil) # nil
+puts arr.fetch(2)   # 3
+puts arr.fetch(-2)  # 4
+puts arr.fetch(10)  # index 10 outside of array bounds: -5...5
