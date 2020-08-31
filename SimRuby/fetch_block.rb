@@ -1,4 +1,4 @@
-arr = [1, 2, 3, 4, 5]
+h = { first: 1, second: 2 }
 
-puts arr.fetch(10)  { |i| "Индекс #{i} не существует" }
-puts arr.fetch(10) { |i| 0 }
+puts h.fetch(:first) { |x| "Ключ #{x} не существует" }
+puts h.fetch(:third) { |x| "Ключ #{x} не существует" }
