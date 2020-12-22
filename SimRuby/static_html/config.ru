@@ -32,7 +32,7 @@ class App
              <h1>%<title>s</h1>
              <p>
                <img
-                 src='/images/ruby.jpg'
+                 src='/images/ruby.png'
                  width='100'
                  height='100'
                  style='float: left; padding: 0 10px 10px 0' />
