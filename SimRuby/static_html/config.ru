@@ -13,7 +13,7 @@ class App
   end
 
   def call(env)
-    [200, { 'Content-Type' => 'text/plain' }, [template]]
+    [200, { 'Content-Type' => 'text/html' }, [template]]
   end
 
   def template
