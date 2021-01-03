@@ -2,7 +2,7 @@ require 'minitest/autorun'
 
 class Hello
   def say(str)
-   # "Hello, #{str}!"
+    "Hello, #{str}!"
   end
 end
 
