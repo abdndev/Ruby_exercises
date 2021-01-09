@@ -4,7 +4,7 @@ RSpec.describe 'Пример' do
   end
 
   it 'должен работать в случае true' do
-    expect(true).to be_truthy
+    expect(false).to be_truthy
   end
 end
 
