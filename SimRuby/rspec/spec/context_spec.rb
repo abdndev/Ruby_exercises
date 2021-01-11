@@ -3,6 +3,6 @@ RSpec.describe 'Объект' do
   end
   context 'строки' do
   end
-  context 'пользователи' do 
+  context 'пользователя' do 
   end
 end
