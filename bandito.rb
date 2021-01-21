@@ -12,7 +12,8 @@ loop do
      puts "Current combination: #{a}"
      if hh.has_key? "#{a}"
 	puts "Congrats, You win #{hh[a]} dollars"
-	balance = balance + hh[a]
+     balance = balance + hh[a]
+     puts "Your balance: #{balance} dollars"
 	else balance = balance - 1
 		puts "You did't win, but lose 1 dollar, try again..."	
 
