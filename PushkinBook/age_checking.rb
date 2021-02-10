@@ -6,7 +6,7 @@ end
 
 if age < 18
   puts 'Access denied!'
-  exit
+  #exit
 end
 
 puts "Today is your happy day! You will get a prize!" if age == 33
