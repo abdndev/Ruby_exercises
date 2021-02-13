@@ -1,4 +1,4 @@
-puts 'The Moon realty program'
+puts 'The Moon realty program'  # Программа для расчета стоимости лунной поверхности :)
 puts
 puts 'You can calculate the cost of the moon realty'
 puts
