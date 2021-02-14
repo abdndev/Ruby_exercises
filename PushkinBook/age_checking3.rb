@@ -5,7 +5,8 @@ answer = gets.chomp.downcase
 
 if age >= 18 && answer == 'y'
   puts 'Вход на сайт разрешен'
-end
-if age < 18 && answer == 'n'
+elsif age < 18 && answer == 'n'
+  puts 'Вход на сайт запрещен!'
+else
   puts 'Вход на сайт запрещен!'
 end
