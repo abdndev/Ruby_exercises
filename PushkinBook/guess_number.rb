@@ -7,9 +7,7 @@ loop do
   if input == number
     puts 'Правильно!'
     exit
-  end
-
-  if input != number
+  else 
     print 'Неправильно, попробуйте еще раз: '
   end
 end
