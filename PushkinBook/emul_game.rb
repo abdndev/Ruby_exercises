@@ -41,4 +41,22 @@ def random_city
   end
 end
 
+def random_sleep
+  sleep rand(0.3..1.5)
+end
+
+def stats
+  puts "Осталось #{@humans} людей и #{@machines} машин"
+end
+
+###################################################
+# СОБЫТИЯ
+###################################################
+
+def event1
+  puts "Применено радиоактивное оружие в городе #{random_city}"
+  random_sleep
+  boom
+end
+
 
