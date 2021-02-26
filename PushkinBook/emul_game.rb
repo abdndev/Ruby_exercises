@@ -54,6 +54,12 @@ end
 ###################################################
 
 def event1
+  puts "Запущена ракета по городу #{random_city}"
+  random_sleep
+  boom
+end
+
+def event2
   puts "Применено радиоактивное оружие в городе #{random_city}"
   random_sleep
   boom
