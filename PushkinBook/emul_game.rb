@@ -65,4 +65,10 @@ def event2
   boom
 end
 
+def event3
+  puts "Группа солдат прорывает оборону противника в городе #{random_city}"
+  random_sleep
+  boom
+end
+
 
