@@ -86,4 +86,17 @@ end
 loop do
   if check_victory?
     exit
+  end
+
+  dice = rand(1..3)
+  if dice == 1
+    event1
+  elsif dice == 2
+    event2
+  elsif dice == 3
+    event3
+  end
+
+  stats
+  random_sleep
 end
