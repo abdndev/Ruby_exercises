@@ -76,7 +76,10 @@ end
 ###################################################
 
 def check_victory?
-  if @humans == 0 || @machines == 0
+  if @humans <= 0 
+    puts "Machines are won!"
+  elsif @machines <= 0
+    puts "Humans are won!"
     puts 'Game over'
     exit
   #false
