@@ -16,6 +16,14 @@ end
 
 def boom
   diff = rand(1..5)
+
+  if (@machines - diff) < 0 
+    diff = (@machines - diff = 0) 
+  end
+  if (@humans - diff) < 0
+    diff = (@humans - diff = 0)
+  end
+
   if luck?
     @machines -= diff
     puts "#{diff} машин уничтожено"
@@ -76,11 +84,11 @@ end
 ###################################################
 
 def check_victory?
-  if @humans <= 0 
+  if @humans == 0 
     puts "The Machines have won!"
     puts 'Game over!'
     exit
-  elsif @machines <= 0
+  elsif @machines == 0
     puts "The Humans have won!"
     puts 'Game over!'
     exit
