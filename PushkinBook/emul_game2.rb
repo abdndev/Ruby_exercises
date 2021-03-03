@@ -84,11 +84,11 @@ end
 ###################################################
 
 def check_victory?
-  if @humans <= 0 
+  if @humans == 0 
     puts "The Machines have won!"
     puts 'Game over!'
     exit
-  elsif @machines <= 0
+  elsif @machines == 0
     puts "The Humans have won!"
     puts 'Game over!'
     exit
