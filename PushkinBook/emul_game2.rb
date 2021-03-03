@@ -16,6 +16,14 @@ end
 
 def boom
   diff = rand(1..5)
+
+  if (@machines - diff) < 0 
+    diff = (@machines - diff = 0) 
+  end
+  if (@humans - diff) < 0
+    diff = (@humans - diff = 0)
+  end
+
   if luck?
     @machines -= diff
     puts "#{diff} машин уничтожено"
