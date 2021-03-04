@@ -88,11 +88,15 @@ def check_victory?
   case
   when @humans == 0 
     puts "The Machines have won!"
+    puts
     puts 'Game over!'
+    puts
     exit
   when @machines == 0
     puts "The Humans have won!"
+    puts
     puts 'Game over!'
+    puts
     exit
     #false
   end
@@ -118,5 +122,6 @@ loop do
   end
 
   stats
+  puts
   random_sleep
 end
