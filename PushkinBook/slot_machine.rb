@@ -4,3 +4,10 @@ if age < 18
   puts 'Сожалеем, но вам нет 18'
   exit
 end
+
+balance = 20
+
+loop do
+
+
+end
