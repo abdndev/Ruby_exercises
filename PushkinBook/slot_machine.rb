@@ -8,6 +8,11 @@ end
 balance = 20
 
 loop do
+puts 'Нажмите Enter, чтобы дернуть ручку...'
+x = rand(0..5)
+y = rand(0..5)
+z = rand(0..5)
 
+puts "Результат: #{x} #{y} #{z}"
 
 end
