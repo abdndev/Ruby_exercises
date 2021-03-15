@@ -43,11 +43,11 @@ else
   balance -= 0.5
   puts 'Баланс уменьшился на 50 центов'
 end
+
+puts "Ваш баланс: #{balance} долларов"
+
 if balance == 0
   puts 'Ваш депозит закончился! Пополните баланс.'
   exit
 end
-
-puts "Ваш баланс: #{balance} долларов"
-
 end
