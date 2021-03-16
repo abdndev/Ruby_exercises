@@ -16,7 +16,7 @@ def animate
     6.times do |j|
       a[i] = j+1
       print a.join(" ")+"\r"
-      sleep 0.05
+      sleep 0.025
     end
   end
 end
