@@ -10,10 +10,22 @@ elsif age > 80
 end
 
 balance = 20
+def animate
+  a = []
+  3.times do |i|
+    6.times do |j|
+      a[i] = j+1
+      print a.join(" ")+"\r"
+      sleep 0.05
+    end
+  end
+end
 
 loop do
 puts 'Нажмите Enter, чтобы дернуть ручку...'
 gets
+animate
+
 x = rand(0..5)
 y = rand(0..5)
 z = rand(0..5)
