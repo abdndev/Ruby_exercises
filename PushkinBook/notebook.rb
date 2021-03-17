@@ -13,4 +13,5 @@ puts
 
 arr.each do |element|
   puts element
+  puts "=" * 30
 end
