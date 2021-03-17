@@ -6,8 +6,10 @@ loop do
   break if entry.empty?
   arr << entry
 end
+puts
 
 puts 'Ваша записная книжка: '
+puts
 
 arr.each do |element|
   puts element
