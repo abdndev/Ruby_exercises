@@ -4,7 +4,8 @@ loop do
   print 'Введите имя и телефон человека (Enter для окончания ввода): '
   entry = gets.chomp
   break if entry.empty?
-  arr << entry
+  #arr << entry
+  arr.push(entry)
 end
 puts
 
