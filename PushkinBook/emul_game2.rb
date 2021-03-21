@@ -51,7 +51,7 @@ def random_city
 end
 
 def random_sleep
-  sleep rand(0.3..1.5)
+  sleep rand(0.35..1.5)
 end
 
 def stats
