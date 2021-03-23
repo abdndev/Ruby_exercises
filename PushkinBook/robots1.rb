@@ -14,6 +14,7 @@ loop do
     end
     p arr1
     sleep 1
+    puts
 
     puts 'Стреляет вторая команда.'
     i = rand(0..9)
@@ -25,4 +26,5 @@ loop do
     end
     p arr2
     sleep 1
+    puts
 end
