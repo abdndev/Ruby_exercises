@@ -12,6 +12,7 @@ loop do
     else
         puts 'Промазали!'
     end
+    p arr1
     sleep 1
 
     puts 'Стреляет вторая команда.'
@@ -22,6 +23,6 @@ loop do
     else
         puts 'Промазали!'
     end
-    p arr1
+    p arr2
     sleep 1
 end
