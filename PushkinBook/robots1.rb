@@ -1,11 +1,11 @@
-puts 'Robot battle game'
-puts 'Every team has ten robots'
+puts 'Игра "Битва Роботов"'
+puts 'В каждой команде по десять роботов'
 
 arr1 = Array.new(10, 1)
 arr2 = Array.new(10, 1)
 
-puts "Team 1: #{arr1}"
-puts "Team 2: #{arr2}"
+puts "Команда 1: #{arr1}"
+puts "Команда 2: #{arr2}"
 puts
 
 loop do
@@ -13,7 +13,7 @@ loop do
     i = rand(0..9)
     if arr1[i] == 1
         arr1[i] = 0
-        puts "Робот по индексу #{i} убит"
+        puts "Чужой робот по индексу #{i} убит"
     else
         puts 'Промазали!'
     end
@@ -33,7 +33,7 @@ loop do
     i = rand(0..9)
     if arr2[i] == 1
         arr2[i] = 0
-        puts "Робот по индексу #{i} убит"
+        puts "Чужой робот по индексу #{i} убит"
     else
         puts 'Промазали!'
     end
