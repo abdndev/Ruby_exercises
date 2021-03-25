@@ -4,8 +4,8 @@ puts 'Every team has ten robots'
 arr1 = Array.new(10, 1)
 arr2 = Array.new(10, 1)
 
-puts "Team 1: #{p arr1}"
-puts "Team 2: #{p arr2}"
+puts "Team 1: #{arr1}"
+puts "Team 2: #{arr2}"
 puts
 
 loop do
