@@ -1,8 +1,13 @@
 puts 'Robot battle game'
+puts 'Every team has ten robots'
 
 arr1 = Array.new(10, 1)
 arr2 = Array.new(10, 1)
-p arr1
+
+puts "Team 1: #{p arr1}"
+puts "Team 2: #{p arr2}"
+puts
+
 loop do
     puts 'Стреляет первая команда.'
     i = rand(0..9)
