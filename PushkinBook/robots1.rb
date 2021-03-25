@@ -33,6 +33,14 @@ loop do
         puts 'Промазали!'
     end
     p arr2
+
+    x = 0
+    arr2.each do |element|
+        if element == 1
+            x += 1
+        end
+    end
+    puts "В первой команде осталось #{x} роботов"
     sleep 1
     puts
 end
