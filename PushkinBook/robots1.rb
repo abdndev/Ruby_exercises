@@ -26,6 +26,11 @@ loop do
         end
     end
     puts "Во второй команде осталось #{x} роботов"
+
+    if x == 0
+        puts "Выиграла первая команда! Игра окончена!"
+        exit
+    end
     sleep 1
     puts
 
@@ -46,6 +51,11 @@ loop do
         end
     end
     puts "В первой команде осталось #{x} роботов"
+
+    if x == 0
+        puts "Выиграла вторая команда! Игра окончена!"
+        exit
+    end
     sleep 1
     puts
 end
