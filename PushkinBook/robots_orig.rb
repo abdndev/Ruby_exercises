@@ -24,3 +24,23 @@ def attack(arr)
   sleep 1 # еще один sleep для красоты вывода
 end
 
+#############################################
+# ПРОВЕРКА ПОБЕДЫ
+#############################################
+
+def victory?
+  robots_left1 = @arr1.count { |x| x == 1}
+  robots_left2 = @arr2.count { |x| x == 1}
+
+  if robots_left1 == 0
+    puts "Команда 2 победила, в команде осталось #{robots_left2} роботов"
+    return true
+  end
+
+  if robots_left2 == 0
+    puts "Команда 1 победила, в команде осталось #{robots_left1} роботов"
+    return false
+  end
+
+  false
+end
