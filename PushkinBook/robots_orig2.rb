@@ -28,9 +28,11 @@ end
 # УЩЕРБ
 #############################################
 
-def damage
+def damage(arr)
   r = rand(1..100)
-
+  d = arr[i] 
+  d - r
+  puts "Робот по индексу #{i} получил ущерб #{r} процентов"
 end
 
 #############################################
@@ -75,6 +77,7 @@ end
 loop do
   puts 'Первая команда наносит удар...'
   attack(@arr2)
+  damage(@arr2)
   exit if victory?
   stats
   sleep 3
