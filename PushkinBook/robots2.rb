@@ -26,7 +26,7 @@ loop do
 
     x = 0
     arr1.each do |element|
-        if element == 1
+        if element > 0
             x += 1
         end
     end
@@ -41,9 +41,10 @@ loop do
 
     puts 'Стреляет вторая команда.'
     i = rand(0..9)
-    if arr2[i] == 1
-        arr2[i] = 0
-        puts "Чужой робот по индексу #{i} убит"
+    d = rand(0..100)
+    if arr2[i] > 0
+        arr2[i] = arr1[i] - d
+        puts "Чужой робот по индексу #{i} получил ущерб #{d} процентов"
     else
         puts "Промазали по индексу #{i}"
     end
@@ -51,7 +52,7 @@ loop do
 
     x = 0
     arr2.each do |element|
-        if element == 1
+        if element > 0
             x += 1
         end
     end
