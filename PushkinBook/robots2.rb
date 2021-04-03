@@ -16,9 +16,21 @@ loop do
     puts 'Стреляет первая команда.'
     i = rand(0..9)
     d = rand(0..100)
-    if arr1[i] > 0
+
+    if d > arr1[i]
+        d == arr1[i]
+        
+    end 
+    
+    if arr1[i] > d
+        puts d
         arr1[i] = arr1[i] - d
+
+
         puts "Чужой робот по индексу #{i} получил ущерб #{d} процентов"
+    elsif arr1[i] == 0
+        #arr1[i] = 0
+        puts "Чужой робот по индексу #{i} уничтожен "
     else
         puts "Промазали по индексу #{i}"
     end
@@ -45,6 +57,9 @@ loop do
     if arr2[i] > 0
         arr2[i] = arr1[i] - d
         puts "Чужой робот по индексу #{i} получил ущерб #{d} процентов"
+    elsif arr2[i] <= 0
+        arr2[i] = 0
+        puts "Чужой робот по индексу #{i} уничтожен "
     else
         puts "Промазали по индексу #{i}"
     end
