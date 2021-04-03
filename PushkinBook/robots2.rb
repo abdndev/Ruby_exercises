@@ -31,8 +31,8 @@ loop do
     elsif arr1[i] == 0
         #arr1[i] = 0
         puts "Чужой робот по индексу #{i} уничтожен "
-    else
-        puts "Промазали по индексу #{i}"
+    #else
+        #puts "Промазали по индексу #{i}"
     end
     p arr1
 
