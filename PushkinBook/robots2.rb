@@ -54,15 +54,18 @@ loop do
     puts 'Стреляет вторая команда.'
     i = rand(0..9)
     d = rand(0..100)
+    
+    puts i 
+    puts d 
 
     if arr2[i] == 0
         puts "Промазали по индексу #{i}"
-    elsif (arr2[i] - d) < 0
+    elsif (arr2[i] - d) < 0 || d == arr2[i] 
         arr2[i] = 0
         puts "Чужой робот по индексу #{i} уничтожен "
     elsif arr2[i] > 0
-        arr2[i] = arr1[i] - d
-        puts "Чужой робот по индексу #{i} получил ущерб #{d} процентов"
+        arr2[i] = arr2[i] - d
+        puts "Чужой робот по индексу #{i} получил ущерб #{d} единиц"
     end
     p arr2
 
