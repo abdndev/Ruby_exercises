@@ -17,22 +17,17 @@ loop do
     i = rand(0..9)
     d = rand(0..100)
 
-    if d > arr1[i]
-        d == arr1[i]
-        
-    end 
-    
-    if arr1[i] > d
-        puts d
-        arr1[i] = arr1[i] - d
+    puts i 
+    puts d 
 
-
-        puts "Чужой робот по индексу #{i} получил ущерб #{d} процентов"
-    elsif arr1[i] == 0
-        #arr1[i] = 0
+    if arr1[i] == 0
+        puts "Промазали по индексу #{i}"
+    elsif (arr1[i] - d) < 0 || d == arr1[i] 
+        arr1[i] = 0
         puts "Чужой робот по индексу #{i} уничтожен "
-    #else
-        #puts "Промазали по индексу #{i}"
+    elsif arr1[i] > 0
+        arr1[i] = arr1[i] - d
+        puts "Чужой робот по индексу #{i} получил ущерб #{d} единиц"
     end
     p arr1
 
