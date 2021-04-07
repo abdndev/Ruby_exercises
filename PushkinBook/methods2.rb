@@ -6,3 +6,4 @@ end
 age = get_number('возраст')   
 salary = get_number('зарплату')   
 rockets = get_number('количество ракет для запуска')
+pers = get_number('количество персонала')
