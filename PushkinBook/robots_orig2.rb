@@ -30,7 +30,7 @@ end
 
 def damage(arr)
   d = rand(1..100)
-  d - r
+  
   puts "Робот по индексу #{i} получил ущерб #{r} единиц"
 end
 
