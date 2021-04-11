@@ -1,7 +1,8 @@
 def phone_to_number(phone)
-  puts phone
   if phone == '555MATRESS'
     puts '5556287377'
+  else
+    puts phone
   end
 end
 
