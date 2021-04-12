@@ -7,3 +7,4 @@ def phone_to_number(phone)
 end
 
 puts phone_to_number('555MATRESS')
+puts phone_to_number(1234567890)
