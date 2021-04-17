@@ -1,1 +1,2 @@
-print 'This is Rock-Scissors-Paper game!'
+
+puts 'This is Rock-Scissors-Paper game!'
