@@ -1,12 +1,26 @@
-puts 'Hello! You are in Lunar-Store'
 puts
-puts 'Please Enter quantity of balls, which you want to buy'
+puts 'Hello! You are in Lunar-Store :)'
+puts
+puts 'Please Enter quantity of balls, which you want to buy...'
 puts
 
-puts 'Soccer balls: '
-sb = gets.strip
-puts 'Tennis balls: '
-tb = gets.strip
-puts 'Golf balls: '
-gb = gets.strip
+print 'Soccer balls: '
+sb = gets.strip.to_i
+print 'Tennis balls: '
+tb = gets.strip.to_i
+print 'Golf balls: '
+gb = gets.strip.to_i
 
+obj = {
+  soccer_ball: 68,
+  tennis_ball: 10,
+  golf_ball: 8
+}
+
+weight_value = sb * obj[:soccer_ball] + tb * obj[:tennis_ball] + gb * obj[:golf_ball]
+earth_weight_value = (sb * obj[:soccer_ball] + tb * obj[:tennis_ball] + gb * obj[:golf_ball]) * 6
+puts
+puts "The total weight of playing balls on the Moon is: #{weight_value} gramms "
+puts
+puts "The total weight of playing balls on the Earth is: #{earth_weight_value} gramms "
+puts
