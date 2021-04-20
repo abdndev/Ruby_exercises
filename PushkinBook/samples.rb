@@ -21,7 +21,7 @@ end
 
 x = total_weight(3, 2, 1)
 
-# Хеш с параметрами
+# Хеш с параметрами, вызов этого метода без параметров выдаст ошибку
 def total_weight(options)
   a = options[:soccer_ball_count]
   b = options[:tennis_ball_count]
@@ -34,3 +34,17 @@ end
 
 params = { soccer_ball_count: 3, tennis_ball_count: 2, golf_ball_count: 1 }
 x = total_weight(params)
+--------------------------------------------------------------------------------
+
+# Хеш с опциями по умолчанию
+def total_weight(options={})
+    a = options[:soccer_ball_count]
+    b = options[:tennis_ball_count]
+    c = options[:golf_ball_count]
+    puts a 
+    puts b 
+    puts c  
+    #...
+  end
+
+  x = total_weight(soccer_ball_count: 3, tennis_ball_count: 2, golf_ball_count: 1)
