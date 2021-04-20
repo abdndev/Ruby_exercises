@@ -12,3 +12,25 @@ arr.reject { |element| element[0] >= 27 } # отсеять всех  мужчи�
 [false, false, false, true, false].any? { |element| element == true } # метод .any? позволяет узнать есть ли в массиве хоть одно совпадение (в данном случае: true), и выведет в случае успеха - true, если нет - false)
 [false, false, false, true, false].find_index { |element| element == true } # метод .find_index показываете индекс искомого элемента в массиве - 3, в данном случае
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+# Передача опций в методы
+# Conventional method (обычный метод)
+def total_weight(soccer_ball_count, tennis_ball_count, golf_ball_count)
+  #...
+end
+
+x = total_weight(3, 2, 1)
+
+# Хеш с параметрами
+def total_weight(options)
+  a = options[:soccer_ball_count]
+  b = options[:tennis_ball_count]
+  c = options[:golf_ball_count]
+  puts a 
+  puts b 
+  puts c  
+  #...
+end
+
+params = { soccer_ball_count: 3, tennis_ball_count: 2, golf_ball_count: 1 }
+x = total_weight(params)
