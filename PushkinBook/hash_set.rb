@@ -22,3 +22,5 @@ end
 
 # выведет true, т.к. в этом предложении используются все буквы англ. алфавита
 puts f('quick brown fox jumps over the lazy dog')
+
+puts f('preved')
