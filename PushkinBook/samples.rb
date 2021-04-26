@@ -68,3 +68,14 @@ def total_weight(options={})
   x = total_weight(soccer_ball_count: 3, tennis_ball_count: 2)
   puts x
 --------------------------------------------------------------------------------
+# пример применения метода initialize
+
+class Car 
+  def initialize
+    puts 'hello from constructor!'
+  end
+end
+
+car1 = Car.new
+
+-------------------------------------------------------------------------------
