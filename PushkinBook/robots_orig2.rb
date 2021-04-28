@@ -14,12 +14,12 @@
 # Метод принимает массив для атаки
 def attack(arr)
   sleep 1 # добавим sleep для красоты
-  i = rand(0..9)
-  if arr[i] == 1
-    arr[i] = 0
-    puts "Попадание в робота по индексу: #{i}"
+  @i = rand(0..9)
+  if arr[@i] > 0
+    #arr[@i] = 0
+    puts "Попадание в робота по индексу: #{@i}"
   else
-    puts "Промазали по индексу #{i}"
+    puts "Промазали по индексу #{@i}"
   end
   sleep 1 # еще один sleep для красоты вывода
 end
@@ -30,7 +30,14 @@ end
 
 def damage(arr)
   d = rand(1..100)
-  puts "Робот по индексу #{i} получил ущерб #{r} единиц"
+  if arr[@i] > 0
+    arr[@i] = arr[@i] - d
+    puts "Робот по индексу #{@i} получил ущерб #{d} единиц"
+  elsif (arr[@i] - d) < 0 || d == arr[@i]
+    arr[@i] == 0
+    puts "Робот по индексу #{@i} уничтожен!"
+  end
+  
 end
 
 #############################################
@@ -51,7 +58,7 @@ def victory?
     return false
   end
 
-  false
+  #false
 end
 
 #############################################
@@ -76,14 +83,15 @@ loop do
   puts 'Первая команда наносит удар...'
   attack(@arr2)
   damage(@arr2)
-  exit if victory?
+  #exit if victory?
   stats
   sleep 3
   puts # пустая строка
 
   puts 'Вторая команда наносит удар...'
   attack(@arr1)
-  exit if victory?
+  damage(@arr1)
+  #exit if victory?
   stats
   sleep 3
   puts # пустая строка
