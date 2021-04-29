@@ -30,7 +30,10 @@ end
 
 def damage(arr)
   d = rand(1..100)
-  if arr[@i] > 0
+  if arr[@i] == 0
+    d == 0
+    #arr[@i] = arr[@i] - d
+  elsif arr[@i] > 0
     arr[@i] = arr[@i] - d
     puts "Робот по индексу #{@i} получил ущерб #{d} единиц"
   elsif (arr[@i] - d) < 0 || d == arr[@i]
