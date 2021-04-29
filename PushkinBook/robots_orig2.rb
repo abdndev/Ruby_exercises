@@ -30,14 +30,14 @@ end
 
 def damage(arr)
   d = rand(1..100)
-  if arr[@i] == 0
-    d == 0
+  #if arr[@i] == 0
+    #d == 0
     #arr[@i] = arr[@i] - d
-  elsif arr[@i] > 0
-    arr[@i] = arr[@i] - d
+  if arr[@i] > 0 && (arr[@i] - d) > 0
+    arr[@i] = arr[@i] - d 
     puts "Робот по индексу #{@i} получил ущерб #{d} единиц"
   elsif (arr[@i] - d) < 0 || d == arr[@i]
-    arr[@i] == 0
+    arr[@i] = 0
     puts "Робот по индексу #{@i} уничтожен!"
   end
   
@@ -70,8 +70,8 @@ end
 
 def stats
   # количество живых роботов для первой и второй команды
-  cnt1 = @arr1.count { |x| x == 1 }
-  cnt2 = @arr2.count { |x| x == 1 }
+  cnt1 = @arr1.count { |x| x > 0 }
+  cnt2 = @arr2.count { |x| x > 0 }
   puts "1-ая команда: #{cnt1} роботов в строю"
   p @arr1
   puts "2-ая команда: #{cnt2} роботов в строю"
