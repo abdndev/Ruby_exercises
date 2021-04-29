@@ -13,7 +13,7 @@
 
 # Метод принимает массив для атаки
 def attack(arr)
-  sleep 1 # добавим sleep для красоты
+  sleep 0.1 # добавим sleep для красоты
   @i = rand(0..9)
   if arr[@i] > 0
     #arr[@i] = 0
@@ -21,7 +21,7 @@ def attack(arr)
   else
     puts "Промазали по индексу #{@i}"
   end
-  sleep 1 # еще один sleep для красоты вывода
+  sleep 0.1 # еще один sleep для красоты вывода
 end
 
 #############################################
@@ -48,8 +48,8 @@ end
 #############################################
 
 def victory?
-  robots_left1 = @arr1.count { |x| x == 1}
-  robots_left2 = @arr2.count { |x| x == 1}
+  robots_left1 = @arr1.count { |x| x > 0}
+  robots_left2 = @arr2.count { |x| x > 0}
 
   if robots_left1 == 0
     puts "Команда 2 победила, в команде осталось #{robots_left2} роботов"
@@ -61,7 +61,7 @@ def victory?
     return false
   end
 
-  #false
+  false
 end
 
 #############################################
@@ -86,17 +86,17 @@ loop do
   puts 'Первая команда наносит удар...'
   attack(@arr2)
   damage(@arr2)
-  #exit if victory?
+  exit if victory?
   stats
-  sleep 3
+  sleep 1
   puts # пустая строка
 
   puts 'Вторая команда наносит удар...'
   attack(@arr1)
   damage(@arr1)
-  #exit if victory?
+  exit if victory?
   stats
-  sleep 3
+  sleep 1
   puts # пустая строка
 end
 
