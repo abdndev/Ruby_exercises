@@ -89,7 +89,7 @@ loop do
   damage(@arr2)
   exit if victory?
   stats
-  sleep 1
+  sleep 2
   puts # пустая строка
 
   puts 'Вторая команда наносит удар...'
@@ -97,7 +97,7 @@ loop do
   damage(@arr1)
   exit if victory?
   stats
-  sleep 1
+  sleep 2
   puts # пустая строка
 end
 
