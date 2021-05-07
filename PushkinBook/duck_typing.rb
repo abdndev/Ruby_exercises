@@ -24,7 +24,7 @@ class DuckCommander
   end
 end
 
-# Создадин утку и собаку
+# Создадим утку и собаку
 duck = Duck.new
 dog = Dog.new
 
