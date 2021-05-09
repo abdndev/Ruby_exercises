@@ -128,7 +128,7 @@ end
 
 if game_over
   puts 'Game over!'
-  #exit
+  exit
 end
 
 # Каждый объект двигаем в случайном направлении
