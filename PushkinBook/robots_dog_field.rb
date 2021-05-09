@@ -91,9 +91,9 @@ arr = Array.new(10) {Robot.new}
 # ...и одной собаки. Т.к. собака реализует точно такой же интерфейс,
 # все объекты в массиве "как будто" одного типа.
 arr.push(Dog.new(x: -12, y: 12))
-arr.push(Dog.new(x: -12, y: 12))
-arr.push(Dog.new(x: -12, y: 12))
-arr.push(Dog.new(x: -12, y: 12))
+#arr.push(Dog.new(x: -12, y: 12))
+#arr.push(Dog.new(x: -12, y: 12))
+#arr.push(Dog.new(x: -12, y: 12))
 
 
 # В бесконечном цикле (для остановки программы нажать ^C)
@@ -132,7 +132,7 @@ end
 
 if game_over
   puts 'Game over!'
-  exit
+  #exit
 end
 
 # Каждый объект двигаем в случайном направлении
