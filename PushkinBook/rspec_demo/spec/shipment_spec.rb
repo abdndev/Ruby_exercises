@@ -6,9 +6,9 @@ describe Shipment do                            # "описываем Shipment (
   end
 
   it 'should calculate shipment with only one item' do
-    expect(Shipment.total_weight(soccer_ball_count: 1)).to eq(439)
-    expect(Shipment.total_weight(tennis_ball_count: 1)).to eq(87)
-    expect(Shipment.total_weight(golf_ball_count: 1)).to eq(74)
+    expect(Shipment.total_weight(soccer_ball_count: 1)).to eq(410 + 29)
+    expect(Shipment.total_weight(tennis_ball_count: 1)).to eq(58 + 29)
+    expect(Shipment.total_weight(golf_ball_count: 1)).to eq(45 + 29)
   end
 end
 
