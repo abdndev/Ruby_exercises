@@ -4,5 +4,11 @@ describe Shipment do                            # "описываем Shipment (
   it 'should work without options' do           # специальный синтаксис, который дословно говорит: "это должно работать без опций". То что в кавычках - это строка, мы сами её пишем, слово "it" служебное.
     expect(Shipment.total_weight).to eq(29)     # ожидаем, что общий вес отправления будет равен 29 (eq от англ. "equal")
   end
+
+  it 'should calculate shipment with only one item' do
+    expect(Shipment.total_weight(soccer_ball_count: 1)).to eq(439)
+    expect(Shipment.total_weight(tennis_ball_count: 1)).to eq(87)
+    expect(Shipment.total_weight(golf_ball_count: 1)).to eq(74)
+  end
 end
 
