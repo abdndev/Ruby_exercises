@@ -5,7 +5,7 @@ describe Shipment do                            # "описываем Shipment (
     expect(Shipment.total_weight).to eq(29)     # ожидаем, что общий вес отправления будет равен 29 (eq от англ. "equal")
   end
 
-  it 'should calculate shipment with only one item' do
+  it 'should calculate shipment with only one item' do    # тест проверки для только одной вещи каждого вида в корзине
     expect(Shipment.total_weight(soccer_ball_count: 1)).to eq(410 + 29)
     expect(Shipment.total_weight(tennis_ball_count: 1)).to eq(58 + 29)
     expect(Shipment.total_weight(golf_ball_count: 1)).to eq(45 + 29)
