@@ -11,3 +11,5 @@ def total_weight(options={})
   x = total_weight(soccer_ball_count: 3, tennis_ball_count: 2, golf_ball_count: 1)
   puts x
   
+  y = total_weight(soccer_ball_count: 10, tennis_ball_count: 20, golf_ball_count: 13)
+  puts y
