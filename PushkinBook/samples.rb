@@ -218,4 +218,9 @@ b.grep(12..24) {|n| n*n}        # {400, 169, 225}
 s1 = "Boston Tea Party"
 s2 = s1.downcase            # "boston tea party"
 s3 = s2.upcase              # "BOSTON TEA PARTY"
+
+# the capitalize method capitalizes the first character of a string while forcing all the remaining characters to lowercase
+s4 = s1.capitalize          # "Boston tea party"
+s5 = s2.capitalize          # "Boston tea party"
+s6 = s3.capitalize          # "Boston tea party"
 ------------------------------------------------------------------------------
