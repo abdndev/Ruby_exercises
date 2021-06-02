@@ -223,4 +223,8 @@ s3 = s2.upcase              # "BOSTON TEA PARTY"
 s4 = s1.capitalize          # "Boston tea party"
 s5 = s2.capitalize          # "Boston tea party"
 s6 = s3.capitalize          # "Boston tea party"
-------------------------------------------------------------------------------
+
+# the swapcase method exchanges the case of each letter in a string
+s7 = "THIS IS AN ex-parrot."
+s8 = s7.swapcase            # "this is an EX-PARROT."
+-----------------------------------------------------------------------------
