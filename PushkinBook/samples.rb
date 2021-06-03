@@ -196,3 +196,41 @@ end
 app = MyRackApp.new
 run app
 -----------------------------------------------------------------------------
+=======
+# определение размера массива с методами length и size
+x = ["a", "b", "c", "d"]
+a = x.length              # 4
+b = x.size                # 4
+------------------------------------------------------------------------------
+# использование метода grep для сопоставления
+a = %w[January February March April May]
+a.grep(/ary/)       # ["January", "February"]
+b = [1, 20, 5, 7, 13, 33, 15, 28]
+b.grep(12..24)      # [20, 13, 15]
+------------------------------------------------------------------------------
+# Продолжение предыдущего примера...
+# Будем сохранять длины строк
+a.grep(/ary/) {|m| m.length}    # [7, 8]
+# Будем сохранять квадраты исходных элементов
+b.grep(12..24) {|n| n*n}        # {400, 169, 225}
+------------------------------------------------------------------------------
+# controlling Uppercase and Lowercase
+s1 = "Boston Tea Party"
+s2 = s1.downcase            # "boston tea party"
+s3 = s2.upcase              # "BOSTON TEA PARTY"
+
+# the capitalize method capitalizes the first character of a string while forcing all the remaining characters to lowercase
+s4 = s1.capitalize          # "Boston tea party"
+s5 = s2.capitalize          # "Boston tea party"
+s6 = s3.capitalize          # "Boston tea party"
+
+# the swapcase method exchanges the case of each letter in a string
+s7 = "THIS IS AN ex-parrot."
+s8 = s7.swapcase            # "this is an EX-PARROT."
+-----------------------------------------------------------------------------
+# конкатенация строк с оператором <<
+str = "A"
+str << [1, 2, 3].to_s << " " << (3.14).to_s
+# str теперь равно "A123 3.14"
+-----------------------------------------------------------------------------
+
