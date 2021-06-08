@@ -273,3 +273,9 @@ f = s1.count("^a-d")  # 2
 s1 = "Star Trek"
 s2 = s1.reverse          # "kerT ratS"
 s1.reverse!              # s1 теперь равно "kerT ratS"
+
+# обращение порядка слов, а не символов
+phrase = "Now here's a sentence"
+phrase.split(" ").reverse.join(" ")   # "sentence a here's Now"
+-----------------------------------------------------------------------------
+
