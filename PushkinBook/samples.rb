@@ -278,4 +278,8 @@ s1.reverse!              # s1 теперь равно "kerT ratS"
 phrase = "Now here's a sentence"
 phrase.split(" ").reverse.join(" ")   # "sentence a here's Now"
 -----------------------------------------------------------------------------
-
+# Удаление дубликатов. Цепочки повторящихся символов можно сжать до одного методом squeeze
+s1 = "bookkeeper"
+s2 = s1.squeeze      # "bokeper"
+s3 = "Hello..."
+s4 = s3.squeeze      # "Helo."
