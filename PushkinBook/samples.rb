@@ -292,3 +292,9 @@ s2 = s1.delete("b")           # "To e, or not to e"
 s3 = "Veni, vidi, vici!"      
 s4 = s3.delete(",!")          # "Veni vidi vici"
 -----------------------------------------------------------------------------
+# Generating Successive Strings Генерирование последовательности строк
+droid = "R2D2"
+improved = droid.succ            # "R2D3"
+pill = "Vitamin B"
+pill2 = pill.succ                # "Vitamin C"
+-----------------------------------------------------------------------------
