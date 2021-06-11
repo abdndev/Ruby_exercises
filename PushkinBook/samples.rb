@@ -331,8 +331,8 @@ sub4 = str["beat"]      # nil
 sub5 = str["cheat"]     # nil
 
 str = "Aaron Burr"
-ch1 = str[0]            # 65
-ch2 = str[1]            # 97
+ch1 = str[0]            # "A"
+ch2 = str[1]            # "a"
 ch3 = str[99]           # nil
 
 ------------------------------------------------------------------------------
