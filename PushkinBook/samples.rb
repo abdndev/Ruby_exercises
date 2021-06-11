@@ -330,6 +330,10 @@ sub3 = str["ate"]       # "ate"
 sub4 = str["beat"]      # nil
 sub5 = str["cheat"]     # nil
 
+str = "Aaron Burr"
+ch1 = str[0]            # 65
+ch2 = str[1]            # 97
+ch3 = str[99]           # nil
 
 ------------------------------------------------------------------------------
 
