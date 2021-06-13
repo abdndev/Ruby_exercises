@@ -373,7 +373,7 @@ s5 = s4.sub(/spam/) { |m| m.reverse }
 
 s4.sub!(/spam/) { |m| m.reverse }
 # s4 is now "Don't forget the maps."
-------------------------------------------------------------------------------
+
 # метод gsub (глобальная подстановка) отличается от sub тем, что заменяет все вхождения, а не только первое
 s5 = "alfalfa abracadabra"
 s6 = s5.gsub(/a[bl]/, "xx")        # "xxfxxfa xxracadxxra"
