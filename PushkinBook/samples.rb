@@ -390,6 +390,14 @@ s6 = s5.gsub(/a[bl]/, "xx")        # "xxfxxfa xxracadxxra"
 s5.gsub!(/[lfdbr]/) { |m| m.upcase + "-" }
 # s5 теперь равно "aL-F-aL-F-a aB-R-acaD-aB-R-a"
 -----------------------------------------------------------------------------
+# поиск в строке
+str = "Albert Einstein"
+pos1 = str.index(?E)            # 7
+pos2 = str.index("bert")        # 2
+pos3 = str.index(/in/)          # 8
+pos4 = str.index(?W)            # nil
+pos5 = str.index("bart")        # nil
+pos6 = str.index(/wein/)        # nil
 
 
 
