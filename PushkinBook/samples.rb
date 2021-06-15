@@ -409,6 +409,14 @@ pos4 = str.rindex(?W)          # nil
 pos5 = str.rindex("bart")      # nil
 pos6 = str.rindex(/wein/)      # nil
 
+# метод include? сообщает, встречается ли в данной строке указанная подстрока или один символ
+
+str1 = "mathematics"
+flag1 = str1.include? ?e       # true
+flag2 = str1.include? "math"   # true
+str2 = "Daylight Saving Time"
+flag3 = str2.include? ?s       # false
+flag4 = str2.include? "Savings" # false
 
 
 
