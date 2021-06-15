@@ -400,7 +400,14 @@ pos4 = str.index(?W)            # nil
 pos5 = str.index("bart")        # nil
 pos6 = str.index(/wein/)        # nil
 
-
+# метод rindex начинает поиск с конца строки, но, номера позиций отсчитываются, тем не менее, от начала
+str = "Albert Einstein"
+pos1 = str.rindex(?E)          # 7
+pos2 = str.rindex("bert")      # 2
+pos3 = str.rindex(/in/)        # 13 (найдено самое правое соответствие)
+pos4 = str.rindex(?W)          # nil
+pos5 = str.rindex("bart")      # nil
+pos6 = str.rindex(/wein/)      # nil
 
 
 
