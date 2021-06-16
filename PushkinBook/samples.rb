@@ -418,6 +418,16 @@ str2 = "Daylight Saving Time"
 flag3 = str2.include? ?s       # false
 flag4 = str2.include? "Savings" # false
 
+# метод scan многократно просматривает строку в поисках указанного образца
+# будучи вызван внутри блока, он возвращает массив
+# если образец содержит несколько (заключенных в скобки) групп, то массив окажется вложенным
+str1 = "abracadabra"
+sub1 = str1.scan(/a./)
+# sub1 теперь рано ["ab","ac","ad","ab"]
+str2 = "Acapulco, Mexico"
+sub2 = str2.scan(/(.)(c.)/)
+# sub2 теперь равно [ ["A", "ca"], ["l", "co"], ["i", "co"]]
+
 
 
 
