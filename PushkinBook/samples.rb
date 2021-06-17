@@ -444,5 +444,9 @@ end
 str = "Martin"
 print str[0]          # "M"
 
+# В классе Integer имеется метод chr, который преобразует целое число в символ
+str = 77.chr          # "M"
+s2 = 233.chr("UTF-8") # "e"
+num = "M".ord         # 77
 
 
