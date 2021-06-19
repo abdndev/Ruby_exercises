@@ -475,4 +475,9 @@ s2 = str2.chomp            # "123"
 s3 = str3.chopm            # "123"
 s4 = str4.chomp            # "123"
 
+# если методу chomp передана строка-параметр, то удаляются перечисленные в ней символы
+str1 = "abcxyz"
+str2 = "abcxyz"
+s1 = str1.chomp("yz")      # "abcx"
+s2 = str2.chomp("x")       # "abcxyz"
 
