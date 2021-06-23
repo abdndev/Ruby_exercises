@@ -550,5 +550,14 @@ pi = 3.1415926535
 pi6 = eval (sprintf("%8.6f",pi))       # 3.141593
 pi5 = eval (sprintf("%8.5f",pi))       # 3.14159
 pi4 = eval (sprintf("%8.4f",pi))       # 3.1416
+# Это не слишком красиво. Поэтому инкапсулируем оба вызова функций в методо, который добавим в класс Float:
+class Float
+
+  def roundf(places)
+    temp = self.to_s.length
+    sprintf("%#{temp}.#{places}f",self).to_f
+  end
+
+end
 
 
