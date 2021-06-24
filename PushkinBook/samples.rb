@@ -122,6 +122,14 @@ str = proc do |name, nation|
 end
 s2 = str.call("Гулливер Фойл", "Терра")
 --------------------------------------------------------------------------------------------
+# Символы
+# Чаще всего символы применяются для определения атрибутов класса:
+class MyClass
+  attr_reader :alpha, :beat
+  attr_writer :gamma, :delta
+  attr_accessor :epsilon
+  # ...
+end
 # применение символов
 class SomeClass
   attr_accessor :whatever    # чтобы добавить в класс аттрибут, допускающий чтение и изменение
@@ -560,13 +568,6 @@ class Float
 
 end
 --------------------------------------------------------------------------------------
-# Символы
-# Чаще всего символы применяются для определения атрибутов класса:
-class MyClass
-  attr_reader :alpha, :beat
-  attr_writer :gamma, :delta
-  attr_accessor :epsilon
-  # ...
-end
+
 
 
