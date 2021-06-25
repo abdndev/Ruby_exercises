@@ -589,6 +589,10 @@ r2a, r2b = r1.begin, r1.end         # 3, 6
 r1.exclude_end?   # false
 r2.exclude_end?   # true
 
+# обход диапазона:
+(3..6).each { |x| puts x}           # печатаются четыре строки
+                                    # скобки обязательны
+
 
 
 
