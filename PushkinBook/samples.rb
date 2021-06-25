@@ -585,6 +585,10 @@ r1a, r1b = r1.first, r1.last        # 3, 6
 r1c, r1d = r1.begin, r1.end         # 3, 6
 r2a, r2b = r1.begin, r1.end         # 3, 6
 
+# метод exclude_end? сообщает, включена ли в диапазон конечная точка:
+r1.exclude_end?   # false
+r2.exclude_end?   # true
+
 
 
 
