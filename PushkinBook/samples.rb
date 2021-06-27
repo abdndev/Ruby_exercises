@@ -604,5 +604,10 @@ r1.include?(y)              # true
 r = 3..12
 arr = r.to_a    # [3,4,5,6,7,8,9,10,11,12]
 
+# Обратные диапазоны
+r = 6..3
+x = r.begin                 # 6
+y = r.end                   # 3
+flag = r.end_excluded?      # false
 
 
