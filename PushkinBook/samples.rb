@@ -626,4 +626,4 @@ day = time.wday             # 2 (вторник)
 # позволяя по-разному форматировать дату и время
 day = time.strftime("%A")        # "Tuesday"
 # можно получить и сокращенное название
-long = time.strftime("%a")       # "Tue"
+tln = time.strftime("%a")       # "Tue"
