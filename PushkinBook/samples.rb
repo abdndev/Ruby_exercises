@@ -627,3 +627,7 @@ day = time.wday             # 2 (вторник)
 day = time.strftime("%A")        # "Tuesday"
 # можно получить и сокращенное название
 tln = time.strftime("%a")       # "Tue"
+
+# Определение порядкового номера дня в году:
+t = Time.now
+day = t.yday                    # 315
