@@ -654,3 +654,12 @@ calofornia = mississipi - 2*3600                # Минус два часа
 
 time1 = mississipi.strftime("%X CST")           # 09:35:00 CST
 time2 = california.strftime("%X PST")           # 07:35:00 PST
+
+# Если нужно часто преобразовывать время из одного часового пояса в другой, то можно воспользоваться
+# расширением класса Time, предоставляемое gem-пакетом ActiveSupport
+require 'active_support/time'
+Time.zone = -8
+Time.zone.name          # "Тихоокеанское время (США и Канада)"
+Time.zone.now           # Wed, 25 Jun 2014 12:20:35 PDT -07:00
+Time.zone.now.in_time_zone("Hawaii")  # 09:20:36 HST -10:00
+----------------------------------------------------------------------------------------
