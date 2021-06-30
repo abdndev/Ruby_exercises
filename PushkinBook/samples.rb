@@ -647,3 +647,10 @@ t3 = t0 + 86400    # Ровно один день с момента t0
 today = Time.local(2014,11,10)
 yesterday = Time.local(2014,11,9)
 diff = today - yesterday                  # 86400 секунд
+
+# Преобразование часовых поясов, в случае если заранее известна разница во времени:
+mississipi = Time.local(2014,11,13,9,35)        # 9:35 am CST
+calofornia = mississipi - 2*3600                # Минус два часа
+
+time1 = mississipi.strftime("%X CST")           # 09:35:00 CST
+time2 = california.strftime("%X PST")           # 07:35:00 PST
