@@ -214,6 +214,14 @@ b = x.size                # 4
 a = [1, 2, 3, 9, 9]
 b = [1, 2, 4, 1, 1]
 c = a <=> b                # -1 (то есть a < b)
+
+# Сортировка массив в помощью метода sort
+words = %w(the quick brown fox)
+list = words.sort     # ["brown", "fox", "quick", "the"]
+# Или отсортировать на месте
+words.sort!           # ["brown", "fox", "quick", "the"]
+
+
 ------------------------------------------------------------------------------
 # использование метода grep для сопоставления
 a = %w[January February March April May]
