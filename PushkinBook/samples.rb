@@ -252,6 +252,13 @@ d = c.reject { |e| 3 % 2 == 0 }        # [5, 9]
 c.reject! { |e| e % 3 == 0 }
 # c равно [5, 8, 4]
 
+# Методы min и max ищут минимальное и максимальное значение в массиве
+a = %w[Eldond Galadriel Aragorn Saruman Legolas]
+b = a.min                                 # "Aragorn"
+c = a.max                                 # "Saruman"
+d = a.min {|x,y| x.reverse <=> y.reverse} # "Elrond"
+e = a.max {|x,y| x.reverse <=> y.reverse} # "Legolas"
+
 ------------------------------------------------------------------------------
 # Разбиение строки на лексемы. Метод split разбивает строку на части и возвращает массив лексем.
 s1 = "Была темная грозовая ночь"
