@@ -749,3 +749,18 @@ if x.include? 2
 else
   puts "no"
 end
+# Еще вариант:
+class Object
+
+  def in(other)
+    other.include? self
+  end
+
+end
+
+x = [1, 2, 3]
+if 2.in x 
+  puts "yes"              # Печатается "yes"
+else
+  puts "no"
+end
