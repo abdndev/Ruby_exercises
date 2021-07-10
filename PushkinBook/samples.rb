@@ -804,4 +804,9 @@ c.delete("delta") { "Nonexistent"}
 c.delete("omega") { "Nonexistent"}
 # Возвращается "Nonexistent"
 
-
+# Метод delete_if передает каждый элемент массива в блоок и удаляет те элементы
+# для которых вычисление блока дает true
+email = ["job offer", "greetings", "spam", "news items"]
+# удалить слова из четырех букв
+email.delete_if { |x| x.length == 4 }
+# email равно ["job offers", "greetings", "news items"]
