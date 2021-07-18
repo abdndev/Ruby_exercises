@@ -902,3 +902,14 @@ dwarves.random_each {|x| list += "#{x} "}
 # "Bashful Dopey Sleepy Happy Grumpy Doc Sneezy"
 # (На вашей машине порядок может быть другим.)
 
+# Часто бывает необходимо вставить разделители между элементами массива, но не перед первым и не после последнего
+# Для этого предназначен метод join и оператор *
+been_there = ["Veni", "vidi", "vici."]
+journal = been_there.join(", ")                 # "Veni, vidi, vici."
+
+letters = ["Phi", "Mu", "Alpha"]
+musicians = letters.join(" ")                   # "Phi Mu Alpha"
+
+people = ["Bob", "Carol", "Ted", "Alice"]
+movie = people * " and "
+# movie равно "Bob and Carol and Ted and Alice"
