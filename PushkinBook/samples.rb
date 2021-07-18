@@ -879,7 +879,7 @@ words.reverse_each { |w| str += "#{w} "}
 
 # Итератор each_with_index (подмешанный из модуля Comparable) передает в блок как сам элемент, так и его индекс:
 x = ["alpha", "beta", "gamma"]
-x.each_with_index do (x, i)
+x.each_with_index do |x, i|
   puts "Элемент #{i} равен #{x}"
 end
 # выводится три строки
