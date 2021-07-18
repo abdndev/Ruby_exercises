@@ -883,3 +883,22 @@ x.each_with_index do |x, i|
   puts "Элемент #{i} равен #{x}"
 end
 # выводится три строки
+
+# Предположим, что нужно обойти массив в случайном порядке. Ниже представлен итератор random_each (который просто вызывает метод shuffle)
+class Array
+
+# Предполагается, что метод randomize определен
+
+  def random_each
+        self.shuffle.each { |x| yield x}
+  end
+
+end
+
+dwarves = %w(Sleepy Dopey Happy Sneezy Grumpy Bashful Doc)
+list = ""
+dwarves.random_each {|x| list += "#{x} "}
+# list равен:
+# "Bashful Dopey Sleepy Happy Grumpy Doc Sneezy"
+# (На вашей машине порядок может быть другим.)
+
