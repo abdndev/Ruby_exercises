@@ -917,5 +917,5 @@ movie = people * " and "
 # Если необходимо последний элемент обрабатывать особым образом, например, вставить перед ним слово "and",
 # то можно сделать это вручную:
 list = %w[A B C D E F]
-with_commas = list[0..-2] *", " + ", and " - list[-1]
+with_commas = list[0..-2] *", " + ", and " + list[-1]
 # with_commas равно "A, B, C, D, E, and F"
