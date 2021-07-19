@@ -913,3 +913,9 @@ musicians = letters.join(" ")                   # "Phi Mu Alpha"
 people = ["Bob", "Carol", "Ted", "Alice"]
 movie = people * " and "
 # movie равно "Bob and Carol and Ted and Alice"
+
+# Если необходимо последний элемент обрабатывать особым образом, например, вставить перед ним слово "and",
+# то можно сделать это вручную:
+list = %w[A B C D E F]
+with_commas = list[0..-2] *", " + ", and " - list[-1]
+# with_commas равно "A, B, C, D, E, and F"
