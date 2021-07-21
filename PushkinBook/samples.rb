@@ -940,3 +940,19 @@ a.zip(b) { |x1, x2| puts x2 + "-" + x1.to_s}
 #             d-4
 # и возвращается nil
 
+# Вычисление частоты различных значений в массиве
+# Для массивов нет метода count, как для строк. Поэтому создадим свой собственный:
+class Array
+
+  def count
+    each_with_object(Hash.new(0)){|x,h| h[x] += 1}
+  end
+
+end
+
+meal = %w[spam spam eggs ham eggs spam]
+items = meal.counts
+# items равно {"ham" => 1, "spam" => 3, "eggs" => 2}
+spams = items["spam"]                    # 3
+# Обратите внимание, что метод возвращает хэш
+
