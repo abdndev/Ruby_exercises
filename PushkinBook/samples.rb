@@ -955,4 +955,16 @@ items = meal.counts
 # items равно {"ham" => 1, "spam" => 3, "eggs" => 2}
 spams = items["spam"]                    # 3
 # Обратите внимание, что метод возвращает хэш
+-----------------------------------------------------------------------------------------
+# Инвертирование массива для получения хэша
+class Array
+
+  def invert
+    each_with_object({}).with_index{|(x,h),i| h[x] = i}
+  end
+
+end
+
+a = ["red", "yellow", "orange"]
+h = a.invert        # {"orange"=>2, "yellow"=>1, "red"=>0}
 
