@@ -1093,3 +1093,9 @@ a.delete(3)                    # 9
 # a равно {1=>1, 2=>4, 4=>16}
 a.delete(5)                    # в этом случае nil
 a.delete(6) { "не найдено" }   # "не найдено"
+
+# Обход хэша.
+# В классе Hash имеется стандартный итератор each, а кроме него итераторы each_key, each_pair и each_value (each_pair синоним each)
+{"a" => 3, "b" => 2}.each do |key, val|
+  print val, "from", key, "; "             # 3 from a; 2 from b;
+end
