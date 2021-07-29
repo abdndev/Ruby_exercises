@@ -1099,3 +1099,10 @@ a.delete(6) { "не найдено" }   # "не найдено"
 {"a" => 3, "b" => 2}.each do |key, val|
   print val, "from", key, "; "             # 3 from a; 2 from b;
 end
+# Остальные два итератора передают в блок только ключ или только значение:
+{"a" => 3, "b" => 2}.each_key do |key|
+  print "key = #{key};"                    # Prints: key = a; key = b;
+
+{"a" => 3, "b" => 2}.each_value do |value|
+  print "val = #{value};"                  # Prints: val = 3; val = 2;
+end
