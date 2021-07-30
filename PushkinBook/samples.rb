@@ -1106,3 +1106,8 @@ end
 {"a" => 3, "b" => 2}.each_value do |value|
   print "val = #{value};"                  # Prints: val = 3; val = 2;
 end
+# Инвертирование хэша
+# Инвертирование хэша осуществляется в Ruby тривиально с помощью метода invert:
+a = {"fred"=>"555-1122", "jane"=>"555-7779"}
+b = a.invert
+b["555-7779"]                               # "jane"
