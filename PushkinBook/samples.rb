@@ -1119,3 +1119,7 @@ a.has_hey? "c"       # false
 a.include? "a"       # true
 a.key? 2             # false
 a.member? "b"        # true
+# Можно также воспользоваться методом empty?, чтобы узнать, остался ли в хэше хотя бы один ключ.
+# А метод length и его синоним size позволяют узнать, сколько ключей имеется в хэше:
+a.empty?             # false
+a.length             # 2
