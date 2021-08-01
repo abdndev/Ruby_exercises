@@ -1142,3 +1142,14 @@ h.values                  # [1, 2]
 h = {1=>"one", 2=>"two", 3=>"three", 4=>"four", "cinco"=>"five"}
 h.values_at(3,"cinco",4)                  # ["three", "five", "four"]
 h.values_at(1, 3)                         # ["one", "three"]
+
+# Выборка пар ключ-значение по заданному критерию
+# К классу Hash подмешан модуль Enumerable, поэтому можно обращаться к методам detect(find), select(find_all), grep, min, max и reject (как и для массивов).
+# Метод detect (синоним find) находит одну пару ключ-значение. Он принимает блок (которому передается по одной паре за раз) и возвращает первую пару,
+# для которой вычисление блока дает true.
+names = {"fred"=>"jones", "jane"=>"tucker",
+         "joe"=>"tucker","mary"=>"SMITH"}
+# Найти tucker
+names.detect { |k, v| v == "tucker" }              # ["joe", "tucker"]
+# Найти имена, записанные заглавными буквами
+names.find { |k, v| v == v.upcase }                # ["mary", "SMITH"]
