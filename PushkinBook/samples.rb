@@ -1153,3 +1153,12 @@ names = {"fred"=>"jones", "jane"=>"tucker",
 names.detect { |k, v| v == "tucker" }              # ["joe", "tucker"]
 # Найти имена, записанные заглавными буквами
 names.find { |k, v| v == v.upcase }                # ["mary", "SMITH"]
+
+# Разумеется, объекты в хэше могут быть сколько угодно сложными, как и условие, проверяемое в блоке, но
+# сравнение объектов разных типов может оказаться проблематичным
+# Метод select (синоним find_all) возвращает все пары, удовлетворяющие условию, а не только первую:
+names.select { |k, v| v == "tucker" }
+# [["joe", "tucker"], ["jane", "tucker"]]
+names.find_all { |k, v| k.count("r")>0}
+# [["mary", "SMITH"], ["fred", "jones"]]
+
