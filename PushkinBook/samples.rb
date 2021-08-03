@@ -1162,3 +1162,13 @@ names.select { |k, v| v == "tucker" }
 names.find_all { |k, v| k.count("r")>0}
 # [["mary", "SMITH"], ["fred", "jones"]]
 
+# Сортировка хэша
+# Хэши по своей природе не упорядочены ни по ключам, ни по значениям. Чтобы отсортировать хэш, Ruby преобразует его в массив,
+# а затем сортирует этот массив. Понятно, что и результатом является массив.
+names = {"Jack"=>"Ruby", "Monty"=>"Python",
+         "Blaise"=>"Pascal", "Minnie"=>"Perl"}
+list = names.sort
+# list равно:
+# [["Blaise", "Pascal"], ["Jack", "Ruby"],
+# ["Minnie", "Perl"], ["Monty", "Python"]]
+
