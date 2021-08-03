@@ -1171,4 +1171,5 @@ list = names.sort
 # list равно:
 # [["Blaise", "Pascal"], ["Jack", "Ruby"],
 # ["Minnie", "Perl"], ["Monty", "Python"]]
-
+# Ниже показано, как такой массив преобразовать обрабно в хэш:
+list_hash = list.to_h
