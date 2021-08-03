@@ -1173,3 +1173,10 @@ list = names.sort
 # ["Minnie", "Perl"], ["Monty", "Python"]]
 # Ниже показано, как такой массив преобразовать обрабно в хэш:
 list_hash = list.to_h
+
+# Объединение двух хэшей
+# Иногда нужно объеденить хэши. Метод merge получает два хэша и формирует из них третий, перезаписывая обнаружившиеся дубликаты:
+dict = {"base" => "foundation", "pedestal" => "base"}
+added = {"base" => "non_acid", "salt" => "NaCL"}
+new_dict = dict.merge(added)
+# {"base" => "non-acid", "pedestal" => "base", "salt" = "NaCl"}
