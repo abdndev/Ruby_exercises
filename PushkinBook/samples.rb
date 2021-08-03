@@ -1180,3 +1180,4 @@ dict = {"base" => "foundation", "pedestal" => "base"}
 added = {"base" => "non_acid", "salt" => "NaCL"}
 new_dict = dict.merge(added)
 # {"base" => "non-acid", "pedestal" => "base", "salt" = "NaCl"}
+# У метода merge есть синоним update
