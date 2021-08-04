@@ -1188,3 +1188,5 @@ dict = {"base" => "foundation", "pedestal" => "base"}
 added = {"base" => "non-acid", "salt" => "NaCL"}
 new_dict = dict.merge(added) { |key,old,new| old < new ? old : new}
 # {"salt" => "NaCl", "pedestal" => "base", "base" => "foundation"}
+# Таким образом, при использовании блока результат может получиться не такой, как в случае, когда блок не задан.
+# Имеются также методы merge! и update!, которые изменяют вызывающий объект "на месте".
