@@ -1181,3 +1181,10 @@ added = {"base" => "non_acid", "salt" => "NaCL"}
 new_dict = dict.merge(added)
 # {"base" => "non-acid", "pedestal" => "base", "salt" = "NaCl"}
 # У метода merge есть синоним update
+
+# Если задан блок, то он может содержать алгоритм устранения коллизий. В примере ниже, если два ключа совпадают, 
+# то в объединенном хэше остается меньшее значение (по алфавиту, по числовому значению или в каком то ином смысле):
+dict = {"base" => "foundation", "pedestal" => "base"}
+added = {"base" => "non-acid", "salt" => "NaCL"}
+new_dict = dict.merge(added) { |key,old,new| old < new ? old : new}
+# {"salt" => "NaCl", "pedestal" => "base", "base" => "foundation"}
