@@ -1200,3 +1200,16 @@ array = [2, 3, 4, 5, 6, 7]
 h1 = pairs.to_h                         # {2 => 3, 4 => 5, 6 => 7}
 h2 = Hash[pairs]                        # {2 => 3, 4 => 5, 6 => 7}
 h3 = Hash.[*array]                      # {2 => 3, 4 => 5, 6 => 7}
+
+# Вычислениие разности и пересечения хэшей
+a = {"a" => 1, "b" => 2, "z" => 3}
+b = {"x" => 99, "y" => 88, "z" => 77}
+intersection = a.keys & b.keys
+difference = a.keys - b.keys
+c = a.dup.update(b)
+inter = {}
+intersection.each { |k| inter[k] = c[k] }
+# inter равно {"z" = 77}
+diff={}
+difference.each { |k| diff[k]=c[k] }
+# diff равно {"a"=> 1, "b"=>2}
