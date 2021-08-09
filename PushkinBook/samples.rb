@@ -1268,3 +1268,10 @@ nums[1..-1].each { |n| sum += n}
 prod = nums.inject(1) {|x,n| x*n}
 # или
 prod = nums.inject {|x,n| x*n}
+
+# В следующем немного более сложном примере мы находим самое длинное слово в списке:
+words = %w[ alpha beta gamma delta epsilon eta theta ]
+longest_word = words.inject do |best,w|
+  w.length > best.length ? w : best
+end
+# возвращается значение "epsilon"
