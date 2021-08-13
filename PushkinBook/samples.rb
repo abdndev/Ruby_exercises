@@ -1352,3 +1352,16 @@ set = hash.to_set               # #<Set: {[1, 2], [3, 4], [5, 6]}>
 items = [1,2,3,4]
 enum = items.each
 enum.each { |x| puts x }        # Печатает числа по одному в строке
+
+# 8.3.6 Пример внешнего итерирования
+people = [2, "George", "Washington",
+          3, "Edgar", "Allan", "Poe",
+          2, "John", "Glenn",
+          4, "Little", "Red", "Riding", "Hood",
+          1, "Sting"]
+enum = people.each
+loop do
+       count = enum.next         # Получить следующий элемент из массива
+       count.times { print enum.next }
+       puts
+end
