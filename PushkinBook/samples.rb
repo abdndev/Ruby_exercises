@@ -1365,3 +1365,12 @@ loop do
        count.times { print enum.next }
        puts
 end
+
+# Существует метод rewind, который "сбрасывает" внутреннее состояние, возвращаясь к началу перечисляемой последовательности:
+list = [10, 20, 30, 40, 50]
+enum = list.each 
+puts enum.next      # 10
+puts enum.next      # 20
+puts.enum.next      # 30
+enum.rewind
+puts enum.next      # 10
