@@ -1374,3 +1374,12 @@ puts enum.next      # 20
 puts.enum.next      # 30
 enum.rewind
 puts enum.next      # 10
+
+# Метод with_index является простым (внутренним) итератором. Его можно использовать
+# вместе с другим перечислителем, и возвращает он итератор:
+list = [10, 20, 30, 40, 50]
+list.each.with_index {|x,i| puts "list[#{i}] = #{x}" }
+# или...
+enum = list.each.with_index
+loop { x, i = enum2.next; puts "list[#{i}] = #{x}" }   # такой же результат
+
