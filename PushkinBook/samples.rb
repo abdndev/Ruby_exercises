@@ -1419,3 +1419,8 @@ days = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
 days.count                         # всего 7
 days.count("Saturday")             # 1 (суббота только одна!)
 days.count {|x| x.length == 6}     # есть три 3 слова из шести букв
+# С методами min и max мы уже встречались. Для их работы необходимо, чтобы существовал оператор <=>
+# (или был включен модуль Comparable). Существует также метод minmax, который возвращает сразу
+# и минимальный, и максимальный элемент массива:
+days = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+days.minmax     # ["Friday", "Wednesday"]
