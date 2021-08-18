@@ -1440,3 +1440,13 @@ days.minmax_by {|x| x.reverse}                  # ["Friday", "Thursday"]
 months = %w[Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec]
 months.cycle(2) { |x| puts m }              # всего будет 24 итерации 24
 months.cycle { |x| puts x }                 # бесконечный цикл
+# Метод each_with_object работает так же, как inject, но в виде дополнительной любезности возвращает
+# тот же объект, который был ему передан. Так удается избежать некрасивого решения, когда приходится
+# явно возвращать аккумулятор в конце блока
+h = Hash.new(0)
+result = [1,2,3,4].inject(h) {|acc,n| acc[n] += 1; acc}          # Некрасиво
+
+h = Hash.new(0)
+result = [1,2,3,4].each_with_object(h) do |n, acc|
+  acc[n] += 1 }                                                  # Так лучше
+end
