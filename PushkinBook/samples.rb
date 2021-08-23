@@ -1544,3 +1544,13 @@ s = Set[1,2,3,4,5,6]
 s.empty?                                  # false
 s.clear
 s.empty?                                  # true
+# Можно проверить, является ли одно множество подмножеством, собственным подмножеством или надмножеством другого.
+x = Set[3,4,5]
+y = Set[3,4]
+
+x.subset?(y)                              # false
+y.subset?(x)                              # true
+y.proper_subset?(x)                       # true
+x.subset?(x)                              # true
+x.proper_subset?(x)                       # false
+x.proper_subset?(y)                       # true
