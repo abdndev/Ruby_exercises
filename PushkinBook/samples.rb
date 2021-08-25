@@ -1567,3 +1567,18 @@ Set[3,4,5] == Set[5,4,3]                  # true
 s = Set[1,2,3,4,5]
 s.each {|x| puts x; break }               # Выводится 5
 
+# Метод classify подобен методу partition, но с разбиением на несколько частей;
+# он послужил источником идеи для реализации вашей версии метода classify в разделе 8.3.3
+files = Set.new(Dir["*"])
+hash = files.classify do |f|
+  if File.size(f) <= 10_000
+    :small 
+  elsif File.size(f) <= 10_000_000
+    :medium 
+  else
+    :large
+  end
+end
+
+big_files = hash[:large]                  # big_files - это Set
+
