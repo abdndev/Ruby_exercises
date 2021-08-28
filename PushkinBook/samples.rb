@@ -1690,3 +1690,31 @@ end
 towers(3, "a", "c", "b")
 # Печатается точно такой же результат. Но, рекурсивное решение оказалось в два раза быстрее.
 
+# Обнаружение несбалансированных скобок.
+def paren_match(str)
+  stack = Stack.new
+  lsym = "{[(<"
+  rsym = "}])>"
+  str.each_char do |sym|
+    if lsym.include? sym
+      stack.push(sym)
+    elsif rsym.include? sym
+      top = stack.peek
+      if lsym.index(top) != rsym.index(sym)
+        return false
+      else
+        stack.pop
+      end
+      # Игнорируем символы, отличные от скобок...
+    end
+  end
+  # Убедимся, что стек пуст...
+  return stack.empty?
+end
+
+str1 = "(((a+b))*((c-d)-(e*f))"
+str2 = "[[(a-(b-c))], [[x,y]]]"
+
+paren_match str1                 # false
+paren_match str2                 # true
+
