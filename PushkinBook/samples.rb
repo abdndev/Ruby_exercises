@@ -173,6 +173,9 @@ file2 = File.new("two", "w")    # Открыть для записи
 out = File.new("captains.log", "w")
   # обработка файла...
 out.close
+
+# Имеется также метод open. В простейшей форме это просто синоним new:
+trans = File.open("transactions", "w")
 -----------------------------------------------------------------------------
 # автоматическое закрытие файла с методом open
 File.open("somefile", "w") do |file|
@@ -207,8 +210,6 @@ logfile = File.open("captains_log", "a")
 # Добавить строку в конец и закрыть файл.
 logfile.puts "Stardate 47824.1: Our show has been canceled."
 logfile.close
-# Имеется также метод open. В простейшей форме это просто синоним new:
-trans = File.open("transactions", "w")
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
