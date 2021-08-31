@@ -207,6 +207,8 @@ logfile = File.open("captains_log", "a")
 # Добавить строку в конец и закрыть файл.
 logfile.puts "Stardate 47824.1: Our show has been canceled."
 logfile.close
+# Имеется также метод open. В простейшей форме это просто синоним new:
+trans = File.open("transactions", "w")
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
