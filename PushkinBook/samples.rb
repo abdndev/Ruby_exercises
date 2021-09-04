@@ -263,6 +263,18 @@ File.read("invalid", mode: "rb").split(" ")
 File.open("myfile", "rb") {|f| str = f.sysread(15) }.size       # 11
 File.open("myfile", "r") {|f| str = f.sysread(15) }.size        # 5
 
+# В следующем фрагменте показано, что на платформе Windows символ возврата каретки не преобразуется в двоичном режиме:
+# Входной файл содержит всего одну строку: Строка 1.
+file = File.open("data")
+line = file.readline                # "Строка 1.\n"
+puts "#{line.size} символов."       # 10 символов
+file.close
+
+file = File.open("data", "rb") 
+line = file.readline                # "Строка 1.\r\n"
+puts "#{line.size} символов."       # 11 символов
+file.close
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
