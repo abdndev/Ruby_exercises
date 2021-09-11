@@ -398,6 +398,8 @@ ch = mystream.getc                # ?C
 data = File.stat("somefile")
 owner_id = data.uid
 group_id = data.gid
+# В классе File::Stat есть также метод экземпляра mode, который возвращает текущий набор разрешений для файла.
+perms = File.stat("somefile").mode
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
