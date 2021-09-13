@@ -421,6 +421,12 @@ info = File.stat("/tmp/secrets")
 rflag = info.readable?
 wflag = info.writable?
 xflag = info.executable?
+# Иногда нужно отличить действующий идентификатор пользователя от реального. На этот случай предлагаются методы экземпляра
+# readable_real?, writable_real? и executable_real?.
+info = File.stat("/tmp/secrets")
+rflag2 = info.readable_real?
+wflag2 = info.writable_real?
+xflag2 = info.executable_real?
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
