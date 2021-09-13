@@ -427,6 +427,13 @@ info = File.stat("/tmp/secrets")
 rflag2 = info.readable_real?
 wflag2 = info.writable_real?
 xflag2 = info.executable_real?
+# Можно сравнить владельца файла с действующим идентификатором пользователя (и идентификатором группы) текущего процесса.
+# В классе File::Stat для этого есть методы owned? и grpowned?.
+# Отметим, что многие из этих методов можно найти также в модуле FileTest:
+rflag = FileTest::readable?("pentagon_files")
+# Прочие методы: writable? executable? readable_real?
+# writable_real? executable_real? owned? grpowned?
+# Отсутствую здесь: uid gid mode
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
