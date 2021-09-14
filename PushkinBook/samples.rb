@@ -455,6 +455,12 @@ t2 = File.atime("somefile")
 t3 = File.ctime("somefile")
 # Sun Nov 26 23:48:32 GMT-6:00 2000
 
+# Если файл, представленный экземпляром File, уже открыт, то можно воспользоваться методами этого экземпляра.
+myfile = File.new("somefile")
+t1 = myfile.mtime
+t2 = myfile.atime
+t3 = myfile.ctime
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
