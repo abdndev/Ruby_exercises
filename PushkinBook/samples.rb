@@ -475,6 +475,9 @@ today = Time.now
 yesterday = today - 86400
 File.utime(today, today, "alpha")
 File.utime(today, yesterday, "beta", "gamma")
+# Поскольку обе временные метки изменяются одновременно, то при желании оставить одну без изменения, ее сначала следует получить и сохранить.
+mtime = File.mtime("delta")
+File.utime(Time.now, mtime, "delta")
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
