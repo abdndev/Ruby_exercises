@@ -460,6 +460,12 @@ myfile = File.new("somefile")
 t1 = myfile.mtime
 t2 = myfile.atime
 t3 = myfile.ctime
+# А если имеется экземпляр класса File::Stat, то и у него есть методы, позволяющие получить ту же информацию:
+myfile = File.new("somefile")
+info = myfile.stat
+t1 = info.mtime
+t2 = info.atime
+t3 = info.ctime
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
