@@ -479,6 +479,13 @@ File.utime(today, yesterday, "beta", "gamma")
 mtime = File.mtime("delta")
 File.utime(Time.now, mtime, "delta")
 
+# Проверка существования и получение размера файла
+# Часто необходимо знать, существует ли файл с данным именем. Это позволяет выяснить метод exist? из модуля FileTest:
+flag = FileTest::exist?("LochNessMonster")
+flag = FileTest::exists?("UFO")
+# exists? является синонимом exist?
+
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
