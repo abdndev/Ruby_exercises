@@ -511,6 +511,9 @@ total_bytes = info.blocks * info.blksize
 # как на то, так и на другое, но не на оба сразу. Методы blockdev? и chardev? из модуля FileTest проверяют тип устройства:
 flag1 = FileTest::chardev?("/dev/hdisk0")   # false
 flag2 = FileTest::blockdev?("/dev/hdisk0")  # true
+# Иногда нужно знать, ассоциирован ли данный поток с терминалом. Метод tty? класса IO (синоним isatty) дает ответ на этот вопрос:
+flag1 = STDIN.tty?                          # true
+flag2 = File.new("diskfile").isatty         # false
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
