@@ -525,6 +525,11 @@ test1 = file1.directory?                    # true
 test2 = file.file?                          # false
 test3 = file2.directory?                    # false
 test4 = file2.file?                         # true
+# В классе File есть также метод класса ftype, который сообщает вид потока, одноименный метод экземпляра
+# находится в классе File::Stat. Этот метода возвращает одну из следующих строк:file, directory, blockSpecial,
+# characterSpecial, fifo, link или socket(строка fifo относится к каналу).
+this_kind = File.ftype("/dev/hdisk0")       # "blockSpecial"
+that_kind = File.new("/tmp").stat.ftype     # "directory"
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
