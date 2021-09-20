@@ -517,6 +517,14 @@ flag2 = File.new("diskfile").isatty         # false
 # Поток может быть связан с каналом (pipe) или сокетом. В модуле FileTest есть методы для опроса этих условий:
 flag1 = FileTest::pipe?(myfile)
 flag2 = FileTest::socket?(myfile)
+# Напомним, что каталог - это частный случай файла. Поэтому нужно уметь отличать каталоги от обычных файлов, 
+# для чего предназначены следующие два метода:
+file1 = File.new("/tmp")
+file2 = File.new("tmp/myfile")
+test1 = file1.directory?                    # true
+test2 = file.file?                          # false
+test3 = file2.directory?                    # false
+test4 = file2.file?                         # true
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
