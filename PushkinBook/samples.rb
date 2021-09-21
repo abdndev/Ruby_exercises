@@ -530,6 +530,13 @@ test4 = file2.file?                         # true
 # characterSpecial, fifo, link или socket(строка fifo относится к каналу).
 this_kind = File.ftype("/dev/hdisk0")       # "blockSpecial"
 that_kind = File.new("/tmp").stat.ftype     # "directory"
+# В маске, описывающей режим файла, можно устанавливать или сбрасывать некоторые биты. Они не имеют прямого
+# отношения к битам, обсуждавшимся в разделе 10.1.9. Речь идет о битах set-group-id, set-user-id, и бите
+# фиксации (sticky bit). Для каждого из них есть свой метод.
+file = File.new("somefile")
+sticky_flag = file.sticky?
+setgid_flag = file.setgid?
+setuid_flag = file.setuid?
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
