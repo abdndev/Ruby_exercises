@@ -555,6 +555,18 @@ info = file.stat
 device = info.dev
 devtype = info.rdev
 inode = info.ino
+------------------------------------------------------------------------------
+# Каналы
+# Ruby поддерживает разные способы читать из канала и писать в него. Метод класса IO.popen открывает канал
+# и связывает с возвращенным объектом стандартные ввод и вывод процесса. Часто с разными концами канала работают
+# разные потоки, но в примере ниже запись и чтение осуществляет один и тот же поток:
+check = IO.popen("spell", "r+")
+check.puts("T was brillig, and the slithy toves")
+check.puts("Did gyre and gimble in the wabe.")
+check.close_write
+list = check.readlines
+list.collect! { |x| x.chomp }
+# list равно %w[brillig gimble gyre slithy toves wabe]
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
