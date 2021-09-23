@@ -591,6 +591,30 @@ end
 # Я родитель: pid = 10580
 # Я потомок: pid = 10582
 
+# Метод pipe возвращает также два конца канала, связанных между собой. В следующем примере мы создаем два потока,
+# один из которых передает сообщение другому (то самое сообщение, которое Сэмьюел Морзе послал по телеграфу).
+pipe = IO.pipe
+reader = pipe[0]
+writer = pipe[1]
+
+str = nil
+thread1 = Thread.new(reader,writer) do |reader,writer|
+  # writer.close_write
+  str = reader.gets
+  reader.close
+end
+
+thread2 = Thread.new(reader,writer) do |reader,writer|
+  # reader.close_read
+  writer.puts("What hath God wrougth?")
+  writer.close
+end
+
+thread1.join
+thread2.join
+
+puts str                 # What hath God wrought?
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
