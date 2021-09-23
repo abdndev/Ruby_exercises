@@ -567,6 +567,13 @@ check.close_write
 list = check.readlines
 list.collect! { |x| x.chomp }
 # list равно %w[brillig gimble gyre slithy toves wabe]
+# Отметим, что вызов close_write обязателен, иначе мы никогда не достигнем конца файла при чтении из канала.
+# Существует также блочная форма:
+File.popen("/usr/games/fortune") do |pipe|
+  quote = pipe.gets
+  puts quote
+  # На чистом диске можно искать бесконечно. - Том Стил
+end
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
