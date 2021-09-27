@@ -654,6 +654,10 @@ info = File.split(str)                      # ["/home/dave/","podbay.rb"]
 Dir.chdir("/home/poole/personal/docs")
 abs = File.expand_path("../../misc")                # "/home/poole/misc"
 abs = File/expand_path("misc", "/home/poole")       # "/home/poole/misc"
+# Если передать методу экземпляра path открытый файл, то он вернет путевое имя, по которому файл открыт.
+File.new("../../foobar").path                       # "../../foobar"
+# Константа File::Separator равна символу, применяемому для разделения компонентов путевого имени (в Windows
+# это обратная косая черта, а в UNIX - прямая косая черта). Имеется синоним File::SEPARATOR
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
