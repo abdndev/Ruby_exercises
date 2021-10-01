@@ -664,6 +664,22 @@ path = File.join("usr", "local", "bin", "someprog")
 # Обратите внимание, что в начале имени разделитель не добавляется!
 # Не думайте, что методы File.join и File.split взаимно обратны. Это не так.
 
+# Класс Pathname
+# Следует знать о стандартной библиотеке pathname, которая предоставляет класс Pathname.
+# По существу, это обертка вокруг классов Dir, File и FileUtils, поэтому он комбинирует многие их 
+# функции логичным и интуитивно понятным способом.
+path = Pathname.new("/home/hal")
+file = Pathname.new("file.txt")
+p2 = path + file
+
+path.directory?                      # true
+path.file?                           # false
+p2.directory?                        # false
+p2.file?                             # true
+
+parts = path2.split                  # [Pathname:/home/hal, Pathname:file.txt]
+ext = path2.etxname                  # .txt
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
