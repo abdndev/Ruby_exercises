@@ -705,6 +705,11 @@ p1.relative?                         # false
 # Для удаления файла служит метод File.delete или его синоним File.unlink:
 File.delete("history")
 File.unlink("toast")
+# Переименовать файл позволяет метод File.rename:
+File.rename("Ceylon", "SriLanka")
+# Создать ссылку на файл (физическую или символическую) позволяют методы File.link и File.symlink соответственно:
+File.link("/etc/hosts", "/etc/hostfile")                   # физическая ссылка
+File.symlink("/etc/hosts", "/tmp/hosts")                   # символическая ссылка
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
