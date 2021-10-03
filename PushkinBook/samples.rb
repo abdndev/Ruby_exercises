@@ -710,6 +710,12 @@ File.rename("Ceylon", "SriLanka")
 # Создать ссылку на файл (физическую или символическую) позволяют методы File.link и File.symlink соответственно:
 File.link("/etc/hosts", "/etc/hostfile")                   # физическая ссылка
 File.symlink("/etc/hosts", "/tmp/hosts")                   # символическая ссылка
+# Файл можно усечь до нулевой длины (или до любой другой), воспользовавшись методом экземпляра truncate:
+File.truncate("myfile", 1000)                # Теперь не более 1000 байтов
+# Два файла можно сравнить с помощью метода compare_fille. У него есть синонимы cmp и compare_stream:
+require "fileutils"
+
+same = FileUtils.compare_file("alpha", "beta")      # true
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
