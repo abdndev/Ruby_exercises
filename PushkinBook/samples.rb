@@ -821,6 +821,23 @@ end
 source.each do |line|
   puts line
 end
+# Это мог бы быть как файл, так и строка, содержащая внутри символы новой строки. В таких случаях строку
+# можно трактовать как файл без всякого труда.
+# Класс StringIO представляет многие методы класса IO, которых нет у обычной строки.
+# В нем есть метод доступа string, ссылающийся на содержимое самой строки.
+ios = StringIO.new("abcdefghijkl\nABC\n123")
+
+ios.seek(5)
+ios.puts("xyz")
+puts ios.tell                    # 9
+puts ios.string.inspect          # "abcdexyz\njkl\nABC\n123"
+
+puts ios.getc                    # j
+ios.ungetc(?w)                  
+puts ios.string.inspect          # "abcdexyz\nwkl\nABC\n123"
+
+s1 = ios.gets                    # "wjkl"
+s2 = ios.gets                    # "ABC"
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
