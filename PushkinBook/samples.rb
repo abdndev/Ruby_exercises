@@ -836,7 +836,7 @@ puts ios.getc                    # j
 ios.ungetc(?w)                  
 puts ios.string.inspect          # "abcdexyz\nwkl\nABC\n123"
 
-s1 = ios.gets                    # "wjkl"
+s1 = ios.gets                    # "wkl"
 s2 = ios.gets                    # "ABC"
 
 ------------------------------------------------------------------------------
