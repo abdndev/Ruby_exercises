@@ -851,6 +851,17 @@ IO.copy_stream(src, dst)
 IO.copy_stream("garbage.in", "garbage.out", 1000, 80)
 # В конечный поток копируется 1000 байтов, начиная со смещения 80
 
+# Чтение данных, встроенных в текст программы
+# Распечатать все строки "задом наперед"...
+DATA.each_line do |line|
+  puts line.reverse
+end
+__END__
+A man, a plan, a canal... Panama!
+Madam, I'm Adam.
+,siht gnidaer er'uoy fI 
+.evisserpmi si noitacided ruoy
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
