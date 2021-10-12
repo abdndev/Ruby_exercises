@@ -924,6 +924,17 @@ list = Dir.entries("/tmp")            # w%[. .. alpha.txt beta.doc]
 require "fileutils"
 FileUtils.makedirs("/tmp/these/dirs/need/not/exist")
 
+# Рекурсивное удаление каталога
+# В UNIX команда rm -rf dir удаляет все поддерево, начиная с каталога dir.
+# Понятно, что применять ее надо с осторожностью.
+# В классе Pathname имеется метод rmtree, решающий ту же задачу.
+require 'pathname'
+dir = Pathname.new("/home/poole/")
+dir.rmtree
+# В классе FileUtils есть метод rm_r, который делает то же самое:
+require 'fileutils'
+FileUtils.rm_r("/home/poole")
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
