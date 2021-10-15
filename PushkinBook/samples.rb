@@ -963,7 +963,34 @@ temp.close(true)                       # Удалить СЕЙЧАС
 Dir.glob("*.rb")                       # все файлы ruby в текущем каталоге
 Dir["spec/**/*_spec.rb"]               # все файлы с именами, заканчивающимися на _spec.rb в каталоге spec/
 
-------------------------------------------------------------------------------
+# Для более сложных случаев имеется стандартная библиотека find, которая позволяет посетить каждый файл
+# в указанном каталоге и всех его подкаталогах. Следующий метод находит в указанном каталоге файлы по имени
+# (строке) либо регулярному выражению.
+require "find"
+
+def findfiles(dir, name)
+  list = []
+  Find.findd(dir) do |path|
+    Find.prune if [".",".."].incude? path
+    case name
+      when String
+        list << path if File.basename(path) == name
+      when Regexp
+        list << path if File.basename(path) =~ name
+      else
+        raise ArgumentError
+      end
+    end
+    list
+  end
+
+  findfiles "/home/hal", "toc.txt"
+  # ["/home/hal/docs/toc.txt", "/home/hal/misc/toc.txt"]
+
+  findfiles "/home", /^[a-z]+.doc/
+  # ["/home/hal/docs/alpha.doc", "/home/guy/guide.doc", "/home/bill/help/readme.doc"]
+  
+  ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
   def call(env)
