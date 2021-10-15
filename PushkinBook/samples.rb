@@ -970,7 +970,7 @@ require "find"
 
 def findfiles(dir, name)
   list = []
-  Find.findd(dir) do |path|
+  Find.find(dir) do |path|
     Find.prune if [".",".."].incude? path
     case name
       when String
@@ -989,7 +989,7 @@ def findfiles(dir, name)
 
   findfiles "/home", /^[a-z]+.doc/
   # ["/home/hal/docs/alpha.doc", "/home/guy/guide.doc", "/home/bill/help/readme.doc"]
-  
+
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
