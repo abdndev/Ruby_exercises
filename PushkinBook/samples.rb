@@ -990,6 +990,19 @@ def findfiles(dir, name)
   findfiles "/home", /^[a-z]+.doc/
   # ["/home/hal/docs/alpha.doc", "/home/guy/guide.doc", "/home/bill/help/readme.doc"]
 
+  # Доступ к данным более высокого уровня
+  # Простой маршаллинг
+  # Простейший способ сохранить объект для последующего использования - подвергнуть его маршалингу.
+  # Модуль Marshal позволяет сериализовать и десериализовать объекты в Ruby, представив их в виде строк,
+  # которые уже можно записать в файл.
+  # массив элементов [composer, work, minutes]
+  works = [["Leonard Bernstein", "Overture to Candide", 11],
+           ["Aaron Copland", "Symphony No. 3", 45],
+           ["Jean Sibelius", "Finlandia", 20]]
+  # Мы хотим сохранить его для дальнейшего использования...
+  File.write "store", Marshal.dump("works")
+
+
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
