@@ -1002,7 +1002,9 @@ def findfiles(dir, name)
   # Мы хотим сохранить его для дальнейшего использования...
   File.write "store", Marshal.dump("works")
 
-
+  # Намного позже...
+  works = Marshal.load File.read("store")
+  
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
