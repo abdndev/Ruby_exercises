@@ -1021,6 +1021,45 @@ def findfiles(dir, name)
   end
 
   a = deep_copy(b)
+
+  # Более сложный маршалинг
+  # Иногда мы хотим настроить маршалинг под свои нужды. Для этого нужно создать методы marshal_load 
+  # и marshal_dump. Если они существуют, то вызываются во время выполнения маршалинга, чтобы мы могла самостоятельно
+  # реализовать преобразование данных в строку и обратно.
+  # В следующем примере человек получает 5-процентный доход на начальный капитал с момента рождения. Мы
+  # не храним ни возраст, ни текущий баланс, поскольку они являются функциями времени.
+  class personal
+    attr_reader :balance, :name
+    
+    def initialize(name, birthday, beginning)
+      @name = name
+      @birthdate = birthdate
+      @deposit = deposit
+      @age = (Time.now - @birthdate) / (365*86400)
+      @balance = @deposit * (1.05 * @age)
+    end
+
+    def age
+      @age.floor
+    end
+
+    def marshal_dump
+      {name: @name, birthdate: @birthdate, deposit: @deposit}
+    end
+
+    def marshal_load(data)
+      initialize(data[:name], data[:birthdate], data[:deposit])
+    end
+  end
+
+  p1 = Person.new("Rudy", Time.now - (14 * 365 * 86400), 100)
+  [p1.name, p1.age, p1.balance]         # ["Rudy", 14, 197.9931599439417]
+
+  p2 = Marshal.load Marshal.dump(p1)
+  [p2.name, p2.age, p2.balance]         # ["Rudy", 14, 197.9931599440351]
+  # При сохранении объекта этого типа атрибуты age и balance не сохраняются. А когда объект восстанавливается
+  # они вычисляются заново. Отметим, что метод marshal_load предполагает, то объект существует; это один
+  # из немногих случаев, когда метод initialize приходится вызывать явно (обычно это делает метод new).
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
