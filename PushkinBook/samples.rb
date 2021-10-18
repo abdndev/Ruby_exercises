@@ -1061,6 +1061,37 @@ def findfiles(dir, name)
   # они вычисляются заново. Отметим, что метод marshal_load предполагает, то объект существует; это один
   # из немногих случаев, когда метод initialize приходится вызывать явно (обычно это делает метод new).
   
+  # Маршалинг в формате YAML
+  # Аббревиатура YAML означает "YAML Ain't Markup Language" (YAML - не язык разметки).
+  # Это не что иное, как гибкий, понятный человеку формат обмена данными между программами, возможно, 
+  # написанными на разных языках.
+  # Если загружена библиотека yaml, то в нашем распоряжении оказываются методы YAML.dump и YAML.load, 
+  # очень похожие на соответствующие методы из класса Marshal. Было бы поучительно сериализовать несколько
+  # объектов в формате YAML и посмотреть, что получается:
+  require 'yaml'
+
+  Person = Struct.new(:name)
+
+  puts YAML.dump("Hello, world.")
+  puts YAML.dump({this: "is a hash",
+        with: "symbol keys and string values"})
+  puts YAML.dump([1, 2, 3])
+  puts YAML.dump Person.new("Alice")
+
+  # Выводится:
+  # --- Hello, world.
+  # ...
+  # ---
+  # :this: is a hash
+  # :with: symbol keys and string values
+  # ---
+  # - 1
+  # - 2
+  # - 3
+  # --- !ruby/struct:Person
+  # name: Alice
+  
+
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
