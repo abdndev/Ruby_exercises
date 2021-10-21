@@ -1146,6 +1146,33 @@ def findfiles(dir, name)
   # выше методами marshal_dump и marshal_load. Существует соглашение, берущее начало в Ruby on Rails, 
   # о реализации метода as_json для преобразования объекта в типы данных, поддерживаемые JSON.
   
+  # Вот так можно реализовать метод as_json для преобразования объекта Person в формат JSON и обратно:
+  require 'json'
+  require 'time'
+
+  class Person
+    # остальные методы не изменились...
+
+    def as_json
+      {name: @name, birthdate: @birthdate.iso8601, deposit: @deposit}
+    end
+
+    def self.from_json(json)
+      data = JSON.parse(json)
+      birthdate = Time.parse(data["birthdate"])
+      new(data["name"], birthdate, data["deposit"])
+    end
+  end
+
+  p1 = Person.new("Rudy", Time.now - (14 * 365 * 85400, 100)
+  p1.as_json      # {:name=>"Rudy", :deposit=>100,
+                  # :birthdate=>"2000-07-23T23:25:02-07:00"}
+
+  p2 = Person.from_json JSON.dump(p1.as_json)
+  [p2.name, p2.age, p2.balance]      # ["Rudy", 14, 197.9931600356966]
+  # Поскольку JSON не позволяет сохранять объекты типа Time, мы преобразуем их в строку методом iso8601,
+  # а затем - при создании нового объекта Person - восстанавливаем из этой строки объект Time.
+  
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
