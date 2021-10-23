@@ -1216,6 +1216,37 @@ def findfiles(dir, name)
   # Но блочная форма мне представляется более естественной.
   # Каким бы способой ни был создан CSV-файл, его можно загрузить в Excel и другие электронные таблицы и там модифицировать.
   
+  # SQLite3 как SQL-хранилище данных
+  # Интерфейс между Ruby и SQLite3 довольно прямолинеен. Класс SQLite::Database позволяет открыть файл базы
+  # и выполнять SQL-запросы к ней. Ниже приведен просто пример кода:
+  require "sqlite3"
+
+  # Открыть новую базу данных
+  db = SQLite::Database.new("library.db")
+
+  # Создать таблицу для хранения книг
+  db.execute "create table books (
+    title varchar(1024), author varchar(256) );"
+
+  # Вставить в таблицу записи
+  {
+    "Robert Zubrin" => "The Case for Mars",
+  }.each do |author, title|
+    db.execute "insert into books values (?, ?)", [title, author]
+  end
+
+  # Читать записи из таблицы с использованием блока
+  db.execute("select title, author from books") do |row|
+    p row
+  end
+
+  # Закрыть базу
+  db.close
+
+  # Выводится:
+  # ["The Case for Mars", "Robert Zubrin"]
+  # ["Democracy in America", "Alexis de Tocqueville"]
+  
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
