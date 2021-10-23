@@ -1246,6 +1246,9 @@ def findfiles(dir, name)
   # Выводится:
   # ["The Case for Mars", "Robert Zubrin"]
   # ["Democracy in America", "Alexis de Tocqueville"]
+  # Если блок не задан, то метод execute возвращает массив массивов, и все строки можно обойти:
+  rs = db.execute("select title, author from books")
+  rs.each {|row| p row}           # Тот же результат,что и выше
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
