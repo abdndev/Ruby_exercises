@@ -1273,6 +1273,16 @@ def findfiles(dir, name)
   # Воспользоваться базой данных
   client.query("USE mailing_list")
 
+  # Если база данных уже существует, команду USE можно опустить, указав параметр database:
+  # Создать таблицу для хранения имен и почтовых адресов
+  client.query("CREATE TABLE members (
+    name varchar(1024), email varchar(1024))")
+
+  # Вставить строки с описанием двух подписчиков на список рассылки
+  client.query <<-SQL
+         INSERT INTO members VALUES
+         ('John Doe', 'jdoe@rubynewbie.com'),
+         ('Fred Smith', 'smithf@rubyexpert.com')
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
