@@ -1321,6 +1321,15 @@ def findfiles(dir, name)
   # John Doe - jdoe@rubynewbie.com
   # Fred Smith - smithf@rubyexpert.com
   # Bob Howard - bofh@laundry.gov.uk
+
+  # Имена существующих баз данных можно получить, воспользовавшись специфичной для MySQL командой SHOW DATABASES:
+  client.query("SHOW DATABASES").to_a(:as => :array).flatten
+  # ["information_schema", "mailing_list", "mysql",
+  #  "perfomance_schema", "test"]
+
+  # Наконец, для закрытия соединения с базой служит метод close:
+  # Закрыть соединение с базой данных
+  client.close
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
