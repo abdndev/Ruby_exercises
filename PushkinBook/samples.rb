@@ -1283,6 +1283,14 @@ def findfiles(dir, name)
          INSERT INTO members VALUES
          ('John Doe', 'jdoe@rubynewbie.com'),
          ('Fred Smith', 'smithf@rubyexpert.com')
+  SQL
+  # Вставляя данные, не забывайте экранировать значения! Злонамеренный пользователь может отправить специально
+  # сконструированные данные, которые уничтожат базу данных или даже предоставят ему права администратора.
+  # Чтобы предотвратить это, перед вставкой передавайте данные методу escape.
+  escaped = ["Bod Howard", "bofh@laundry.gov.uk"].map do |value|
+    "'#{client.escape(value)}'"
+  end
+  client.query("INSERT INTO members VALUES (#{escaped.join(",")})")
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
