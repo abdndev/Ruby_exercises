@@ -1303,6 +1303,24 @@ def findfiles(dir, name)
   # Name: John Doe, Email: jdoe@rubynewbie.com
   # Name: Fred Smith, Email: smithf@rubyexpert.com
   # Name: Bob Howard, Email: bofh@laundry.gov.uk
+
+  # Поддерживаются все типы данных MySQL, а строки, числа, время и другие типы автоматически преобразуются
+  # в объекты соответствующих классов Ruby.
+  # Объект Result отдает каждую строку результата в виде хэша. Ключи хэша по умолчанию являются строками,
+  # но можно сделать их символами, если передать методу query параметр :symbolize_keys => true.
+  # Из полезных методов Result назовем еще count (количество возвращенных строк) и fields (массив имен столбцов результата)
+  # Метод each может также отдавать строки результата в виде массива значений, если передать ему параметр :as=>:array.
+  # Запросить данные и вернуть каждую строку в виде массива
+  result = client.query("SELECT * FROM members")
+  puts "#{result.count} records"
+  puts result.fields.join(" - ")
+  result.each(:as => :array) {|m| puts m.join(" - ")}
+  # Выводится:
+  # 3 records
+  # name - email
+  # John Doe - jdoe@rubynewbie.com
+  # Fred Smith - smithf@rubyexpert.com
+  # Bob Howard - bofh@laundry.gov.uk
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
