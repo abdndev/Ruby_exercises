@@ -1291,6 +1291,18 @@ def findfiles(dir, name)
     "'#{client.escape(value)}'"
   end
   client.query("INSERT INTO members VALUES (#{escaped.join(",")})")
+
+  # Если в ответ на запрос был отправлен результат, то возвращается экземпляр класса Mysql2::Result, к 
+  # которому подмешан модуль Enumerable. Поэтому строки результата можно перебирать методом each или
+  # любым другим, входящим в состав Enumerable.
+  # Запросить данные и вернуть каждую строку в виде хэша
+  client.query("SELECT * from members").each do |member|
+    puts "Name: #{member["name"]}, Email: #{member["email"]}"
+  end
+  # Выводится:
+  # Name: John Doe, Email: jdoe@rubynewbie.com
+  # Name: Fred Smith, Email: smithf@rubyexpert.com
+  # Name: Bob Howard, Email: bofh@laundry.gov.uk
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
