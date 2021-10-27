@@ -1360,7 +1360,18 @@ def findfiles(dir, name)
   require 'date'
   conn.exec_params("INSERT INTO pets VALUES ($1, $2, $3)",
     ['Maru', 'cat', Date.today.to_s])
-  
+  # Но, в отличие от gem-пакета mysql2 пакет pg не преобразует результаты запроса в объекты соответствующих
+  # классов Ruby. Все результаты возвращаются в виде строк, при необходимости их нужно будет 
+  # преобразовать самостоятельно. Ниже мы вызываем метод Date.parse для каждого присутствующего в результате поля даты:
+  # Запросить данные:
+  res = conn.query("SELECT * FROM pets")
+  puts "There are #{res.count} pets."
+  res.each do |pet|
+    name = pet["name"]
+    age = (Date.today - Date.parse(pet["birthday"]))/365
+    species = pet["species"]
+    puts "#{name} is a #{age.floor}-year-old #{species}."
+  end
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
