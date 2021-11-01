@@ -1541,7 +1541,28 @@ def findfiles(dir, name)
   obj = SomeClass.new
   obj.instance_variable_defined?(:b2)       # true
   obj.instance_variable_defined?(:d2)       # true
+  # Повинуясь нашему желанию использовать eval только в случае острой необходимости, Ruby предоставляет
+  # также методы для чтения или присваивания значения переменной, имя которой задано в виде строки:
+  class MyClass
+    attr_reader :alpha, :beta
+
+    def initialize(a, b, g)
+      @alpha, @beta, @gamma = a, b, g
+    end
+  end
+
+  x = MyClass.new(10, 11, 12)
+
+  x.instance_variable_set("@alpha", 234)
+  p x.alpha                                  # 234
+
+  x.instance_variable_set("@gamma", 345)      # 345
+  v = x.instance_variable_get("@gamma")       # 345
+  # Прежде всего обратите внимание на знак @ в имени переменной: если его опустить, произойдет ошибка.
+  # Если это кажется вам интуитивно неочевидным, вспомните, что методы типа attr_accessor на самом деле
+  # принимают в качестве имени метода символ, поэтому-то в них и можно опускать знак @.
   
+
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
