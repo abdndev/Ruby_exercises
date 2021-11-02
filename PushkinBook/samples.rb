@@ -1598,6 +1598,27 @@ def findfiles(dir, name)
   # А если мы не хотим, чтобы у объекта были акцессоры для всех атрибутов? В таком случае можно было бы
   # воспользоваться методом instance_eval и сделать методы установки защищенными - protected. Этоо предотвратит
   # "случайное" присваивание значения атрибуту извне объекта.
+  class library
+    attr_reader :shelves
+
+    def initialize(&block)
+      instance_eval(&block)
+    end
+
+    protected
+
+      attr_writer :shelves
+  end
+
+  branch = Library.new do
+    self.shelves = 10
+  end
+
+  branch.shelves = 20
+  # NoMethodError: protected method 'shelves=' called
+  branch.shelves       # 10
+  # Но даже при использовании instance_eval необходимо явно вызывать метод установки от имени self.
+  # Метод установки всегда вызывается от имени явно указанного объекта, чтобы отличить его от присваивания локальной переменной.
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
