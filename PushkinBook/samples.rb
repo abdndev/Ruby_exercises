@@ -1683,6 +1683,24 @@ def findfiles(dir, name)
     end
 
   end
+
+  aluminum = Metal.new(13, 1236)
+  copper = Metal.new(29, 1982)
+  gold = Metal.new(79, 1948)
+
+  Metal.current_temp = 1600
+
+  puts aluminum.liquid?            # true
+  puts copper.liquid?              # false
+  puts gold.liquid?                # false
+
+  Metal.current_temp = 2100
+
+  puts aluminum.liquid?            # true
+  puts copper.liquid?              # true
+  puts gold.liquid?                # true
+
+  # О переменных экземпляра класса
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
