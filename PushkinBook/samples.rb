@@ -1701,6 +1701,44 @@ def findfiles(dir, name)
   puts gold.liquid?                # true
 
   # О переменных экземпляра класса
+  # Данные класса и экземпляра
+  class MyClass
+
+    SOME_CONST = "alpha"           # Константа уровня класса
+
+    @@var = "beta"                 # Переменная класса
+    @var = "gamma"                 # Переменная экземпляра класса
+
+    def initialize
+      @var = "delta"               # Переменная экземпляра
+    end
+
+    def mymethod
+      puts SOME_CONST              # (константа класса)
+      puts @@var                   # (переменная класса)
+      puts @var                    # (переменная экземпляра)
+    end
+
+    def self.classmeth1
+      puts SOME_CONST              # (константа класса)
+      puts @@var                   # (переменная класса)
+      puts @@var                   # (переменная класса)
+      puts @var                    # (переменная экземпляра класса)
+    end
+
+  end
+
+  def MyClass.classmeth2
+    puts MyClass::SOME_CONST       # (константа класса)
+    # puts @@var                   # ошибка: вне области видимости
+    puts @var                      # (переменная экземпляра класса)
+  end
+  myobj = MyClass.new
+  MyClass.classmeth1               # alpha, beta, gamma
+  MyClass.classmeth2               # alpha, gamma
+  myobj.mymethod                   # alpha, beta, delta
+  # Следует еще сказать, что метод класса можно сделать закрытым, воспользовавшись методом private_class_method.
+  # Это аналог метода private на уровне экземпляра.
   
   ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
