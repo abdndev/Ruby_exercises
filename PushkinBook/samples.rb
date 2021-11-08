@@ -1828,6 +1828,19 @@ puts (5.instance_of? Integer)        # true
 puts ("XYZZY".instance_of? Integer)  # false
 puts ("PLUGH".instance_of? String)   # true
 
+# А если нужно принять во внимание еще и отношение наследования? К вашим услугам метод kind_of? (похожий на instance_of?)
+# У него есть синоним is_a?, что вполне естественно, ибо мы описываем классическое отношение "является"
+n = 9876543210
+flag1 = n.instance_of? Bignum     # true
+flag2 = n.kind_of? Bignum         # true
+flag3 = n.is_a? Bignum            # true
+flag4 = n.is_a? Numeric           # true
+flag5 = n.is_a? Object            # true
+flag6 = n.is_a? String            # false
+flag7 = n.is_a? Array             # false
+# Ясно, что метод kind_of? или is_a? более общий, чем instance_of?. Например, всякая собака - млекопитающее,
+# но, не всякое млекопитающее - собака.
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
