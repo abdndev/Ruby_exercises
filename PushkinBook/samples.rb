@@ -1874,6 +1874,13 @@ else
   puts "Ага это не кусающийся вузл."
 end
 
+# Иногда нужно знать, является ли данный класс непосредственным родителем объекта или класса. Ответ на этот
+# вопрос дает метод superclass класса Class.
+array_parent = Array.superclass           # Object
+fn_parent = 237.class.superclass          # Integer
+obj_parent = Object.superclass            # BasicObject
+basic_parent = BasicObject.superclass     # nil
+# У любого класса кроме BasicObject, есть суперкласс.
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
