@@ -1847,6 +1847,13 @@ flag7 = n.is_a? Array             # false
 x = [1, 2, 3]
 flag8 = x.kind_of? Enumerable     # true
 flag9 = x.is_a? Enumerable        # true
+# Для сравнения двух классов можно пользоваться также операторами сравнения. Интуитивно очевидно, что 
+# оператор "меньше" обозначает наследование суперклассу.
+flag1 = Integer < Numeric         # true
+flag2 = Integer < Object          # true
+flag3 = Object == Array            # false
+flag4 = IO >= File                # true
+flag5 = Float < Integer           # nil
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
