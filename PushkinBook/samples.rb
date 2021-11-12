@@ -1955,7 +1955,34 @@ end
 # объекта одного типа могли взаимодействавать. В следующем примере объекты класса Person можно сравнивать 
 # по возрасту, но сам возраст недоступен вне класса Person. Закрытый атрибут pay_scale можно прочитать
 # внутри класса, но извне класса он недоступен даже другим объектам того же класса:
+class Person
+  attr_reader :name, :age, :pay_scale
+  protected   :age
+  private     :pay_scale
 
+  def initialize(name, age, pay_scale)
+    @name, @age, @pay_scale = name, age, pay_scale
+  end
+
+  def <=>(other)
+    age <=> other.age   # allowed by protected
+  end
+
+  def same_rank?(other)
+    pay_scale == other.pay_scale  # not allowed by private
+  end
+
+  def rank 
+    case pay_scale
+    when 1..3
+      "lower"
+    when 4..6
+      "middle"
+    when 7..9
+      "high"
+    end
+  end
+end
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
