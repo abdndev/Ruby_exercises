@@ -2018,6 +2018,26 @@ arr2[1][2] = 'a'
 arr1                        # [1, "flapper", 3]
 arr2                        # [1, "flapper", 99]
 
+# Метод initialize_copy
+# При копировании объекта методом dup или clone конструктор не вызывается. Копируется вся информация о состоянии.
+# Но, что делать если вам такое поведение не нужно? Рассмотрим пример:
+class Document
+  attr_accessor :title, :text
+  attr_reader   :timestamp
+
+  def initialize(title, text)
+    @title, @text = title, text
+    @timestamp = Time.now
+  end
+end
+
+doc1 = Document.new("Random Stuff", File.read("somefile"))
+sleep 300                         # Немного подождем...
+doc2 = doc1.clone
+
+doc1.timestamp == doc2.timestamp  # true
+# Оп... временные штампы одинаковые!
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
