@@ -2511,6 +2511,27 @@ o = MyClass.new
 puts o.a                         # 123
 puts o.b                         # 2014-07-26 00:45:12 -0700
 
+# Метод extend подмешивает к объекту модуль. Методы экземпляра, определенные в модуле, становятся методами
+# экземпляра объекта. 
+module Quantifier
+  def two?
+    2 == self.select { |x| yield x }.size
+  end
+
+  def four?
+    4 == self.select { |x| yield x }.size
+  end
+
+end
+
+list = [1, 2, 3, 4, 5]
+list.extend(Quantifier)
+
+flag1 = list.two? { |x| x > 3 }                    # => true
+flag2 = list.two? { |x| x >= 3 }                   # => false
+flag3 = list.four? { |x| x <= 4 }                  # => true
+flag4 = list.four? { |x| x % 2 == 0 }              # => false
+# В этом примере к массиву list подмешаны методы two? и four?.
 
 
 ------------------------------------------------------------------------------
