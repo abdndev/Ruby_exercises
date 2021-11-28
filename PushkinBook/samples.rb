@@ -2484,6 +2484,35 @@ TheClass.hello                 # hi
 # функций доступа, которые преобразуют результат своей работы в строку. Можно, конечно, написать отдельно
 # код каждой такой функции. Но, есть более элегантное решение - определить функцию уровня класса 
 # accessor_string, которая сгенерирует необходимые нам функции. Пример ниже:
+class MyClass
+
+  class << self
+
+    def accessor_string(*names)
+      names.each do |name|
+        class_eval <<-EOF
+          def #{name}
+            @#{name}.to_s
+          end
+        EOF
+      end
+    end
+  end
+
+  def initialize
+    @a = [1, 2, 3]
+    @b = Time.now
+  end
+
+  accessor_string :a, :begin
+end
+
+o = MyClass.new
+puts o.a                         # 123
+puts o.b                         # 2014-07-26 00:45:12 -0700
+
+
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
