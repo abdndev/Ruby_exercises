@@ -2533,6 +2533,50 @@ flag3 = list.four? { |x| x <= 4 }                  # => true
 flag4 = list.four? { |x| x % 2 == 0 }              # => false
 # В этом примере к массиву list подмешаны методы two? и four?.
 
+# Создание параметрических классов
+# Предположим, что нужно создать несколько классов, отличающихся только начальными значениями переменных
+# уровня класса. Напомним, что переменная класса обычно инициализируется в самом определении класса.
+class Terran
+
+  @@home_planet = "Earth"
+
+  def Terran.home_planet
+    @@home_planet
+  end
+
+  def Terran.home_planet=(x)
+    @@home_planet = x 
+  end
+
+  # ...
+
+end
+# Все замечательно, но что если нам нужно определить несколько подобных классов. Новичок подумает:
+# "Так я просто определю суперкласс"
+class IntelligentLife          # Неправильный способ решения задачи!
+
+  @@home_planet = nil
+
+  def IntelligentLife.home_planet
+    @@home_planet
+  end
+
+  def IntelligentLife.home_planet=(x)
+    @@home_planet = x 
+  end
+
+  # ...
+end
+
+class Terran < IntelligentLife
+  @@home_planet = "Earth"
+  # ...
+end
+
+class Martian < IntelligentLife
+  @@home_planet = "Mars"
+end
+
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
