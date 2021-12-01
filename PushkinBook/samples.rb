@@ -2613,6 +2613,27 @@ puts Terran.home_planet                            # Earth
 puts Martian.home_planet                           # Mars
 # Не стоит и говорить, что механизм наследования здесь по-прежнему работает. Все методы и переменные
 # экземпляра, определенные в классе IntelligentLife, наследуются классами Terran и Martian.
+# В следующем решении предложено, наверное, наилучшее решение. В нем используются только переменные экземпляра,
+# а от переменных класса мы вообще отказались:
+class IntelligentLife
+  class << self
+    attr_accessor :home_planet
+  end
+
+  # ...
+end
+
+class Terran < IntelligentLife
+  self.home_planet = "Earth"
+  # ...
+end
+
+class Martian < IntelligentLife
+  self.home_planet = "Mars"
+end
+
+puts Terran.home_planet                    # Earth
+puts Martian.home_planet                   # Mars
 
 
 ------------------------------------------------------------------------------
