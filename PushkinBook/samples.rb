@@ -2685,6 +2685,19 @@ p greet(philippe_lambda)        # Всем доброе утро.
 non_stabby_lambda = lambda { |king| greet(king) }
 stabby_lambda = -> (king) { stab(king) }
 
+# Хранение кода в виде объектов Method
+# Ruby позволяет также превратить метод в объект непосредственно с помощью метода Object#method, который
+# создает объект класса Method как замыкание, связанное с тем объектом, из которого он был создан.
+str = "cat"
+meth = str.method(:length)
+
+a = meth.call                            # 3 (длина "cat")
+str << "erpillar"
+b = meth.call                            # 11 (длина "caterpillar")
+
+str = "dog"
+c = meth.call                            # 11 (длина "caterpillar")
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
