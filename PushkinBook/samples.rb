@@ -2773,6 +2773,23 @@ end
 x = ChildClass.new
 p x.meth                         # из потомка: super = из модуля
 # Отсюда видно, что модуль действительно является новым родителем класса.
+# А что если мы точно также вызовем super из модуля?
+module MyMod
+  def meth
+    "из модуля: super = " + super
+  end
+end
+# ParentClass не изменился
+
+class ChildClass < ParentClass
+  include MyMod
+  def meth
+    "из потомка: super= " + super
+  end
+end
+
+x = ChildClass.new
+p x.meth                       # из потомка: super = из модуля: super = из родителя
 
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
