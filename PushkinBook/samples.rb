@@ -2868,6 +2868,30 @@ mq.enqueue(234)
 p mq.dequeue              # 123
 p mq.dequeue              # 234
 
+# Можно также унаследовать класс Delegator и реализовать метод __getobj__;
+# именно таким образом реализован класс SimpleDelegator. При этом мы получаем больший контроль над делегированием.
+# Но если вам необходим больший контроль, то, вероятно, вы все равно осуществляете делегирование на уровне
+# отдельных методов, а не класса в целом. Тогда лучше воспользоваться библиотекой forwardable.
+# Вернемся к примеру очереди:
+require 'forwardable'
+
+class MyQueue
+  extend Forwardable
+
+  def initialize(obj=[])
+    @queue = obj              # делегировать этому объекту
+  end
+
+  def_delegator :@queue, :push, :enqueue
+  def_delegator :@queue, :shift, :dequeue
+
+  def delegators :@queue, :clear, :empty?, :length, :size, :<<
+
+  # Прочий код...
+end
+
+
+
 ------------------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
