@@ -3002,6 +3002,15 @@ end
 
 the_binding = some_method
 eval "a", the_binding      # "local variable"
+# Интересно, что информация о наличии блока, ассоциированного с методом, сохраняется как часть 
+# привязки, поэтому возможны такие трюки:
+def some_method
+  return binding
+end
+
+the_binding = some_method { puts "hello" }
+eval "yield", the_binding                          # hello
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
