@@ -3032,6 +3032,19 @@ Math.const_get(str)                                # Значение равно
 classname = "Array"
 klass = Object.const_get(classname)
 x = klass.new(4, 1)                    # [1, 1, 1, 1]
+# Если константа определена внутри пространства имен, то достаточно задать строку, в которой это пространство
+# имен отделено от имени константы двумя двоеточиями (как если бы вы писали прямо на Ruby):
+class Alpha
+  class beta
+    class Gamma 
+      FOOBAR = 237 
+    end
+  end
+end
+
+str = "Alpha::Beta::Gamma::FOOBAR"
+val = Object.const_get(str)                 # 237
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
