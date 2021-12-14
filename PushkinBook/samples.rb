@@ -3079,6 +3079,17 @@ x = MyClass.new
 x.body_method                                # Печатается "Тело класса."
 x.class_method                               # Печатается "Метод класса."
 
+# Можно даже создать метод экземпляра, который будет динамически определять другие методы экземпляра:
+class MyClass
+  def new_method(name, &block)
+    self.class.send(:define_method, name, &block)
+  end
+end
+
+x = MyClass.new
+x.new_method(:instance_method) { puts "Метод экземпляра." }
+x.mymeth                                      # Печатается "Метод экземпляра."
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
