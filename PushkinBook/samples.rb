@@ -3168,6 +3168,18 @@ p x.peek                              # 999
 list = Array.ancestors              # [Array, Enumerable, Object, Kernel, BasicObject]
 # Метод constants возвращает список всех констант, доступных в данном модуле. Включаются также его предки.
 list = Math.constants  # [:DomainError, :PI, :E]
+# Метод class_variables возвращает список всех переменных класса в данном классе и его суперклассах. 
+# Метод included_modules возвращает список модулей, включенных в класс.
+class Parent 
+  @@var1 = nil
+end
+class Child < Parent
+  @@var2 = nil
+end
+
+list1 = Parent.class_variables           # ["@@var1"]
+list2 = Array.included_modules           # [Enumerable, Kernel]
+
 
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
