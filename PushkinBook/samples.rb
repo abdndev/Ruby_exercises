@@ -3180,6 +3180,15 @@ end
 list1 = Parent.class_variables           # ["@@var1"]
 list2 = Array.included_modules           # [Enumerable, Kernel]
 
+# Методы instance_methods и public_instance_methods класса Class - синонимы; они возвращают список открытых
+# методов экземпляра, определенных в классе. Методы private_instance_methods и protected_instance_mehtods
+# ведут себя аналогично. Любой из них принимает необязательный флаг, по умолчанию равный true, если его 
+# значение равно false, то суперклассы не учитываются, так что список получается меньше.
+n1 = Array.instance_methods.size                      # 174
+n2 = Array.public_instance_methods.size               # 174
+n3 = Array.public_instance_methods(false).size        # 90
+n4 = Array.private_instance_methods.size              # 84
+n5 = Array.protected_instance_mehtods.size            # 0
 
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
