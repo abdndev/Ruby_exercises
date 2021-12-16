@@ -3194,6 +3194,39 @@ n5 = Array.protected_instance_mehtods.size            # 0
 # и принимает параметр, равный по умолчанию true, который говорит, нужно ли включать также методы суперклассов.
 # Методы private_methods, protected_methods и singleton_methods тоже принимают такой параметр и возвращают
 # именно то что что и ожидается.
+class SomeClass
+
+  def initialize
+    @a = 1
+    @b = 2
+  end
+
+  def mymeth
+    #...
+  end
+
+  protected :mymeth
+
+end
+
+x = SomeClass.new
+
+def x.new_method
+  # ...
+end
+iv = x.instance_variables                        # ["@b", "@a"]
+
+p x.methods.size                                 # 61
+
+p x.public_methods.size                          # 60
+
+p x.public_instance_methods(false).size          # 1
+
+p x.private_methods.size                         # 85
+p x.private_methods(false).size                  # 1
+
+p x.protected_methods.size                       # 1
+p x.singleton_methods.size                       # 1
 
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
