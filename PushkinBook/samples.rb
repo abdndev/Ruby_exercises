@@ -3287,6 +3287,22 @@ end
 
 # PI больше нет!
 
+# Отметим, что таким образом можно удалить и определение класса (потому что идентификатор класса - это
+# просто константа):
+class BriefCandle
+  #...
+end
+
+out_out = BriefCandle.new
+class Object
+  remove_const :BriefCandle
+end
+
+BriefCandle.new                            # NameError: uninitialized constant BriefCandle
+out_out.class.new                          # Еще один экземпляр BriefCandle
+# Такие методы, как remove_const и remove_method являются закрытыми (что и понятно). Поэтому во всех примерах
+# они вызываются изнутри определения класса или модуля, а не снаружи.
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
