@@ -3341,6 +3341,21 @@ class Alpha
 end
 
 # В конечном итоге будет вызван method_missing, определенный в классе Object, который и возбудит исключение.
+# Чтобы использование метода method_missing было безопасным, всегда определяйте метод respond_to_missing?.
+# В этом случае Ruby сможет предоставить результаты как методу respond_to?, так и методу method.
+# Ниже приведен пример такой техники:
+class CommandWrapper                            # повторно открыть класс
+
+  def respond_to_missing?(method, include_all)
+    system("which #{method} > /dev/null")
+  end
+
+end
+
+cw = CommandWrapper.new
+cw.respond_to?(:foo)                  # false
+cw.method(:echo)                      # #<Method: CommandWrapper#echo>
+cw.respond_to?(:echo)                 # true
 
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
