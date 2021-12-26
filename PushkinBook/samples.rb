@@ -3462,6 +3462,68 @@ end
 def func2
   func1
 end
+
+# Отслеживание изменений в определении класса или объекта
+# А зачем собственно? Кому интересны изменения, которым подвергался класс?
+# Одна возможная причина - желание следить за состоянием выполняемой программы на Ruby. Быть может,
+# мы реализуем графический отладчик, который должен обновлять список методов, добавляемых "на лету".
+# Другая причина: мы хотим вносить соответствующие изменения в другие классы. Например, мы разрабатываем
+# модуль, который можно включить в определение любого класса. С момента включения будут трассироваться 
+# любые обращения к методам этого класса. Возможная реализация такого модуля показана ниже:
+module Tracing
+
+  def self.hook_method(const, meth)
+    const.class_eval do
+      alias_method "untraced_#{meth}", "#{meth}"
+      define_method(method) do |*args|
+        puts "вызван метод #{meth} с параметрами (#{args.join(', '})"
+        send("untraced_#{meth}", *args)
+      end
+    end
+  end
+
+  def self.included(const)
+    const.instance_methods(false).each do |m|
+      hook_method(const, m)
+    end
+
+    def const.method_added(name)
+      return if @disable_method_added
+      puts "Метод #{name} добавлен в класс #{self}"
+      @disable_method_added = true
+      Tracing.hook_method(self, name)
+      @disable_method_added = false
+    end
+
+    if const.is_a?(Class)
+      def const.inherited(name)
+        puts "Класс #{name} унаследован от #{self}"
+      end
+    end
+
+    if const.is_a?(Module)
+      def const.extended(name)
+        puts "Класс #{name} расширил себя с помощью #{self}"
+      end
+
+      def const.included(name)
+        puts "Класс #{name} включил в себя #{self}"
+      end
+    end
+
+    def const.singleton_method_added(name, *args)
+      return if @disable_singleton_method_added
+      return if name == :singleton_method_added
+
+      puts "Метод класса #{name} добавлен в класс #{self}"
+      @disable_singleton_method_added = true
+      singleton_class = (class << self; self; end)
+      Tracing.hook_method(singleton_class, name)
+      @disable_singleton_method_added = false
+    end
+  end
+end
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
