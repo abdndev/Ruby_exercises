@@ -3615,6 +3615,25 @@ end
 
 factorial(4)
 
+# Здесь мы воспользовались методом TracePoint.trace, это просто сокращенный способ вызвать new, а затем
+# enable. Можно также трассировать одиночный блок кода, передав его методу TracePoint#enable.
+# При выполнении этой программы будет напечатано следующее:
+factorial.rb:12  #<Class:TracePoint>#trace
+factorial.rb:12  #<Class:TracePoint>#trace =>
+                   #<TracePoint:0x007ffe8a893f10>
+factorial.rb:1   Object#factorial
+factorial.rb:2     Enumerable#inject
+factorial.rb:2       Range#each
+factorial.rb:2         Fixnum#*
+factorial.rb:2         Fixnum#* => 2
+factorial.rb:2         Fixnum#*
+factorial.rb:2         Fixnum#* => 6
+factorial.rb:2         Fixnum#*
+factorial.rb:2         Fixnum#* => 24
+factorial.rb:2       Range#each => 1..4
+factorial.rb:2     Enumerable#inject => 24
+factorial.rb:3   Object#factorial => 24
+                   
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
