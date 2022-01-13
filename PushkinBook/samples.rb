@@ -4015,6 +4015,16 @@ threads = ThreadGroup.new
 threads.add t1
 threads.add t2
 
+# Метод экземпляра list возвращает массив всех потоков, принадлежащих данной группе.
+# Подсчитать все "живые" потоки в группе this_group
+count = 0
+this_group.list.each { |x| count += 1 if x.alive? }
+if count < this_group.list.size 
+  puts "Некоторые потоки в группе this_group уже скончались."
+else
+  puts "Все потоки в группе this_group живы."
+end
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
