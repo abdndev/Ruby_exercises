@@ -4247,6 +4247,33 @@ upper1 = buff.max                       # 25
 buff.max = 50
 upper2 = buff.max                       # 50
 
+# В примере ниже приведено решение задачи о производителе и потребителе. Для производителя задержка
+# (аргумент sleep) чуть больше, чем для потребителя, чтобы единицы продукции "накапливались".
+require 'thread'
+
+buffer = ThreadQueue.new(2)
+
+producer = Thread.new do 
+  item = 0
+  loop do 
+    sleep(rand * 0.1)
+    puts "Производитель произвел #{item}"
+    buffer.enq_item
+    item += 1
+  end
+end
+
+consumer = Thread.new do 
+  loop do 
+    sleep( (rand 0.1) + 0.09)
+    item = buffer.deq 
+    puts "Потребитель потребил #{item}"
+    puts " ожидает = #{bufffer.num_waiting}"
+  end
+end
+
+sleep 10      # Работать 10 секунда, потом завершить оба потока.
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
