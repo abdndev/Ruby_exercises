@@ -4258,7 +4258,7 @@ producer = Thread.new do
   loop do 
     sleep(rand * 0.1)
     puts "Производитель произвел #{item}"
-    buffer.enq_item
+    buffer.enq item
     item += 1
   end
 end
