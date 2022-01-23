@@ -4353,6 +4353,83 @@ class MyMonitor
   include MonitorMixin
 end
 
+# Класс ConditionVariable в библиотеке monitor.rb дополнен по сравнению с определением в библиотеке thread.
+# У него есть методы wait_untill и wait_while, которые блокируют поток в ожидании выполнения условия. 
+# Кроме того, возможен таймаут при ожидании, поскольку у метода wait имеется параметр timeout, равный
+# количеству секунд (по умолчанию nil)
+# Поскольку примеры работы с потоками у нас кончаются, то ниже мы предлагаем реализацию  классов Queue 
+# и SizedQueue с помощью монитора.
+# Немного модифицированная версия кода, написанного Шуго Маэда(Shugo Maeda)
+require 'monitor'
+
+class OurQueue
+
+  def initialize
+    @que = []
+    @monitor = Monitor.new 
+    @empty_cond = @monitor.new_cond 
+  end
+
+  def enq(obj)
+    @monitor.synchronize do
+      @que.push(obj)
+      @empty_cond.signal 
+    end
+  end
+
+  def deq
+    @monitor.synchronize do
+      while @que.empty?
+        @empty_cond.wait
+      end
+      return @que.shift
+    end
+  end
+
+  def size
+    @que.size
+  end
+end
+
+class OurSizedQueue < OurQueue
+  attr :max
+
+  def initialize(max)
+    super()
+    @max = max
+    @full_cond = @monitor.new_cond
+  end
+
+  def enq(obj)
+    @monitor.synchronize do 
+      while @que.length >= @max 
+        @full_cond.wait
+      end
+      super(obj)
+    end
+  end
+
+  def deq
+    @monitor.synchronize do
+      obj = super
+      @full_cond.signal 
+    end
+    return obj
+  end
+
+  def max=(max)
+    @monitor.synchronize do
+      @max = max
+      @full_cond.broadcast
+    end
+  end
+end
+
+# Еще один вариант синхронизации потоков (двухфазную блокировку со счетчиком) предлагает библиотека 
+# sync.rb. В ней определен модуль Sync_m, который можно применять вместе с ключевыми словами include и
+# extend (как и Mutex_m). Этот модуль содержит методы sync_locked?, sync_shared?, sync_exclusive?,
+# sync_lock, sync_unlock и sync_try_lock.
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
