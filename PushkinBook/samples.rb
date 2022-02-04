@@ -4832,6 +4832,17 @@ pid2 = fork { sleep 1; exit 3 }
 pid2_again = Process.wait         # Возвращается pid2 
 pid1_and_status = Process.wait2   # Возвращается [pid1, #<Process::Status exit 3>]
 
+# Чтобы дождаться завершения конкретного потомка, пользуйтесь методами waitpid и waitpid2 соответственно.
+pid3 = fork { sleep 2; exit 3 }
+pid4 = fork { sleep 1; exit 3 }
+
+sleep 3                           # Дать потомкам время завершиться
+
+pid4_again = Process.waitpid(pid3, Process::WNOHANG)
+pid3_array = Process.waitpid2(pid3, Process::WNOHANG)
+
+# pid3_array равен [pid3, #<Process::Status exit 3>]
+
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
