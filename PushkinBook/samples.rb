@@ -4988,6 +4988,23 @@ OptionParser.new do |opts|
 
     p args 
     p ARGV.first
+
+   # Если сохранить этот код в файле tool.rb и выполнить его, то будет напечатано то, что
+   # и следовало ожидать:
+   $ ruby tool.rb -h 
+   Порядок вызова: tool [options] COMMAND 
+            -f, -file FILE
+            -l, -lines [LINES]    Сколько строк выводить (по умолчанию 100)
+            -h, -help             Показать эту справку
+
+  $ ruby tool.rb -file book.txt 
+  {:lines=>100, :file=>"book.txt"}
+  []
+
+  $ ruby tool.rb -f book.txt -lines 10 print 
+  {:lines=>10, :file=>"book.txt"}
+  ["print"]
+  
 -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
