@@ -5105,6 +5105,18 @@ sh.foreach("/tmp/foo") {|l| puts l}
 # Вывести список файлов в каталоге /tmp
 sh.foreach("/tmp") {|f| puts f}
 
+# Метод pushdir запоминает текущий каталог, а метод popdir делает последний запомненный 
+# каталог текущим. У них есть синонимы pushd и popd. Метод pwd возвращает текущий рабочий
+# каталог, его синонимы - getwd, cwd и dir.
+sh = Shell.cd "/home"
+
+puts sh.pwd        # /home
+sh.pushd "/tmp"
+puts sh.pwd        # /tmp
+
+sh.popd 
+puts sh.pwd        # /home 
+
   -----------------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
