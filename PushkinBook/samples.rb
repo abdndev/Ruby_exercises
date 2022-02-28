@@ -5205,7 +5205,40 @@ end
 # ARGF.readlines, как если бы ARGF был объектом класса IO. Вся выходная информация будет, как обычно,
 # направлена на стандартный вывод.
 
-  -----------------------------------------------------------------------
+# Копирование дерева каталогов (с символическими ссылками)
+# Пусть нужно скопировать целое дерево каталогов в новое место. Сделать это можно по-разному, но если 
+# в дереве есть символические ссылки, задача усложняется. Ниже приведено рекурсивное решение. Оно достаточно
+# дружелюбно - контролирует входные данные и выводит информацию о порнядке запуска.
+require "fileutils"
+
+def recurse(src, dst)
+  Dir.mkdir(dst)
+  Dir.foreach(src) do |e| 
+    # Пропустить . и ..
+    next if [".", ".."].include? e 
+    fullname = src + "/" + e  
+    newname = fullname.sub(Regexp.new(Regexp.escape(src)),dst)
+    if File.directory?(fullname)
+      recurse(fullname, newname)
+    elsif File.symlink?(fullname)
+      linkname = `ls -l #{fullname}`.sub(/.* -> /,"").chomp 
+      newlink = linkname.dup 
+      n = newlink.index($oldname)
+      next if n == nil 
+      n2 = n + $oldname.length - 1
+      newlink[n..n2] = $newname 
+      newlink.sub!(/\/\//,"/")
+      # newlink = linkname.sub(Regexp.new(Regexp.escape(src)),dst)
+        File.symlink(newlink, newname)
+    elsif File.file?(fullname)
+      FileUtils.copy(fullname, newname)
+    else
+      puts "??? : #{fullname}"
+    end
+  end
+end
+      
+-----------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
   def call(env)
