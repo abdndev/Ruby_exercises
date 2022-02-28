@@ -5237,7 +5237,38 @@ def recurse(src, dst)
     end
   end
 end
-      
+   
+# "Главная программа"
+
+if ARGV.size != 2
+  puts "Порядок вызова: copytree oldname newname"
+  exit 
+end
+
+oldname = ARGV[0]
+newname = ARGV[1]
+
+if !File.directory?(oldname)
+  puts "Ошибка: первый параметр должен быть именем существующего каталога."
+  exit 
+end
+
+if File.exist?(newname)
+  puts "Ошибка: #{newname} уже существует."
+  exit
+end
+
+oldname = File.expand_path(oldname)
+newname = File.expand_path(newname)
+
+$oldname=oldname
+$newname=newname 
+
+recurse(oldname, newname)
+# В современных вариантах UNIX, например Mac OS X, команда cp -R сохраняет символические ссылки, но в 
+# более старых это не так. Программа показанная выше была написана для решения этой практической задачи.
+
+
 -----------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
