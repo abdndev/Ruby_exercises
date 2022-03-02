@@ -5287,6 +5287,26 @@ def delete_older(dir, time)
 end
 
 delete_older("/tmp", Time.local(2001,3,29,18,38,0)
+# Неплохо, но можно обобщить. Создадим метод delete_if, который принимает блок,
+# возвращающий значение true или false. И будем удалять те и только те файлы, которые
+# удовлетворяют заданному критерию.
+def delete_if(dir)
+  Dir.chdir(dir) do 
+    Dir.foreach(".") do |entry| 
+      # Каталоги не обрабатываются
+      next if File.stat(entry).directory? 
+      if yield entry 
+        File.unlink(entry)
+      end
+    end
+  end
+end
+
+# Удалить файлы длиннее 3000 байтов
+delete_if("/tmp") { |f| File.size(f) > 3000 }
+
+# Удалить файлы с расширениями LOG и BAK 
+delete_if("/tmp") { |f| f =~ /(log|bak)$/i }
 
 -----------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
