@@ -5319,7 +5319,24 @@ end
 
 puts freespace("/")                # 48.7
 
------------------------------------------------------------------
+# Для Windows имеется более элегантное решение (предложено Дэниэлем Бергером):
+require 'Win32API'
+
+GetDiskFreeSpaceEx = Win32API.new('kernel32', 'GetDiskFreeSpaceEx',
+                                  'PPPP', 'I')
+
+def freespace(dir=".")
+  total_bytes = [0].pack('Q')
+  total_free = [0].pack('Q')
+  GetDiskFreeSpaceEx.call(dir, 0, total_bytes, total_free)
+  
+  total_bytes = total_bytes.unpack('Q').first
+  total_free = total_free.unpack('Q').first
+end
+
+puts freespace("C:")            # 5340389376
+
+  -----------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
 class MyRackApp
   def call(env)
