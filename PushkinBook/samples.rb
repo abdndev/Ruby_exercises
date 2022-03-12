@@ -5473,6 +5473,32 @@ p data["students"].first.values_at("name", "grade")
 # формате представлены в кодировке UTF-8. Помимо вышеперечисленных, можно еще представить значения
 # true, false и null (соответствует nil в Ruby).
 
+# Обход JSON-данных
+# После того как JSON-данные разобраны, можно обойти образовавшиеся вложенные хэши и массивы и 
+# извлечь из них нужные данные. Для иллюстрации возьмем данные, которые возвращает открытый API сайта GitHub:
+require 'json'
+require 'open-uri'
+require 'pp'
+
+json = open("https://api.github.com/repos/ruby/ruby/contributors")
+users = JSON.parse(json)
+
+pp users.first
+# {"login"=>"nobu",
+#  "id"=>16700,
+#  "url"=>"https://api.github.com/users/nobu",
+#  "html_url"=>"https://github.com/nobu",
+#  [...прочие атрибуты...],
+#  "type"=>"User",
+#  "site_admin"=>false,
+#  "contributions"=>9850}
+
+users.sort_by! { |u| -u["contributions"] }
+puts users[0...10].map{ |u| u["login"] }.join(", ")
+# nobu, akr, nurse, unak, eban kol, drbrain, knu, kosaki, mame
+
+# Здесь мы воспользовались библиотекой open-uri. Она позволяет использовать метод open для URI - во многом также
+# как для обычного файла.
 
 -----------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
