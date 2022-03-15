@@ -5524,6 +5524,19 @@ puts feed.channel.description
 feed.items.each_with_index do |item, i|
   puts "#{i + 1}. #{item.title.strip}"
 end
+# Обратите внимание, что анализатор RSS извлекает канал новостной ленты; наша программа затем печатает
+# заголовок канала. Существует также список элементов (его возвращает акцессор items), который можно
+# рассматривать как перечень статей. Мы получаем весь список и печатаем заголовок каждой статьи.
+# Разумеется, конкретные данные день ото дня меняются, но вот что получилось у меня в результате
+# запуска этой программы:
+Astronomy Picture of the Day 
+1. Star Trails Over Indonesia
+2. Jupiter and Venus from Earth 
+3. No X rays from SN 2014J 
+4. Perseid in Moonlight
+5. Surreal Moon 
+6. Rings Around the Ring Nebula
+7. Collapse in Hebes Chasma on Mars
 
 -----------------------------------------------------------------
 # простейшее Rack-приложение на основе класса
