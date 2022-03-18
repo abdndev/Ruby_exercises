@@ -1,3 +1,23 @@
+# Создание новостных лент
+# Есть также возможность генерировать документы в формате RSS или Atom с помощью
+# метода RSS::Maker из стандартной библиотеки RSS. В примере ниже создается
+# небольшая лента в формате Atom для гипотетического сайта:
+require 'rss'
+
+feed = RSS::Maker.make("atom") do |f|
+  f.channel.title = "Feed Your Head"
+  f.channel.id = "https://nosuchplace.org/home/"
+  f.channel.author = "Y.T."
+  f.channel.logo = "https://nosuchplace.org/images/headshot.jpg"
+  f.channel.updated = Time.now 
+
+  f.items.new_item do |i|
+    i.title = "Once again, here we are"
+    i.link = "https://nosuchplace.org/articles/once_again"
+    i.description = "Don't you feel more like you do now than usual?"
+    i.updated = Time.parse("2014-08-17 10:23AM")
+end
+-------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
 
