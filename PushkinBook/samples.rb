@@ -69,6 +69,33 @@ end
 # Prawn располагает большим набором процедур обработки текста, а также графическими примитивами для 
 # рисования прямых и кривых линий и геометрических фигур.
 
+# Пример документа
+# Рассмотрим несколько искусственный пример. Программа, показанная ниже, делит страницу на четыре
+# прямоугольника и каждый заполняет по разному.
+require 'prawn'
+
+# На основе кода, предложенного Брэдом Эдигером
+
+class DemoDocument
+  def initialize
+    @pdf = Prawn::Document.new 
+  end
+
+  def render_file(file)
+    render 
+    @pdf.render_file(file)
+  end 
+
+  def render 
+    side = @pdf.bounds.width / 2.0 
+    box(0, 0, side, side) { star }
+    box(side, 0, side, side) { heart }
+    box(0, side, side, side) { ruby }
+    box(side, side, side, side) { misc_text }
+  end
+
+  private
+  
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
