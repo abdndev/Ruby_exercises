@@ -96,6 +96,25 @@ class DemoDocument
 
   private
   
+  # Выполнить указанный блок в ограничивающем прямоугольнике, отделенном
+  # от родителя отступом размером 'padding' пунктов.
+  def inset(padding)
+    left = @pdf.bounds.left + padding 
+    top = @pdf.bounds.top - padding
+    @pdf.bounding_box([left, top],
+      width: @pdf.bounds.width - 2*padding,
+      height: @pdf.bounds.height - 2*padding) { yield }
+  end
+
+  # Нарисовать прямоугольник заданного размера с левым верхним углом в точке
+  # (x, y) и вызвать yield, чтобы можно было выполнить в нем рисование.
+  def box(x, y, w, h)
+    @pdf.bounding_box([x, @pdf.bounds.top - y], width: w, height: h) do 
+      @pdf.stroke_bounds
+      inset(10) { yield }
+    end
+  end
+  
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
