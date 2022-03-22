@@ -114,6 +114,20 @@ class DemoDocument
       inset(10) { yield }
     end
   end
+
+  def star 
+    reps = 15
+    size = 0.24 * @pdf.bounds.width 
+    radius = 0.26 * @pdf.bounds.width
+    center_x = @pdf.bounds.width / 2.0
+    center_y = @pdf.bounds.height / 2.0
+    reps.tines do |i|
+      @pdf.rotate i * 360.0 /reps, origin: [center_x, center_y] do 
+        edge = center_y + radius 
+        @pdf.draw_text ")", size: size, at: [center_x, edge]
+      end
+    end
+  end
   
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
