@@ -129,6 +129,36 @@ class DemoDocument
     end
   end
   
+  def ruby 
+    @pdf.image "ruby.png",
+             at: [0, @pdf.cursor],
+             width: @pdf.bounds.width,
+             height: @pdf.bounds.height
+  end
+
+  def heart
+    10.times do |i|
+      inset(i * 10) do
+        box = @pdf.bounds
+        center = box.width / 2.0 
+        cusp_y = 0.6 * box.top 
+
+        k = center * Prawn::Graphics::KAPPA
+        @pdf.stoke_color(0, 0, 0, 100-(i*10))
+        @pdf.stroke do 
+          # Нарисовать сердце, состоящее из двху кривых Безье
+          paths = [[0, 0.9*center], [box.right, 1.1*center]]
+          paths.each do |side, midside|
+            @pdf.move_to [center,cusp_y]
+            @pdf.curve_to [side, cusp_y],
+              bounds: [[center, cusp_y + k], [side, cusp_y + k]]
+            @pdf.curve_to [center, box.bottom],
+              bounds: [[side, 0.6 * cusp_y], [midside, box.bottom]]
+          end
+        end
+      end
+    end
+
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
