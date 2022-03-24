@@ -159,6 +159,32 @@ class DemoDocument
       end
     end
 
+    # переустановить цвет обводки
+    @pdf.stroke_color 0, 0, 0, 100
+  end
+
+  def misc_text
+    first_lines = <<-EOF
+      Call me Ishmael. Somewhere in la  Mancha, in a place whose
+      name I do not care to remember, a gentleman lived not long
+      ago, one of those who has a lance and ancient shield on a
+      shelf and keeps a skinny nag and a greyhound for racing.
+      The sky above the port was the color of television, tuned to
+      a dead channel. I was a pleasure to burn. Granted: I am an
+      inmate of a mental hospital; my keeper is watching me, he
+      never lets me out of his sight; there's a peephole in the 
+      door, and my keeper's eye is the shade of brown that can 
+      never see through a blue-eyed type like me. Whether I shall
+      turn out to be the hero of my own life, or whether that 
+      station will be held by anybody else, these pages must show.
+      I have never begun a novel with more misgiving.
+      EOF
+      first_lines.gsub!(/\n/, " ")
+      first_lines.gsub!(/ +/, " ")
+      @pdf.text first_lines
+      end
+    end
+    
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
