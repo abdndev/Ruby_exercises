@@ -306,6 +306,18 @@ end
 # Типичное выражение ожидания состоит из метода expect, ожидания и сопоставителя. Существует два метода ожиданияя:
 # to и to_not.
 # В самой распространенной форме такое выражение просто проверяет, что одно равно другому: expect(result).to eq(value).
+# Сопоставителей существует много, и можно определять свои собственные. Ниже показаны наиболее употребительные (во всех 
+# случаях результат равен true):
+expect(5).to eq(5)
+expect(5).to_not eq(6)
+expect(5).to_not be_nil 
+expect(5).to be_truthy
+expect(5).to_not eq(false)
+expect(nil).to be_nil
+expect("").to be_empty             # "be_xxx" вызывает метод "xxx"
+expect([]).to be_empty             # аргумента expect
+expect([1,2,3]).to include(2)
+expect([1,2]).to be_an(Array)
 
 
 
