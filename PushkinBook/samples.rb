@@ -362,6 +362,41 @@ end
 # А как быть, если требуется произвести очистку после выполнения всех тестов? "Самый лучший" способ - переопределить
 # метод класса run, включив в него эту функциональность. И раз уж мы заговорили об этом, добавим метод класса, 
 # выполняющий настройку до прогона тестов. См. пример ниже.
+require 'minitest/autorun'
+
+class MyTest < Minitest::Test 
+  def self.setup 
+    # ...
+  end
+
+  def self.teardown
+    # ...
+  end
+
+  def self.run(*)
+    self.setup
+    super  # выполнить каждый тестовый метод, как обычно
+    self.teardown
+  end
+
+  def setup
+    # ...
+  end
+
+  def teardown
+    # ...
+  end
+
+  def test_that_it_works
+    # ...
+  end
+
+  def test_it_is_not_broker
+    # ...
+  end
+
+  # ...
+end
 
 
 
