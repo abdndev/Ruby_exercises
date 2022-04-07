@@ -408,6 +408,14 @@ end
 # Ниже приведены другие методы утверждения (в комментариях описано, для чего они нужны).
 # Отметим, то "ожидаемое" значение всегда предшествует "фактическому"; это существенно, если вы пользуетесь сообщениями
 # об ошибках, подразумеваемыми по умолчанию, и не хотите, чтобы их смысл был прямо противоположен реальному положению вещей:
+assert_equal(expected, actual)                   # assert(expected == actual)
+refute_equal(expected, actual)                   # assert(expected != actual)
+assert_match(regex, string)                      # assert(regex =~ string)
+refute_match(regex, string)                      # assert(regex !~ string)
+assert_nil(object)                               # assert(object.nil?)
+refute_nil(object)                               # assert(!object.nil?)
+# Некоторые утверждения связаны с объектной ориентированностью (и для них существуют противоположные варианты, 
+# начинающиеся словом refute - опровергать):
 
 
 
