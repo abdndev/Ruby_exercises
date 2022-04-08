@@ -416,6 +416,12 @@ assert_nil(object)                               # assert(object.nil?)
 refute_nil(object)                               # assert(!object.nil?)
 # Некоторые утверждения связаны с объектной ориентированностью (и для них существуют противоположные варианты, 
 # начинающиеся словом refute - опровергать):
+assert_instance_of(klass, obj)                   # assert(obj).instance_of? klass)
+assert_kind_of(klass, obj)                       # assert(obj).kind_of? klass)
+assert_respond_to(obj, meth)                     # assert(obj.respond_to? meth)
+# Некоторые методы относятся к исключениям и символам, обозначающим возбуждаемое исключение. У них нет варианта
+# refute, потому то если предложения throw и raise не встречались, то код просто выполняется, как обычно.
+# Поскольку если эти предложения все же встречаются, то код не может выполняться, как обычно, оба метода принимают блок:
 
 
 
