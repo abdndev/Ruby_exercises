@@ -430,7 +430,33 @@ assert_empty(coll)                               # assert(coll.empty?)
 assert_includes(coll, obj)                       # assert(coll.includes?(obj))
 # Есть и другие, но этих хватает для большинства потребностей. Дополнительные сведения смотрите в онлайновой документации
 # по Minitest.
-                                                 
+# Существует также метод flunk, который всегда завершается неудачно. Это просто заглушка для еще ненаписанных тестов.
+# Вооружившись знаниями об утверждениях, протестируем наш метод решения квадратных уравнений. Тестовые файлы поместим
+# в каталог test. Соглашение об именовании аналогично используемому в RSpec: имя файла должно завершаться строкой _test.rb
+require 'minitest/autorun'
+require 'quadratic'   
+
+class QuadraticTest < MiniTest::Unit::TestCase
+  def test_integers
+    assert_equal [-1], quadratic(1, 2, 1)
+  end
+
+  def test_floats
+    assert_equal [-1.0], quadratic(1.0, 2.0, 1.0)
+  end
+  def test_no_real_solutions
+    assert_equal quadratic(2, 3, 9), []
+  end
+
+  def test_complex_solutions
+    actual = quadratic(1, -2, 2, true)
+    assert_equal actual, [Complex(1.0, 1.0), Complex(1.0, -1.0)]
+  end
+
+  def test_bad_args
+    assert_raises(ArgumentError) { quadratic(3, 4, "foo") }
+  end
+end
 
 
 -------------------------------------------------------------------
