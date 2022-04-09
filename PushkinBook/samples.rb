@@ -470,6 +470,39 @@ Finished tests in 0.000702s, 7122.5071 tests/s,
        7122.5071 assertions/s.
 
 5 tests, 5 assertions, 0 failures, 0 errors, 0 skips
+# Если вы поклонник RSpec, то Minitest можно использовать аналогично. Основое отличие заключается в том, что 
+# в RSpec применяется форма expect(subject).to something, а в Minitest - более прямолинейная форма subject.must_something.
+# Пример ниже.
+require 'minitest/autorun'
+require 'quadratic'
+
+describe "Quadratic equation solver" do 
+  it "can take integers as arguments" do
+    quadratic(1, 2, 1).must_equal([-1.0])
+  end
+
+  it "can take fleats as arguments" do
+    quadratic(1.0, 2.0, 1.0).must_equal([-1.0])
+  end
+
+  it "returns an empty solution set when appropriate" do
+    quadratic(2, 3, 9).must_equal([])
+  end
+
+  it "honors the 'complex' Boolean argument" do
+    actual = quadratic(1, -2, 2, true)
+    expected = [Complex(1.0,1.0), Complex(1.0,-1.0)]
+    actual.must_equal expected
+  end
+
+  it "raises ArgumentError when for non-numeric coefficients" do 
+    lambda { quadratic(3, 4 "foo") }.must_raise ArgumentError
+  end
+end
+# Прогон этих тестов в стиле спецификаций дает те же результаты, что и в предыдущем случае.
+# Помимо всего вышеизложенного, существуют десятки решений Minitest, которые добавляют или изменяют функциональность.
+# Некоторые из них описаны в прилагаемом к Minitest файле readme, другие можете поискать на сайте Rubygems.org или GitHub.
+
 
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
