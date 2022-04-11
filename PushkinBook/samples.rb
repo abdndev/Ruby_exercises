@@ -514,7 +514,28 @@ end
 # и приемочные) прямо в виде кода. Вряд ли пример решения квадратного уравнения здесь уместен, но все же рассмотрим его.
 # Для начала создадим каталог features и в нем подкаталог step_definitions. В каталоге features может находиться
 # много файлов, ниже показан один из них - файл first.feature.
+Feature: Check all behaviors of the quadratic equation solver
 
+Scenario: Real roots 
+  Given coefficients that should yield one real root 
+  Then the solver returns an array of one Float r1
+  And r1 is a valid solution.
+
+  Given coefficients that should yield two real roots
+  Than the solver returns an array of two Floats, r1 and r2 
+  And r1 and r2 are both valid solutions.
+
+Scenario: No real roots, and complex flag is off 
+  Given coefficients that should yield no real roots
+  And the complex flag is missing or false
+  Then the solver returns an empty array.
+
+Scenario: No real roots, and complex flag is on 
+  Given coefficients that should yield no real roots 
+  And the complex flag is true 
+  Then the solver returns an array of two complex roots, r1 and r2 
+  And r1 and r2 are both valid solutions.
+# 
 
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
