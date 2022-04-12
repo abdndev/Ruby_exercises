@@ -552,6 +552,25 @@ end
 Then(/^\d+) is a valid solution\.$/) do |arg1|
   pending # express the regexp aboe with the code you wish you had
 end
+# Обратите внимание на то, как используются регулярные выражения, чтобы связать англоязычную фразу (на языке Gherkin)
+# с соответствующим Ruby-кодом.
+# Ниже показано, как я наполнил эту заготовку реальным кодом (в файле first.rb):
+Given(/^coefficients that should yield one real root$/) do
+  @result = quadratic(1, 2, 1)
+end
+
+Then(^the solver returns an array of one Float r(\d+)$/) do |arg1|
+  expect(@resust.size).to_eq(1)
+  expect(@result.first).to be_a(Float)
+end
+
+Then(/^r(\d+) is a valid solution\.$/) do |arg1|
+  expect(@result).to eq([-1.0])
+end
+# Теперь эти три простеньких теста проходят. Написав аналогичным образом определения остальных шагов, мы получим
+# спецификацию, которая, с одной стороны, написана на понятном английском языке, а с другой, пригодна для проверки
+# правильности кода.
+# Cucumber - очень мощная система, обладающая множеством полезных функций. 
 
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
