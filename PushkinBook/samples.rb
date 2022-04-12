@@ -535,7 +535,23 @@ Scenario: No real roots, and complex flag is on
   And the complex flag is true 
   Then the solver returns an array of two complex roots, r1 and r2 
   And r1 and r2 are both valid solutions.
-# 
+# Если теперь запустить Cucumber, то он сделает разумную и полезную вещь: создаст "заготовку", которой можно 
+# можно воспользоваться для написания определений шагов, т.е. реализаций на Ruby тестов, описанных в виде
+# спецификации на английском языке. Эту заготовку можно скопировать в файл (в данном случае step_defenitions/first.rb)
+# и модифицировать его по ходу дела. Тесты помечены признаком pending, чтобы они не "падали" из-за того, что код
+# еще не написан.
+# Вот пример созданной заготовки:
+Given(/^coefficients that should yield one real root$/) do 
+  pending # express the regexp above with the code you wish you had 
+end
+
+Then(/^the solver returns an array of one Float r(\d+)$/) do |arg1| 
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^\d+) is a valid solution\.$/) do |arg1|
+  pending # express the regexp aboe with the code you wish you had
+end
 
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
