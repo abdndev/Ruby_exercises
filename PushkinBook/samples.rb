@@ -647,6 +647,35 @@ byebug myfile.rb
 * where(w) - напечатать трассировку текущего состояния стека;
 * help(h) - получить справку (напечатать список команд);
 * quit(q) - выйти из отладчика.
+# В листинге ниже приведен код простой программы.
+STDOUT.sync = true
+
+def palindrome?(word)
+  word == word.reverse
+end
+
+def signature(w)
+  w.split("").sort.join
+end
+
+def anagrams?(w1, w2)
+  signature(w1) == signature(w2)
+end
+
+print "Введите слово: "
+w1 = gets.chomp
+
+print "Введите еще одно слово:"
+w2 = gets.chomp
+
+verb = palindrome?(w1) ? "является" : "не является"
+puts "'#{w1}' #{verb} палиндромом."
+
+verb = palindrome?(w2) ? "является": "не является"
+puts "'#{w2}' #{verb} палиндромом."
+
+verb = anagrams?(w1, w2) ? "являются" : "не являются"
+puts "'{w1}' и '{w2}' #{verb} анаграммами."
 
 -------------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
