@@ -677,7 +677,26 @@ puts "'#{w2}' #{verb} палиндромом."
 verb = anagrams?(w1, w2) ? "являются" : "не являются"
 puts "'{w1}' и '{w2}' #{verb} анаграммами."
 
--------------------------------------------------------------------
+# В листинге ниже показан весь сеанс отладки, хотя некоторые строки программы ради краткости опущены. Читая распечатку,
+# помните, что консоль используется как для отладки, так и для ввода-вывода.
+$ byebug simple.rb
+
+[1, 10] in simple.rb
+=> 1: STDOUT.sync = true 
+
+(byebug)  b Objects#palindrome?
+Created breakpoint 1 at Object::palindrome?
+(byebug) b Object#anagrams?
+Created breakpoint 2 at Object::anagrams?
+(byebug) info begin
+Num Enb What 
+1 y at Object:palindrome?
+2 y at Object:anagrams?
+(byebug) c 16
+Введите слово:
+Stopped by breakpoint 3 at simple.rb:16
+
+---------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
 
