@@ -696,6 +696,23 @@ Num Enb What
 Введите слово:
 Stopped by breakpoint 3 at simple.rb:16
 
+[11, 20] in simple.rb
+   15:      print "Введите слово: "
+=> 16:      w1 = gets.chomp 
+(byebug) c 19
+live 
+Введите еще одно слово:
+[14, 23] in simple.rb
+   18:     print "Введите еще одно слово: "
+=> 19:     w2 = gets.chomp 
+
+(byebug) n 
+evil
+
+[16, 25] in simple.rb 
+=> 21:     verb = palindrome?(w1) ? "является" : "не является"
+   22:     puts "'#{w1}' #{verb}  палиндромом." 
+
 ---------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
