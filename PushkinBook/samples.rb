@@ -713,6 +713,23 @@ evil
 => 21:     verb = palindrome?(w1) ? "является" : "не является"
    22:     puts "'#{w1}' #{verb}  палиндромом." 
 
+(byebug) c
+Stopped by breakpoint 1 at Object:palindrome?
+
+[1, 10] in simple.rb
+=> 3:     def palindrome?(word)
+   4:       word == word.reverse 
+
+(byebug)
+
+[1, 10] in simple.rb
+   3:      def palindrome?(word)
+=> 4:        word == word.reverse
+   5:      end
+
+   (byebug)
+   Next went up a frame because previous frame finished
+
 ---------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
