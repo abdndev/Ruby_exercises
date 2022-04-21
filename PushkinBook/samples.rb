@@ -727,8 +727,26 @@ Stopped by breakpoint 1 at Object:palindrome?
 => 4:        word == word.reverse
    5:      end
 
-   (byebug)
-   Next went up a frame because previous frame finished
+(byebug)
+Next went up a frame because previous frame finished
+
+[17, 26] in simple.rb
+    21:    verb = palindrome?(w1) ? "является" : "не является"
+=>  22:    puts "'#{w1}' #{verb} палиндромом."
+
+(byebug) c
+'live' не является палиндромом.
+'evil' не является палиндромом.
+
+Stopped by breakpoint 2 at Object:anagrams?
+
+[6, 15] in simple.rb
+=> 11:     def anagrams?(w1, w2)
+   12:       signature(w1) == signature(w2)
+   13:     end
+
+(byebug) c
+'live' и 'evil' являются анаграмами.
 
 ---------------------------------------------------------------
 Array.new(5) { Array.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
