@@ -851,6 +851,26 @@ words.each do |word|
   hash[key] << word
 end
 
+sizes = hash.values.map { |v| v.size }
+most = sizes.max
+list = hash.find_all {|k, v| v.size == most}
+
+puts "Ни у одного слова не более #{most - 1} анаграмм."
+list.each do |key, val|
+  anagrams = val.sort
+  first = anagrams.shift
+  puts "Слово #{first} имеет #{most - 1} анаграмм: "
+  anagrams.each { a| puts "  #{a}" }
+end
+
+num = 0
+
+whereami    Показать код вокруг текущего контекста.
+wtf?        Показать обратную трассировку последнего исключения.
+show-doc    Вывести документацию по методу или классу.
+show-source Показать исходный код метода или класса.
+reload-code Перезагрузить исходный файл, содержащий код указанного объекта.
+
 --------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
