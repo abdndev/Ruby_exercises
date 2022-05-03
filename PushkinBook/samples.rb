@@ -1038,6 +1038,36 @@ end
 # Методы object_group, seplist, breakable и прочие позволяют управлять расстановкой запятых, разбиением на строки и другими
 # способами форматирования. Дополнительную информацию можно найти в документации по pp.
 
+# Создание gem-пакетов
+# Для построения gem-пакета необходимо создать файл с расширение .gemspec и поместить в него определенный код.
+# Ниже приведен пример такого файла для gem-пакета drummer:
+# drummer.gemspec
+Gem::Specification.new do |spec|
+  spec.name = "Drummer"
+  spec.version = "1.0.2"
+  spec.authors = ["H. Thoreau"]
+  spec.email = ["cabin@waldenpond.net"]
+  spec.description = %q{ A Ruby library for those who march to a dofferent drummer.}
+  spec.summary = %q{Drum different}
+  spec.homepage = "http://waldenpond.com/drummer"
+  spec.license = "MIT"
+
+  spec.files = Dir["./**/*"]
+  spec.executables = Dir["./bin/*"]
+  spec.test_files = Dir["./spec/**/*"]
+  spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "rake"
+  spec.add_runtime_dependency "activerecord", "~> 4.1.0"
+end
+
+# Файл не требует особых пояснений, но, если что-то непонятно, не стоит расстраиваться. После того как gemspec-файл
+# создан, для построеня пакета нужно выполниь команду gem build drummer.gemspec. А для загрузки на сайт rubygems.org -
+# команду gem push drummer-1.0.2.gem.
+
+# Для рассмотрения Rubygems во всех подробностях потребовалась бы цела книга, так то остановимся на этом. Дополнительные
+# сведения о Rubygems, в том числе о команде gem и gemspec-файлах, обратитесь к руководствам на сайте https://guides.rubygems.org
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
