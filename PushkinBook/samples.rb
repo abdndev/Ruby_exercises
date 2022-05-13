@@ -1265,6 +1265,32 @@ end
 #
 # Here are some formatting tricks.
 #
+# Boldface, italics, and "code" (without spaces):
+# This is *bold*, this is _italic, and this is +code-.
+#
+# With spaces:
+#
+# This is a bold phrase. Have you read Intruder
+# in the Dust? Don't forget to require thread
+# at the top.
+# = First level heading
+# == Second level heading
+# === Third level heading
+#
+# Here's a horizontal rule:
+# --
+#
+# Here's a list:
+# - item one
+# - item two
+# - item three
+
+class MarkupDocumentation
+  # This block will not appear because the class after
+  # it has been marked with a :nodoc: directive.
+  class NotDocumented # :nodoc:
+  end
+end
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
