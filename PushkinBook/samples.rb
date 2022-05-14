@@ -1292,6 +1292,39 @@ class MarkupDocumentation
   end
 end
 
+# This block comment will not show up in in the output.
+# Pdoc only processes blocks immediately before code,
+# and this comment block as after the only code in this
+# listing
+
+=begin
+This is a bold phrase. Have you read Intruder 
+in the Dust? Dont forget to require thread
+at the top.
+
+= First level heading
+== Second level heading
+=== Third level heading
+
+Here's a horizontal rule:
+---
+
+Here's a list:
+- item one
+- item two 
+- item three
+
+=end
+
+=begin
+This block comment is utagged and will not show up in
+rdoc output. Also, I'm not putting blank lines between
+the comments, as this will terminate the comments until
+some real program source is seen. If this comment had
+been before the previous one, processing would have
+stopped here until program text appeared.
+=end
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
