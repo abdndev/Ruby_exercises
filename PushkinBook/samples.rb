@@ -1407,6 +1407,20 @@ loop do
   text, sender = server.recvfrom(1)
   server.send("#{Time.now}\n", 0, sender[3], sender[1])
 end
+# А это код клиента:
+require "socket"
+require "timeout"
+
+socket = UDPSocket.new 
+socket.connect("localhost", 12321)
+
+socket.send("", 0)
+timeout(10) do 
+  time = socket.gets 
+  puts "The time is #{time}"
+end
+# Чтобы сделать запрос, клиент посылает пустой пакет. Поскольку протокол UPD ненадежен, то, не получив ответа в
+# течение некоторого времени, мы завершаем работу по таймауту.
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
