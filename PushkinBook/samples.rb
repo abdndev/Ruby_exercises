@@ -1493,7 +1493,50 @@ end
 # завершит сервер при нажатии клавиши Enter. Сервер многопоточный, он может одновременно обслуживать нескольких
 # клиентов. Данные о пользователях защищены мьютексом, ведь теоретически несколько потоков могут одновременно 
 # попытаться добавить новую запись в список.
+require "thread"
+require "socket"
 
+PORT = 12000
+
+# Выход при нажатии клавиши Enter
+waiter = Thread.new do 
+  puts "Нажмите Enter для завершения сервера."
+  gets
+  exit
+end
+
+$mutex = Mutex.new
+$list = {} 
+
+def match?(p1, p2)
+  return false unless @list[[p1]] && @list[p2]
+  @list[p1][0] == p2 && @list[p2][0] == p1 
+end
+
+def handle_client(sess, msg, addr, port, ipname)
+  cmd, player1, player2 == msg.split
+
+  # Примечание: от клиента мы получаем данные в виде user:hostname,
+  # но храним их в виде user:address
+  player1 << ":#{addr}"                  # Добавить IP-адрес клиента
+
+  user2, host2 = player2.split(":")
+  host2 = ipname if host2 == nil 
+  player2 = user2 + ":" + IPSocket.getaddress(host2)
+
+  if cmd != "login"
+    puts "Ошибка протокола: клиент послал сообщение #{msg}"
+  end
+
+  @mutex.synchronize do 
+    $list[player1]  = [player2, addr, port, ipname, sess]
+  end
+
+  if match?(player1, player2)
+    notify_clients(player1, player2)
+  end
+
+  
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
