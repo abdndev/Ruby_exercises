@@ -1536,7 +1536,47 @@ def handle_client(sess, msg, addr, port, ipname)
     notify_clients(player1, player2)
   end
 
-  
+  def notify_clients(player1, player2)
+    # Имена теперь переставлены: если мы попали сюда, значит
+    # player2 зарегистрировался первым.
+    p1, p2 = @mutex.synchronize do 
+      [@list.delete(player1), @list.delete(player2)]
+    end
+
+    p1name = player1.split(":") [0]
+    p2name = player2.split(":") [0]
+
+    # ID игрока = name:ip:color
+    # Цвет: 0=белые, 1=черные
+    p1id = "#{p1name}:#{p1[3]}:1"
+    p2id = "#{p2name}:#{p2[3]}:0"
+
+    sess2 = p2[4]
+    sess2.puts p1id 
+    sess2.close 
+
+    sleep 0.2        # дадим серверу запуститься
+    sess1 = p1[4]
+    sess1.puts p2id
+    sess1.close
+  end
+
+# В этом простом примере завершаемся, не обрабатывая ошибки в потоках
+Thread.abort_on_exception = true
+
+server = TCPServer.new("0.0.0.0", PORT)
+loop do 
+  Thread.new(session) do |sess| 
+    text = sess.gets
+    print "Получено: #{text}"  # Чтобы знать, что сервер получил
+    domain, port, ipname, ipaddr =  sess.peeraddr
+    handle_client sess, text, ipaddr, port, ipname
+    sleep1
+  end
+end
+# Метод handle_client сохраняет информацию о клиенте. Если запись о таком клиенте уже существует, то каждому клиенту
+# посылается сообщение о том, где находится другой партнер. На этом обязанности сервера кончаются.
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
