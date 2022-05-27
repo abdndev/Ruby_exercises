@@ -1615,6 +1615,39 @@ def get_move(who move, num, board)
   move
 end
 
+def my_move(who, lastmove, num, board, opponent, sock)
+  move = get_move(who, lastmove, num, board)
+  sock.puts move 
+  draw_board(board)
+
+  case move
+  when "resign"
+    puts "\nВы сдались. #{opponent} выиграл."
+    true
+  when /Checkmate/
+    puts "\nВы поставили мат #{opponent}!"
+    true
+  else
+    false
+end
+
+def other_move(who, move, num, board, opponent, sock)
+  move = sock.gets.chomp
+  puts "\nПротивник: #{move}"
+  draw_board(board)
+
+  case move
+  when "resign"
+    puts "\n#{opponent} сдался... вы выиграли!"
+    true
+  when /Checkmate/
+    puts "\n#{opponent} поставил вам мат."
+    true
+  else
+    false
+  end
+end
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
