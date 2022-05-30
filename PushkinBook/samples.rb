@@ -1648,6 +1648,27 @@ def other_move(who, move, num, board, opponent, sock)
   end
 end
 
+if ARGV[0]
+  myself = ARGV[0]
+else
+  print "Ваше имя? "
+  myself = STDIN.gets.chomp
+end
+
+if ARGV[1]
+  opponent_id = ARGV[1]
+else
+  print "Ваш противник? "
+  opponent_id = STDIN.gets.chomp
+end
+
+opponent = opponent_id.split(":")[0]   # Удалить имя хоста
+
+# Обратиться к серверу
+socket = TCPSocket.new(ChessServer, ChessServerPort)
+
+response = nil
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
