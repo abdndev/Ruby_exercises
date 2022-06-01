@@ -1694,6 +1694,24 @@ if color == Black                      # Цвет фигур другого иг
   end
 
   puts "Ваш противник #{opponent}... у вас белые.\n"
+
+  who = White 
+  move = nil
+  board = nil           # В этом примере не используется
+  num = 0
+  draw_board(board)     # Нарисовать начальное положение для белых
+
+  loop do 
+    num += 1 
+    won = my_move(who, move, num, board, opponent, session)
+    break if won
+    lost = other_move(who, move, num, board, opponent, session)
+    break if lost 
+  end
+end 
+else                     # Мы играем черными
+  puts "\nУстанавливается соединение..."
+
   
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
