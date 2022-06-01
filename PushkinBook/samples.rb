@@ -1669,6 +1669,32 @@ socket = TCPSocket.new(ChessServer, ChessServerPort)
 
 response = nil
 
+socket.puts "login #{myself} #{opponent_id}"
+socket.flush
+response = socket.gets.chomp 
+name, ipname, color = response.split ":"
+color = color.to_i
+
+if color == Black                      # Цвет фигур другого игрока
+  puts "\nУстанавливается соединение..."
+
+  server = TCPServer.new(PeerPort)
+  session = server.accept
+
+  str = nil
+  begin
+    timeout(30) do 
+      str = session.gets.chomp
+      if str != "ready"
+        raise "Ошибка протокола: получен6о сообщение о готовности #{str}"
+      end
+    end
+  rescue TimeoutError 
+    raise "Не получено сообщение о готовности от противника."
+  end
+
+  puts "Ваш противник #{opponent}... у вас белые.\n"
+  
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
