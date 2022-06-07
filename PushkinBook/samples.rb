@@ -1811,6 +1811,27 @@ Capablanca поставил вам мат.                     Вы постав
 # лототроном, который хаотично выбрасывает шары. Другие источники случайности - радиоактивный распад или атмосферный шум.
 # Есть источники случайных чисел и в веб. Один из них - сайт www.random.org, который и станет предметом следующего примера.
 
+# Программа в листинге ниже моделирует подбрасывание пяти обычных (шестигранных) костей. Конечно, игровые фанаты 
+# могли бы увеличить число граней до 10 или 20, но тогда стало бы сложно рисовть ASCII-картинки.
+require 'net/http'
+
+URL = "https://www.random.org/integers/"
+
+def get_random_numbers(count=1, min=0, max=99)
+  uri = URI.parse(URL)
+  uri.query = URI.encode_www_form(
+    col: 1, base: 10, format: "plain", rnd: "new",
+    num: count, min: min, max: max
+  )
+  response = Net::HTPP.get_response(uri)
+  case response
+  when Net::HTTPOK
+    response.body.lines.map(&:to_i)
+  else
+    []
+  end
+end
+
 
 
 -------------------------------------------------------------
