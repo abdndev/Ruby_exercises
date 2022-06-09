@@ -1832,6 +1832,28 @@ def get_random_numbers(count=1, min=0, max=99)
   end
 end
 
+DICE_LINES = [
+  "+-----+ +-----+ +-----+ +-----+ +-----+ +-----+ ",
+  "|     | |  *  | | *   | | * * | | * * | | * * | ",
+  "|  *  | |     | |  *  | |     | |  *  | | * * | ",
+  "|     | |  *  | |   * | | * * | | * * | | * * | ",
+  "+-----+ +-----+ +-----+ +-----+ +-----+ +-----+ "
+]
+
+DIE_WIDTH = DICE_LINES[0].length/6
+
+def draw_dice(values)
+  DICE_LINES.each do |line|
+    for v in values
+      print line[(v-1)* DIE_WIDTH, DIE_WIDTH]
+      print " "
+    end
+    puts
+  end
+end
+
+draw_dice(get_random_numbers(5, 1, 6))
+
 
 
 -------------------------------------------------------------
