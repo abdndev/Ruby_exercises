@@ -1864,8 +1864,54 @@ draw_dice(get_random_numbers(5, 1, 6))
 # В листинге ниже эта мысль реализована. Буфер заполняется отдельным потоком и совместно используется всеми экземплярами
 # класса. Размер буфера и "нижняя отметка (@slack) настраиваются; какие значения задать в реальной программе, зависит
 # от величины задержки при обращении к серверу и от того, как часто приложение выбирает случайное число из буфера.
+require "net/http"
+require "thread"
 
+class TrueRandom
 
+  URL = "http://www.random.org/integers/"
+
+  def initialize(min = 0, max = 1, buffsize = 1000, slack = 300)
+    @buffer = SizedQueue.new(buffsize)
+    @min, @max, @slack = min, max, slack
+    @thread = Thread.new { fillbuffer }
+  end
+
+  def fillbuffer
+    count = @buffer.max - @buffer.size
+
+    uri = URI.parse(URL)
+    uri.query = URI.encode_www_form(
+      col: 1, base: 10, format: "plain", rnd: "new",
+      num: count, min: @min, max: @max
+    )
+
+    Net::HTTP.get(uri).lines.each do |line|
+      @bufffer.push line.to_i
+    end
+  end
+
+  def rand
+    if @buffer.size < @slack && !@thread.alive?
+      @thread = Thread.new { fillbuffer }
+    end
+
+    @buffer.pop
+  end
+
+end
+
+t = TrueRandom.new(1, 6, 1000, 300)
+count = Hash.new(0)
+
+10000.times do |n|
+  count[t.rand] += 1
+end
+
+p count
+
+# При одном прогоне:
+# {4=>1692, 5=>1677, 1=>1678, 1=>1635, 2=>1626, 3=>1692}
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
