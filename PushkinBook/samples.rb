@@ -2217,7 +2217,38 @@ def text_plus_attachment(subject,body,filename)
   head1 = <<-EOF
 MIME-Version: 1.0
 #{content}
+Subject: #{subject}
+  EOF
+  binary = File.read(filename)
+  encoded = [binary].pack("m")      # base64
+  head2 = <<EOF
+Content-Description: "#{filename}"
+Content-Type: image/gif; name="#{filename}"
+Content-Transfer-Encoding: Base64
+Content-Disposition: attachment; filename="#{filename}"
 
+EOF
+
+  # Возвращаем...
+  head1 + middle + body + middle + head2 + encoded + ending
+end
+
+domain     = "someserver.com"
+smtp       = "smtp.#{domain}"
+user, pass = "elgar", "enigma"
+
+#body = <<EOF
+Это мое сообщение. Особо
+говорить не о чем. Я вложил
+небольшой GIF-файл.
+
+        -- Боб
+EOF 
+mailtext = text_plus_attachment("Привет...", body,"new.gif")
+Net::SMTP.start(smtp, 25, domain, user, pass, :plain) do |mailer|
+  mailer.sendmail(mailtext, 'fromthisguy@wherever.com',
+                  ['destination@elsewhere.com'])
+end
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
