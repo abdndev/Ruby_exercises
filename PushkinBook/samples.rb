@@ -2306,7 +2306,34 @@ end
 # их программе mail2news. Уточнить детали можно в документации, сопровождающей приложение RubyMirror 
 # (в архиве Ruby Application Archive). Если вы работаете в UNIX, то придется изобрести собственную схему
 # конфигурирования. Ну а все остальное расскажет сам код, приведенный в листингах 18.6 и 18.7.
+# mail2news: Принимает почтовое сообщение и отправляет его в конференцию
 
+require "nntp"
+include NNTP
+
+require "params"
+
+# Прочитать сообщение, выделив из него
+# заголовок и тело. Пропускаются только
+# определенные заголовки.
+
+HEADERS = %w{From Subject Reference Message-ID
+             Content-Type Content-Transfer-Encoding Date}
+
+allowed_headers = Regexp.new(%{^(#{HEADERS.join("|")}):})
+
+# Прочитать заголовок. Допускаются только
+# некоторые заголовки. Добавить строки Newsgroups
+# и X-rubymirror.
+
+head = "Newsgroups: #{Params::NEWSGROUP}\n"
+subject = "unknown"
+while line = gets
+  exit if line =~ /^#{Params::LOOP_FLAG}/o   # такого не должно быть
+  break if line =~ /^\s*S/
+  next if line =~ /^\s/
+  next unless line =~ allowed_headers
+  
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
