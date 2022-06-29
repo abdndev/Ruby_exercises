@@ -2334,6 +2334,37 @@ while line = gets
   next if line =~ /^\s/
   next unless line =~ allowed_headers
   
+  # вырезать префикс [ruby-talk:nnnn] из темы, прежде чем
+  # отправлять в конференцию
+  if line =~ /^Subject:\s*(.*)/
+    subject = $1
+
+    # Следующий код вырезает специальный номер ruby-talk
+    # из начала сообщения в списке рассылки, перед тем
+    # как отправлять его новостному серверу.
+
+    line.sub!(/\[ruby-talk:(\d+)\]\s*/, '')
+    subject = "[#$1] #{line}"
+    head << "X-ruby-talk: #$1\n"
+  end
+  head << line
+end
+
+head << "#{Params::LOOP_FLAG}\n"
+
+body = ""
+while line = gets
+  body << line
+end
+
+msg = head + "\n" + body
+msg.gsub!(/\r?\n, "\r\n")
+
+nntp = NNTPIO.new(Params::NEWS_SERVER)
+raise "Failed to connect" unless nntp.connect
+nntp.post(msg)
+##
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
