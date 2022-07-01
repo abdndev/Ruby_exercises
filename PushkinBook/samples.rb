@@ -2431,6 +2431,40 @@ begin
 rescue
 end
 
+##
+# Читаем все имеющиеся сообщения и отправляем каждое в список рассылки.
+
+new_last = last_news
+
+begin
+  loop do
+    nntp.set_next 
+    head = ""
+    body = ""
+    new_last, = nntp.get_head do |line|
+      head << line
+    end
+
+    # Не посылать сообщения, которые программа mail2news
+    # уже отправляла в конференцию ранее (иначе зациклимся).
+    next if head =~{^X-rubymirror:}
+
+    nntp.get_body do |line|
+      body << line
+    end
+
+    send_mail(head, body)
+  end
+rescue
+end
+
+##
+# И записать в файл новую отметку.
+
+File.open(Params::LAST_NEWS_FILE, "w") do |f| 
+  f.puts new_last 
+end unless new_last == last_news
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
