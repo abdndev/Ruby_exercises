@@ -2730,7 +2730,21 @@ get "/world" do
     </html>
   HTML
 end
-  
+
+# Чтобы выполнить этот пример, сохраните показанный в листинге код в файле sinatra.rb. При необходимости установите
+# gem-пакет Sinatra командой gem install sinatra, после чего запустите сервер командой ruby sinatra.rb.
+# Теперь, перейдя в браузере по адресу http://localhost:4567, вы увидите первоначальное сообщение, а перейдя по адресу
+# http://localhost:4567/world - сообщение "Hello, World!".
+# На консоль приложение Sinatra выводит почти то же самое, что приложение Rack. Единственное мелкое отличие - 
+# вторая строка журнала, относящаяся к запросу к URL "/world".
+Puma 2.9.0 starting...
+* Min threads: 0, max threads: 16
+* Environment: development
+* Listening on tcp://localhost:4567
+== Sinatra/1.4.5 has taken the stage on 4567 for development with backup from Puma
+127.0.0.1 - - [02/Sep/2014 17:36:33] "GET / HTTP/1.1" 200 51 0.0047
+127.0.0.1 - - [02/Sep/2014 17:36:38] "GET / world HTTP/1.1" 200 48 0.0004
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
