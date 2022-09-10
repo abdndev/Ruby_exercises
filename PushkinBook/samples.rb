@@ -3491,6 +3491,55 @@ module DRbObservable
     end if observer_peers.any?
   end
 end
+# Сервер (он же канал) в листинге 20.2 эмулирует биржевые котировки с помощью последовательности 
+# псевдослучайных чисел (простите мою иронию, но это очень точно соответствует характеру рынка).
+# Символ, идентифицирующий компанию, - всего лишь косметическое украшение, никакого реального смысла
+# в этой программе он не имеет. При каждом изменении цены посылается уведомление всем наблюдателям.
+require "drb"
+require "drb_observer"
+
+# Генерировать случайные котировки
+class MockPrice
+
+  MIN = 75
+  RANGE = 50
+
+  def initialize(symbol)
+    @price = RANGE / 2
+  end
+
+  def price
+    @price += (rand() - 0.5) * RANGE
+    if @price < 0
+      @price = -@price
+    elsif @price >= RANGE
+      @price = 2 * RANGE - @price
+    end
+    MIN + @price
+  end
+end
+
+class Ticker # Периодически получать котировку акций
+  include DRbObservable
+
+  def initialize(price_feed)
+    @feed = price_feed
+    Thread.new { run }
+  end
+
+  def run
+    lastPrice = nil
+    loop do 
+      price = @feed.price
+      print "Текущая котировка: #{price}\n"
+      if price != lastPrice
+        lastPrice = price
+        notify_observers(Time.now, price)
+      end
+      sleep 1
+    end
+  end
+end
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
