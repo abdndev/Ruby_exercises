@@ -3541,6 +3541,33 @@ class Ticker # Периодически получать котировку ак
   end
 end
 
+ticker = Ticker.new(MochPrice.new("MSFT"))
+
+DRb.start_service('druby://localhost:9001', ticker)
+puts 'Нажмите [return] для завершения.'
+DRb.thread.join
+# Как и следовало ожидать, клиент (листинг 20.3) начинает с установления соединения с сервером. Он получает
+# ссылку на объект показа котировок и устанавливает верхний и нижний пороги изменения цены. Затем клиент
+# выводит сообщение пользователю всякий раз, как цена выйдет за пределы указанного диапазона.
+require "drb"
+
+class Warner
+  include DRbUndumped
+
+  def initialize(ticker, limit)
+    @limit = limit
+    ticker.add_observer(self)         # любой объект Warner является наблюдателем
+  end
+end
+
+class WarnLow < Warner
+  def update(time, price)             # обратный вызов наблюдателя
+    if price < @limit
+      print "--- #{time.to_s}: Цена ниже #@limit: #{price}\n"
+    end
+  end
+end
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
