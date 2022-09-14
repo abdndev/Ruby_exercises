@@ -3614,6 +3614,28 @@ t1 = [:add, 5, 9]
 t2 = [:name, :add_service, Adder.new, nil]
 t3 = { 'type' => 'add', 'value_1' => 5, 'value_2' => 9 }
 
+# Количество элементов в кортеже не ограничено. Элемент кортежа может быть произвольным объектом;
+# это работает, потому что drb умеет выполнять маршалинг и демаршалинг объектов Ruby. (Конечно, необходимо
+# либо включить модуль DRbUndumped, либо сделать определения классов доступными серверу).
+# Пространство объектов создается методом new:
+require 'rinda/tuplespace'
+
+ts = Rinda::TupleSpace.new
+# ...
+# Поэтому сервер выглядит так:
+require 'rinda/tuplespace'
+
+ts = Rinda::TupleSpace.new
+DRb.start_service("druby://somehost:9000", ts)
+DRb.thread.join   # Нажатие Control-C останавливает сервер
+
+# А клиент так:
+require 'rinda/tuplespace'
+
+DRb.start_service
+ts = DRbObject.new(nil, "druby://somehost:9000")
+# ...
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
