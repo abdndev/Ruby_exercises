@@ -3670,6 +3670,35 @@ ts.write [:foo, "Bar"], 10           # Хранить 10 секунд
 # Метод notify позволяет следить за пространством кортежей и получать уведомления, когда над интересующим
 # вас кортежем была выполнена какая-то операция. Этот метод возвращает объект NotifyTemplateEntry и 
 # может наблюдать за операциями четырех видов:
+* операции write;
+* операции take;
+* операции удаления (когда истекает срок хранения кортежа);
+* операции закрытия (когда истекает срок хранения объекта NotifyTemplateEntry).
+# Поскольку операция чтения ничего не изменяет, то система не поддерживает уведомлений о чтениях. В листинге
+# 20.04 приведен пример использования notify.
+require 'rinda/tuplespace'
+
+ts = Rinda::TupleSpace.new
+
+alberts = ts.notify "write", ["Albert", nil]
+martins = ts.notify "take", ["Martin", nil]
+
+thr1 = Thread.new do
+  alberts.each {|op,t| puts "#{op}: #{t.join(' ')}"}
+end
+
+thr2 = Thread.new do 
+  martins.each {|op,t| puts "#{op}: #{t.join(' ')}"}
+end
+
+sleep 1
+
+ts.write ["Martin", "Luther"]
+ts.write ["Albert", "Einstein"]
+ts.write ["Martin", "Fowler"]
+ts.write ["Albert", "Schweitzer"]
+ts.write ["Martin", "Scorsese"]
+ts.write ["Martin", "Luther"]
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
