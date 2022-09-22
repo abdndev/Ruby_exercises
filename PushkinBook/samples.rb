@@ -3785,6 +3785,19 @@ DRb.start_service(nil, adder)
 Rinda::RingProvider.new(:adder, adder, 'Simple Adder')
 DRb.threat.join
 
+# Класс Rinda::RingFinger (названный так по аналогии с имеющейся в UNIX командой finger) применяется для обнаружения
+# сервера RingServer. Он посылает широковещательный UDP-пакет и ждет ответа от сервера. Пространство кортежей первого
+# ответившего сервера RingServer становится доступно с помощью метода primary. Все прочие обнаруженные серверы доступны
+# с помощью метода to_a. Возвращенное пространство имен можно использовать для поиска объявленных служб:
+require 'rinda/ring'
+
+DRb.start_service
+rs = Rinda::RingFinger.primary
+every_space = [rs] + Rinda::RingFinger.to_a 
+svc = every_space.find_all do |ts|
+  ts.read([:name, :adder, nil, nil], 0) rescue nil 
+end 
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
