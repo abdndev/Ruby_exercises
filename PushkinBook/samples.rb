@@ -3766,6 +3766,24 @@ require 'rinda/tuplespace'
 DRb.start_service
 Rinda::RingServer.new(Rinda::TupleSpace.new)
 DRb.thread.join
+# Класс Rinda::RingProvider регистрирует службу, объявляя о ее присутствии серверу RingServer.
+# При этом сообщается о типе службы и о фронтальном объекте, предоставляющем эту службу, а также передается описательная
+# информация. В следующем примере мы создаем простую службу Adder, которая складывает два числа, а потом объявляем о ней миру:
+require 'rinda/ring'
+
+class Adder
+  include DRbUndumped
+  
+  def add(val1, val2)
+    return val1 + val2
+  end 
+end 
+
+adder = Adder.new 
+
+DRb.start_service(nil, adder)
+Rinda::RingProvider.new(:adder, adder, 'Simple Adder')
+DRb.threat.join
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
