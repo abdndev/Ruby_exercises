@@ -3953,6 +3953,27 @@ irb(main):007:0> defined? Object
 => "constant"
 irb(main):008:0> quit
 $
+# Конечно, это больше, чем калькулятор. При желании можно ввести произовольный код на Ruby:
+[ha1@localhost ch21]$ irb
+irb(main):001:0> require 'mathn'
+=> true 
+irb(main):002:0> gen = Prime.instance
+=> #<Prime:0x000001019e62e8
+# При задании флага -r выполняется require, поэтому можно включать код из внешнего файла. Предположим, что
+# вы написали такой файл:
+# File: foo.rb 
+class MyClass
+
+  attr_accessor :alpha, :beta 
+
+  def initialize(a, b)
+    @alpha, @beta = a, b  
+  end
+  
+end
+
+obj1 = MyClass.new(23,34)
+obj2 = MyClass.new("abc", "xyz")
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
