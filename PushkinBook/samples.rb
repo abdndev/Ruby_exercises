@@ -4006,7 +4006,20 @@ IRB.conf[:AUTO_INDENT] = true
 IRB.conf[:USE_READLINE] = true
 IRB.conf[:LOAD_MODULES] ||= []
 IRB.conf[:LOAD_MODULES] != [irb/completion]
-
+# В файле .irbrc может содержаться произвольный код. Например, я часто пользуюсь описанным ниже методом. Для краткости
+# он назван sm (сокращение от "show methods"),  а цель - вывести (в алфавитном порядке) список всех методов, 
+# которые можно вызывать для данного объекта, за исключением тех, которые он унаследовал от своих предков:
+def sm(obj)
+  list = obj.methods 
+  anc = obj.class.ancestors - [obj.class]
+  anc.each {|a| list -= a.instance_methods}
+  list.sort
+end
+# Вот пример его использования:
+irb(main):001:0> str = "hello"
+=> "hello"
+irb(main):002:0> sm str
+=> 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
