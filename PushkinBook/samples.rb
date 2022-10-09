@@ -4019,7 +4019,13 @@ end
 irb(main):001:0> str = "hello"
 => "hello"
 irb(main):002:0> sm str
-=> 
+=> [:%, :*, :<<, :[], :[]=, :ascii_only?, :b, :bytes,
+    :bytesize, :chars, :chomp, :chomp!, :chop, :chop!, :chr,
+    :byteslice, :capitalize, :capitalize!, :casecmp, :clear,
+    :codepoints, :concat, :count, :crypt, :delete, :delete!,
+    :downcase, :downcase!, :dump, :each_byte, :each_char,
+    :each_codepoint, :each_line, :empty?, :encode, :encode!,
+  ]
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
