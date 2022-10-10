@@ -4025,7 +4025,26 @@ irb(main):002:0> sm str
     :codepoints, :concat, :count, :crypt, :delete, :delete!,
     :downcase, :downcase!, :dump, :each_byte, :each_char,
     :each_codepoint, :each_line, :empty?, :encode, :encode!,
-  ]
+    :encoding, :end_with?, :force_encoding, :getbyte, :gsub,
+    :gsub!, :hex, :include?, :index, :insert, :intern, :length,
+    :lines, :ljust, :lstrip, :lstrip!, :match, :next, :next!, :oct,
+    :ord, :partition, :prepend, :replace, :reverse, :reverse!,
+    :rindex, :rjust, :rpartition, :rstrip, :rstrip!, :scan, :scrub,
+    :scrub!, :setbyte, :size, :slice, :slice!, :split, :squeeze,
+    :squeeze!, :start_with?, :strip, :strip!, :sub, :sub!, :succ,
+    :succ!, :sum, :swapcase, swapcase!, :to_c, :to_f, :to_i,
+    :to_r, :to_str, :to_sym, :tr, :tr!, :tr_s, :tr_s!, :unpack, 
+    :upcase, :upcase!, :upto, :valid_encoding?]
+  irb(main):003:0> sm String
+  => [:allocate, :new, :superclass, :try_convert]
+  irb(main):004:0> sm 123
+  => [:&, :*, :**, :+, :-, :/, :<<, :>>, :[], :^, :bit_length, :size, :to_f, :|, :~]
+  # Программа irb позволяет запускать подсеансы внутри сеанса, хотя это используется нечасто. Можно запустить
+  # несколько сеансов и переключаться между ними, у каждого сеанса собственный набор привязок.
+  # Может быть, вам это и не кажется полезным. но мможно, например задать объект в сочетании с подкомандой irb.
+  # Тогда контекстом подсеанса станет этот объект, псевдопеременная self будет ссылаться на него, он же станет
+  # областью видимости и т.д:
+  
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
