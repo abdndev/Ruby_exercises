@@ -4072,6 +4072,26 @@ irb(main):002:0> sm str
 # Ruby код, но лексический анализатор несложно использовать и в других приложениях. Вот простой пример программы,
 # которая сама открывает саму себя и анализирует собственный код, выводя отсортированный список всех идентификаторов
 # и констант:
+require 'irb/ruby-lex'
+
+file = File.new(__FILE__)
+
+parse = RubyLex.new # (file)
+parse.set_input(file)
+
+idents = []
+
+loop do  
+  token = parse.token
+  break if token.nil?
+  if token.is_a? RubyToken::TkIDENTIFIER or  
+     token.is_a? RubyToken::TkCONSTANT
+    idents << token.name
+  end  
+end  
+
+p idents.uniq.sort  
+
 
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
