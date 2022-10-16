@@ -4141,6 +4141,23 @@ _out_                    Вывод на консоль
 # Наконец, команда help выводит информацию о возможностях и порядке вызова pry.
 # После онлайновых руководств и пособий help - лучший источник знаний об этом замечательном инструменте.
 
+# 21.4 Утилита ri
+# Сокращение ri означает "Ruby index" или нечто подобное. Эта командная утилита для чтения документации, предоставляющая
+# информацию о классах, методах, модулях и т.д. Пример:
+(из ядра ruby)
+Implementation from Enumerator
+  e.with_index(offsett = 0) { |(*args), idx| ... }
+  e.with_index(offset = 0)
+
+Iterates the given block for each element with an index, which
+starts from offset. If no block is given, returns a new Emumerator
+that includes the index, starting from offset
+
+offset
+  the starting index to use  
+# По умолчанию при установке gem-пакетов с помощью Rubygems генерируется также документация в формате ri,
+# которую потом можно посмотреть в ri.
+
 -------------------------------------------------------------
 Array.new(5) { Aray.new(4) { rand(0..9) } } # Создать массив 5 на 4 и заполнить весь массив абсолютно случайными значениями от 0 до 9.
 
