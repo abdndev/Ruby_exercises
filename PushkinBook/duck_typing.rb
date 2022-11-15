@@ -16,7 +16,7 @@ class Dog
   end
 end
 
-# Утиный командир, который дает команды
+# Утиный командир, который дает разные команды
 class DuckCommander
   def command(who)
     who.walk
