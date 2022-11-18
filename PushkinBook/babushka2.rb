@@ -1,4 +1,4 @@
-sum = 0
+sum = 0                                                  # начальная сумма
 
 24.times do |i|
   sum = sum + 500 + sum * 0.1
