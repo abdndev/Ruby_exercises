@@ -8,3 +8,7 @@ export const square = (x) => {
 export const surfaceArea = (r) => {
   return 4 * pi * square(r);
 };
+
+
+//Another way to export several values
+//export { pi, e, square, surfaceArea };
