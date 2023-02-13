@@ -63,6 +63,10 @@ kinori
 zapadlo
 fuck
 batman
+labazan
+kurkul
+zeka
+summa
 test
 pass
 killer
