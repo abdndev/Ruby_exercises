@@ -31,6 +31,9 @@ michael
 shadow
 master
 jennifer
+combo
+samuel
+zhund
 111111
 2000
 jordan
