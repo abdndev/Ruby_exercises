@@ -221,6 +221,10 @@ whatever
 iceman
 smokey
 gateway
+parasko
+fufel
+makarna
+hadji
 dakota
 cowboys
 eagles
