@@ -170,6 +170,9 @@ kiskis
 lahudra
 zhele
 supik
+murkagan
+petrovich
+jopa
 diamond
 yellow
 bigdog
