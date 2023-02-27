@@ -112,6 +112,9 @@ access
 joshua
 maggie
 starwars
+basaur
+elma
+cocuk
 silver
 chipol
 zhuch
