@@ -115,6 +115,9 @@ starwars
 basaur
 elma
 cocuk
+koteyka
+zmeyka
+mihasik
 silver
 chipol
 zhuch
