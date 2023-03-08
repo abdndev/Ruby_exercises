@@ -130,6 +130,11 @@ access
 654321
 joshua
 maggie
+keyli
+fiks
+pasha
+zekach
+sekach
 starwars
 basaur
 elma
