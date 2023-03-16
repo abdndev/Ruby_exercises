@@ -8,7 +8,7 @@ def search(_array, _query, min_indx = 0, max_indx = _array.length - 1)
   if _array[i] > _query
     search(_array, _query, 0, i - 1)
   elsif _array[i] < _query
-    search(_array, _query, i + 1, max_indx) #_array.length - 1)
+    search(_array, _query, i + 1, max_indx)
   else
     return i
   end
