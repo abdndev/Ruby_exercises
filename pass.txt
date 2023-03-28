@@ -33,6 +33,8 @@ memur
 orumgek
 master
 jennifer
+fake
+herota
 combo
 samuel
 zhund
