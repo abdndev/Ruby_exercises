@@ -94,6 +94,10 @@ krud
 thomas
 tigger
 robert
+gasgo
+pentium
+parasko
+zakuson
 soccer
 kuku
 kinori
