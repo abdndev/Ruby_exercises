@@ -90,6 +90,10 @@ fenya
 saurk
 kubano
 lapet
+blat
+buben
+bashlyk
+shashni
 zhur
 ranger
 buster
