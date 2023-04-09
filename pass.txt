@@ -103,6 +103,9 @@ flex
 krud
 thomas
 tigger
+sicak
+yumur
+bestia
 robert
 gasgo
 pentium
