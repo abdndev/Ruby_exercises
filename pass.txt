@@ -239,6 +239,9 @@ lapido
 karibo
 ragusto
 zhivago
+ikona
+bubny
+fakap
 lakista
 zhuravl
 pupik
