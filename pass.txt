@@ -108,6 +108,10 @@ flex
 krud
 thomas
 tigger
+strela
+boch
+fetch
+limo
 sicak
 yumur
 bestia
