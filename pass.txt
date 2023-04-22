@@ -124,6 +124,10 @@ buster
 mamamia
 coin
 flex
+pers
+kukus
+baslyk
+chorba
 krud
 thomas
 tigger
