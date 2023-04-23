@@ -136,6 +136,10 @@ boch
 fetch
 limo
 sicak
+zuko
+pasha
+eggs
+shutka
 yumur
 bestia
 robert
