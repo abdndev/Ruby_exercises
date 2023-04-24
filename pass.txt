@@ -168,6 +168,10 @@ popin
 lukar
 baza
 vazon
+kaza
+pilar
+basuk
+pevlar
 labazan
 kurkul
 zeka
