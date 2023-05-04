@@ -148,6 +148,10 @@ coin
 flex
 pers
 kukus
+plevo
+plov
+ingush
+bosyak
 baslyk
 chorba
 krud
