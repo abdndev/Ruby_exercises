@@ -118,6 +118,11 @@ zepa
 mara
 luken
 nota
+siran
+feyro
+buskat
+lapid
+kusok
 sever
 leyka
 zorky
