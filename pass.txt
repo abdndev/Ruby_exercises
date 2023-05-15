@@ -150,6 +150,11 @@ pix
 tuyumba
 tinder
 zvuki
+kira
+perun
+moska
+kemal
+atat
 pisel
 rakun
 loop
