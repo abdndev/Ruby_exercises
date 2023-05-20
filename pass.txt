@@ -102,6 +102,10 @@ bigus
 miha
 zheka
 tush
+puppet
+monst
+mons
+zele
 pech
 rumo
 bayst
