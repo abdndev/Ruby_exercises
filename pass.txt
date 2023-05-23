@@ -96,6 +96,11 @@ bashkir
 tupar
 gusak
 patrikey
+foxy
+event
+edit
+allie
+seno
 zaran
 gusar
 rzev
