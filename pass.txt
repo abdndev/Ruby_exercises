@@ -57,6 +57,11 @@ ryba
 goaway
 zelya
 gues
+lock
+zumzum
+kate
+julia
+samsa
 mamu
 rebe
 kvak
