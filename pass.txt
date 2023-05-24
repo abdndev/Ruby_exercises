@@ -135,6 +135,10 @@ baysungur
 prigor
 basecamp
 kers
+dela
+path
+root
+gazel
 snik
 pixel
 dallas
