@@ -58,6 +58,11 @@ baystruk
 musheg
 mustaf
 puss
+mocha
+mucha
+jordan
+tiger
+kuba
 amet
 league
 dail
