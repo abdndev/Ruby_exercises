@@ -74,6 +74,11 @@ bashmet
 volok
 para
 zeki
+hvora
+tvorog
+syro
+kefi
+pechen
 mayk
 news
 hour
