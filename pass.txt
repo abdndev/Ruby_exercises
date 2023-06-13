@@ -92,6 +92,11 @@ mastif
 87654321
 bashmet
 volok
+guber
+mast
+juko
+sero
+laki
 para
 zeki
 hvora
