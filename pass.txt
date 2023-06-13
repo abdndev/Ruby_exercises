@@ -75,6 +75,11 @@ tiger
 kuba
 amet
 best
+proc
+gets
+guno
+kaza
+juma
 palka
 gusi
 dzam
