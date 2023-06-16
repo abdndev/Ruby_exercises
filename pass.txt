@@ -94,6 +94,10 @@ dail
 super
 free
 mastif
+puma
+joker
+zinger
+juice
 87654321
 bashmet
 volok
