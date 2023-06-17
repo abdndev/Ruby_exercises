@@ -134,6 +134,13 @@ lock
 zumzum
 kate
 julia
+logo
+purple
+dux
+dixi
+zepter
+palet
+ruka
 kuren
 kazak
 jambo
