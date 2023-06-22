@@ -158,6 +158,10 @@ palet
 ruka
 kuren
 kazak
+zelen
+kuleb
+balon
+chum
 jambo
 sukin
 reyza
