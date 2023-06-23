@@ -90,6 +90,10 @@ gets
 guno
 kaza
 juma
+babu
+zhena
+stil
+dron
 palka
 gusi
 dzam
