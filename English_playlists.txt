@@ -2995,7 +2995,7 @@ Word Order
 I know it very well. Я знаю это очень хорошо.
 always/often/usually
 She often asks me about it. Она часто спрашивает меня об этом.
-What does your friend like? Что нравится твоеу другу,
+What does your friend like? Что нравится твоеу другу?
 He works very hard. Он очень усердно работает.
 
 also/too

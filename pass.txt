@@ -1,3 +1,4 @@
+
 password
 123456
 0987654321
@@ -51,6 +52,11 @@ zhund
 jordan
 superman
 harley
+lerc
+blin
+kadyr
+bash
+jaga
 1234567
 bura
 burd
