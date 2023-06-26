@@ -56,6 +56,12 @@ lerc
 blin
 kadyr
 bash
+kvak
+koza
+july
+base
+muka
+lomo
 jaga
 1234567
 bura
