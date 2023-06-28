@@ -246,6 +246,13 @@ kananova
 bashkir
 tupar
 gusak
+viza
+bomb
+juik
+lada
+largus
+extra
+noga
 patrikey
 foxy
 event
