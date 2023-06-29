@@ -122,6 +122,11 @@ koro
 milk
 bar
 league
+alka
+bush
+klin
+hill
+jaky
 dail
 lesya
 leska
