@@ -145,6 +145,11 @@ bashmet
 volok
 guber
 mast
+gade
+ciy
+basa
+bay
+kerek
 juko
 sero
 laki
