@@ -61,6 +61,12 @@ koza
 july
 base
 muka
+kuks
+baba
+lomik
+lena
+svet
+rubik
 lomo
 jaga
 1234567
