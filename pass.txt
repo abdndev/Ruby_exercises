@@ -106,6 +106,12 @@ mocha
 mucha
 jordan
 tiger
+vibe
+gold
+leps
+zhuk
+kosa
+kazak
 kuba
 amet
 best
