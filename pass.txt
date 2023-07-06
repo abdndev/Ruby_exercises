@@ -69,6 +69,10 @@ svet
 magna
 cena
 vybor
+onlar
+pasta
+yok
+kedi
 guly
 zeka
 rubik
