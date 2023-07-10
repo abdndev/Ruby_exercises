@@ -119,6 +119,12 @@ gudok
 jamba
 keyt
 bacha
+clear
+start
+bank
+zalp
+rock
+lex
 batnik
 akbar
 baystruk
