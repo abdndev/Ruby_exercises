@@ -162,6 +162,11 @@ puss
 mocha
 mucha
 jordan
+bask
+lutsk
+rang
+zeks
+maka
 tiger
 vibe
 gold
