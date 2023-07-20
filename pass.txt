@@ -144,6 +144,11 @@ keyt
 bacha
 clear
 start
+lifo
+jako
+zeynab
+musat
+otel
 bank
 zalp
 rock
