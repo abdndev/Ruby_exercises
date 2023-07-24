@@ -48,6 +48,11 @@ combo
 samuel
 zhund
 111111
+bust
+pepa
+lorik
+juma
+zana
 2000
 jordan
 superman
