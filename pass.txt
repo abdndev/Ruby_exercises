@@ -55,6 +55,12 @@ juma
 zana
 2000
 jordan
+saba
+koni
+java
+rust
+mass
+siko
 superman
 harley
 lerc
