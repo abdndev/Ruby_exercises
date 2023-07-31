@@ -96,6 +96,11 @@ gaza
 sosh
 laik
 resu
+puti
+base
+posd
+nyak
+slon
 seka
 malo
 mucho
