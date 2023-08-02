@@ -82,6 +82,11 @@ bash
 kvak
 koza
 july
+musa
+jali
+peps
+coce
+malo
 base
 muka
 kuks
