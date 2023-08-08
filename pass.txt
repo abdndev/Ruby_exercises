@@ -94,6 +94,12 @@ leti
 mass
 koza
 july
+deps
+rudy
+gess
+kola
+mazi
+nazi
 musa
 jali
 peps
