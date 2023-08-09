@@ -58,6 +58,11 @@ jordan
 saba
 koni
 java
+gost
+pigi
+gonz
+larik
+josua
 rust
 mass
 siko
