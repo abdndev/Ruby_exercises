@@ -58,6 +58,11 @@ jordan
 saba
 koni
 java
+arno
+arbi
+hvos
+cifi
+zuca
 gost
 pigi
 gonz
