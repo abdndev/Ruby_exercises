@@ -64,6 +64,12 @@ hvos
 cifi
 zuca
 gost
+gulp
+pabs
+rzev
+zuzy
+show
+bass
 pigi
 gonz
 larik
