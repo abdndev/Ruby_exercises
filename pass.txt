@@ -70,6 +70,11 @@ koni
 java
 arno
 arbi
+bobs
+boss
+lima
+rojer
+kery
 hvos
 cifi
 zuca
