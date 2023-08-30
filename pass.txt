@@ -88,6 +88,11 @@ gulp
 pabs
 rzev
 zuzy
+mezo
+lano
+kurs
+pima
+leko
 show
 bass
 ziga
