@@ -71,6 +71,11 @@ java
 arno
 arbi
 bobs
+maac
+cofe
+chak
+chen
+alek
 boss
 lima
 mari
