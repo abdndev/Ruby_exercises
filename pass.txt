@@ -52,6 +52,11 @@ master
 jennifer
 fake
 herota
+babs
+dzus
+roks
+zuzik
+slap
 combo
 samuel
 zhund
