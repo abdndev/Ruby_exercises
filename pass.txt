@@ -102,6 +102,11 @@ boss
 lima
 mari
 naki
+luxe
+jeil
+fany
+keks
+root
 julba
 keos
 zuhra
