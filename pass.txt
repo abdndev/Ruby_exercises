@@ -121,6 +121,13 @@ root
 julba
 keos
 zuhra
+pava
+vara
+vars
+mems
+kluk
+prek
+srek
 rojer
 kery
 hvos
