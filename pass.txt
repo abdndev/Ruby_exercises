@@ -119,6 +119,11 @@ bowl
 kiss
 bayrak
 pana
+lins
+prid
+lape
+zare
+leyk
 lika
 jeys
 java
