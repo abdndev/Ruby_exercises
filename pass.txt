@@ -89,6 +89,13 @@ juma
 zana
 2000
 baskan
+even
+eval
+ruso
+oddy
+maly
+chik
+jask
 urod
 lepo
 jura
