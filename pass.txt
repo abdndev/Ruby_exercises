@@ -107,6 +107,11 @@ oddy
 maly
 chik
 jask
+jewel
+noone
+moon
+pisk
+robot
 urod
 lepo
 jura
