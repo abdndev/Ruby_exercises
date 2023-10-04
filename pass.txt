@@ -102,6 +102,13 @@ chhe
 voda
 spir
 koni
+ches
+avto
+busi
+macro
+laif
+mask
+meta
 vins
 rabo
 bzik
