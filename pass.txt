@@ -234,6 +234,12 @@ vara
 vars
 mems
 kluk
+babu
+buna
+peso
+ukro
+ugro
+reso
 prek
 srek
 rojer
