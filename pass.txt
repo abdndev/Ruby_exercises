@@ -112,6 +112,11 @@ ches
 avto
 busi
 macro
+nado
+risk
+zeva
+pids
+cocs
 laif
 mask
 meta
