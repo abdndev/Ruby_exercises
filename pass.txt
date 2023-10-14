@@ -99,6 +99,11 @@ fiks
 jennifer
 fake
 herota
+basic
+memos
+ruper
+panko
+rapo
 babs
 dzus
 roks
