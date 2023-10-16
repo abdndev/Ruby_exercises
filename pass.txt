@@ -1,4 +1,4 @@
-biraz
+'biraz
 turc
 bili
 merha
@@ -103,6 +103,13 @@ zeta
 rosa
 pena
 fiks
+zizn
+rano
+proc
+reno
+jule
+mast
+cocs
 jennifer
 fake
 herota
