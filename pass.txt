@@ -253,6 +253,12 @@ bambi
 sofa
 kent
 naro
+lena
+sasa
+fakin
+leps
+pugo
+gala
 dno
 saba
 koni
