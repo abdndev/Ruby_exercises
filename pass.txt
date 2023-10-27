@@ -160,6 +160,10 @@ zhund
 bust
 basta
 rumo
+fema
+ruso
+avra
+isma
 sema
 mraz
 slad
