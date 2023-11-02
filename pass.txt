@@ -133,6 +133,11 @@ malo
 mats
 lapy
 bera
+faus
+fixa
+reno
+caro
+lexa
 gena
 zeta
 rosa
