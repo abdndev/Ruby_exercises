@@ -119,6 +119,11 @@ alek
 muslo
 rapi
 besi
+blok
+sade
+sise
+mece
+rais
 master
 piro
 lama
