@@ -120,6 +120,12 @@ muslo
 rapi
 besi
 blok
+mera
+nino
+mena
+pari
+suiz
+quiz
 sade
 sise
 mece
