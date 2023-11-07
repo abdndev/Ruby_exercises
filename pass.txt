@@ -189,6 +189,13 @@ sema
 mraz
 slad
 elen
+maza
+malo
+milo
+reza
+sofa
+jako
+rani
 mari
 zhkh
 piter
