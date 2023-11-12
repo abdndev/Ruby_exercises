@@ -83,6 +83,12 @@ crug
 jason
 zera
 karo
+bata
+bisa
+rezo
+lais
+redo
+marc
 repo
 zarp
 peps
