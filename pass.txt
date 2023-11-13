@@ -104,6 +104,11 @@ bron
 fore
 masd
 lamy
+psen
+novo
+dolg
+sege
+rezu
 peso
 jupo
 fain
