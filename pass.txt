@@ -91,6 +91,11 @@ redo
 marc
 repo
 zarp
+bani
+reba
+luka
+guna
+zafa
 peps
 mask
 fuko
