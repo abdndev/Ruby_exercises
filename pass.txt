@@ -92,6 +92,14 @@ marc
 repo
 zarp
 bani
+gess
+murk
+lurk
+medo
+mars
+kiss
+juma
+lilu
 reba
 luka
 guna
