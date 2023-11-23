@@ -116,6 +116,12 @@ kurs
 bron
 fore
 masd
+cash
+back
+pole
+prot
+voza
+usel
 lamy
 psen
 novo
