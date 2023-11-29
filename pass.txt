@@ -200,6 +200,11 @@ nino
 mena
 pari
 suiz
+nove
+nesa
+beri
+konf
+toda
 quiz
 sade
 sise
