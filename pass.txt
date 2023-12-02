@@ -129,6 +129,11 @@ prot
 voza
 usel
 lamy
+filo
+zade
+rabo
+kaki
+dela
 psen
 novo
 dolg
