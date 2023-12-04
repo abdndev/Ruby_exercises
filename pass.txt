@@ -387,6 +387,12 @@ jewel
 noone
 moon
 pisk
+svod
+army
+sput
+glog
+vlog
+sari
 robot
 urod
 lepo
