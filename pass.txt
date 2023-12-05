@@ -546,6 +546,13 @@ zuca
 gost
 gulp
 pabs
+miha
+pula
+glav
+mini
+nasi
+rost
+tura
 rzev
 zuzy
 mezo
