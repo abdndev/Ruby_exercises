@@ -89,6 +89,12 @@ crug
 jason
 zera
 karo
+dual
+lino
+itog
+gora
+sila
+mina
 bata
 bisa
 rezo
