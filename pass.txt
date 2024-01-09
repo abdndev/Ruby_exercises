@@ -216,6 +216,13 @@ frag
 repu
 voza
 usel
+mart
+sveta
+lina
+karado
+reba
+fink
+sega
 lamy
 filo
 zade
