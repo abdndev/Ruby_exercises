@@ -94,6 +94,12 @@ sisa
 roza
 putevi
 radko
+bira
+biraz
+turk
+elim
+madi
+seka
 misl
 repu
 kava
