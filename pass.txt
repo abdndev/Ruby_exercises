@@ -96,6 +96,12 @@ ruks
 pans
 mama
 sisa
+kaper
+warn
+hlud
+azek
+hero
+soti
 roza
 putevi
 radko
