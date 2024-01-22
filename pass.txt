@@ -85,6 +85,11 @@ nogi
 lapa
 kamo
 usov
+pipu
+pion
+nera
+hana
+beko
 vana
 amor
 amur
