@@ -120,6 +120,11 @@ mama
 sisa
 kaper
 warn
+kapa
+scet
+nima
+latu
+remo
 hlud
 azek
 hero
